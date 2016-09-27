@@ -24,6 +24,10 @@ class Station extends Model
             $this->attributes['station_date'] = '';
         }
     }
+    public function vehicles() {
+        return $this->hasMany('App\Vehicle');
+
+        }
 
     /**
      * Get attribute from date format
