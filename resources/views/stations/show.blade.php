@@ -36,44 +36,7 @@
 
             <p>&nbsp;</p>
 
+            <a href="{{ route('stations.index') }}" class="btn btn-default">Back to list</a>
         </div>
     </div>
-
-    <br>
-    <h2>Vehicles </h2>
-    <div class="container">
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr class="bg-info">
-                <th> Vehicle Number </th>
-                <th>Vin</th>
-                <th>Station ID</th>
-                
-            </tr>
-            </thead>
-
-            <tbody>
-            @foreach($station->vehicles as $vehicle)
-
-                <tr>
-                    <td>{{ $vehicle->vehicle_number }}</td>
-                    <td>{{ $vehicle->vin }}</td>
-                    <td>{{ $vehicle->station_id }}</td>
-                    
-               </tr>
-
-
-            @endforeach
-           
-
-            </tbody>
-        </table>
-    </div>
-    <br>
-    
-
-
-            <a href="{{ route('stations.index') }}" class="btn btn-default">Back to list</a>
-
-
 @stop

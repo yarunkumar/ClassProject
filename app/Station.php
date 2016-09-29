@@ -27,7 +27,7 @@ class Station extends Model
     public function vehicles() {
         return $this->hasMany('App\Vehicle');
 
-        }
+    }
 
     /**
      * Get attribute from date format
@@ -42,7 +42,8 @@ class Station extends Model
         } else {
             return '';
         }
+
     }
-    
-    
+
+
 }

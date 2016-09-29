@@ -41,8 +41,8 @@ class MobileComputersController extends Controller
             
         ];
 
-        $mobilecomputer = MobileComputer::findOrFail($id);
-        return view('mobile_computers.show',compact('mobilecomputer') + $relations);
+        $mobile_computer = MobileComputer::findOrFail($id);
+        return view('mobile_computers.show',compact('mobile_computer') + $relations);
     }
 
     public function edit($id)

@@ -2,7 +2,7 @@
 
 @section('content')
     <h3 class="page-title">Vehicle</h3>
-    
+
     <div class="panel panel-default">
         <div class="panel-heading">
             View

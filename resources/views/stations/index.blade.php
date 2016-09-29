@@ -31,7 +31,7 @@
                 @if(count($stations) > 0)
                     @foreach($stations as $station)
                         <tr>
-                            <td>{{ $station->station_name }}</td>
+                        <td>{{ $station->station_name }}</td>
                         <td>{{ $station->station_number }}</td>
                         <td>{{ $station->station_date }}</td>
                         <td>{{ $station->address }}</td>

@@ -38,7 +38,7 @@ class StationsController extends Controller
     public function show($id)
     {
         $station = Station::findOrFail($id);
-        return view('stations.show',compact('station'));
+        return view('stations.show_vehicles',compact('station'));
     }
 
     public function edit($id)
