@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('crumbs')
   <ol class="breadcrumb">
-    <li><a href="/home">Dashboard</a></li>
-    <li><a href="/vehicles">Vehicles</a></li>
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li><a href="{{ route('stations.index') }}">Vehicles</a></li>
     <li class="active">Create</li>
   </ol>
 @endsection
@@ -41,7 +41,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('station_id', 'Assigned', ['class' => 'control-label']) !!}
+                    {!! Form::label('station_id', 'Assign to', ['class' => 'control-label']) !!}
                     {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('station_id'))

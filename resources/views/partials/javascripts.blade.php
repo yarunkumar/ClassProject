@@ -28,7 +28,7 @@
     },
     data: {
         columns: [
-            ['Budget', 300, 350, 300, 0, 0, 0]
+            ['Budget', 300, 350, 300, 250, 300, 315]
         ],
         types: {
             data1: 'area',

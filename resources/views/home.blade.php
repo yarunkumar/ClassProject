@@ -22,7 +22,7 @@
       </div>
     </div>
 
-<a href="/stations">
+<a href="{{ route('stations.index') }}">
     <div class="col-md-3">
       <div class="thumbnail stationss">
         <div class="thumbnail-dash">
@@ -36,7 +36,7 @@
     </div>
 </a>
 
-<a href="/vehicles">
+  <a href="{{ route('vehicles.index') }}">
     <div class="col-md-3">
       <div class="thumbnail">
         <div class="thumbnail-dash">

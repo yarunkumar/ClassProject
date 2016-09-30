@@ -2,7 +2,7 @@
 
 @section('crumbs')
 <ol class="breadcrumb">
-    <li><a href="/home">Dashboard</a></li>
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
     <li class="active">Vehicles</li>
 </ol>
 @endsection
