@@ -1,0 +1,119 @@
+body {
+  background-color: #ebeff2;
+  overflow-x: hidden;
+}
+
+.panel-default {
+  margin: 10px;
+}
+
+.navbar-brand {
+  padding-top: 5px;
+
+}
+
+.asset-noty {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.navbar {
+  background-color: #1565c0;
+  border-bottom: 1px solid #0d47a1;
+  /*box-shadow: 0 8px 6px -6px #999;*/
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+  overflow-y: hidden;
+}
+
+.sub-nav {
+  height: 60px; 
+  line-height: 60px; 
+  background-color: #1976d2; 
+  display: block;"
+}
+
+.nav-view {
+  float: left;
+  color: white;
+  padding-left: 15px;
+  padding-top: 10px;
+
+  vertical-align: middle;
+  line-height: 14px;
+
+  font-size: 150%;
+  font-weight: 200;
+}
+
+.breadcrumb {
+  background-color: transparent;
+}
+
+.breadcrumb > li {
+  font-size: 17px;
+}
+
+.breadcrumb > li > a {
+  color: white;
+  text-decoration: none;
+}
+
+.breadcrumb > .active {
+  color: white;
+}
+
+.nav-user {
+  float: right;
+  padding-right: 15px;
+  padding-top: 20px;
+  color: white;
+
+  vertical-align: middle;
+  line-height: 14px;
+
+}
+.thumbnail-dash {
+  height: 100px;
+  width: 100px;
+  text-align: center; 
+
+  background-color: #e6e6e6;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
+
+}
+
+.thumbnail {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shadow {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.thumbnail-dash > i {
+  color: #1565c0;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.caption > h3 {
+  text-align: center;
+}
+
+
+
+#calendar{
+
+}
+
+.cal {
+  background-color: white;
+  width: 48%;
+  padding: 10px;
+  border-radius: 5px;
+}

@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="/home">Dashboard</a></li>
+    <li class="active">Stations</li>
+  </ol>
+@endsection
+
+
 @section('content')
     <h3 class="page-title">Vehicle</h3>
     {!! Form::model($vehicle,['method' => 'PUT', 'route' => ['vehicles.update', $vehicle->id]]) !!}

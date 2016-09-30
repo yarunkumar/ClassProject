@@ -15,9 +15,15 @@ class CreateStationsTable extends Migration
         Schema::create('stations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('station_name');
+	        $table->integer('station_number');
+	        $table->string('station_date');
+
             $table->string('address');
+	        $table->string('city');
             $table->integer('zipcode');
-            $table->integer('station_number');
+
+	        $table->string('battalion');
+            
             $table->timestamps();
             $table->softDeletes();
 

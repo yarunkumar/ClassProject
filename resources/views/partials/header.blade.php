@@ -22,11 +22,7 @@
     <link rel="stylesheet"
           href="{{ url('quickadmin/css') }}/bootstrap.min.css"/>
     <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/components.css"/>
-    <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/quickadmin-layout.css"/>
-    <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/quickadmin-theme-default.css"/>
+
     <link rel="stylesheet"
           href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet"
@@ -35,6 +31,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.standalone.min.css"/>
+
 </head>
 
 <body class="page-header-fixed">

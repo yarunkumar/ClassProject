@@ -1,7 +1,14 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="/home">Dashboard</a></li>
+    <li><a href="/stations">Stations</a></li>
+    <li class="active">{{ $station->station_name }}</li>
+  </ol>
+@endsection
+
 
 @section('content')
-    <h3 class="page-title">{{ $station->station_name }}</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -36,9 +43,5 @@
             </div>
         </div>
     </div>
-
-
-    <a href="{{ route('stations.index') }}" class="btn btn-default">Back to list</a>
-
 
 @stop

@@ -1,74 +1,36 @@
 @include('partials.header')
-<div style="margin-top: 10%;"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were problems with input:
-                            <br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+<link rel="stylesheet" href="{{ url('css') }}/login.css"/>
 
-                    <form class="form-horizontal"
-                          role="form"
-                          method="POST"
-                          action="{{ url('login') }}">
-                        <input type="hidden"
-                               name="_token"
-                               value="{{ csrf_token() }}">
+<body>
+  <div class="wrapper">
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Email</label>
+    <form class="form-signin" role="form" method="POST" action="{{ url('login') }}">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            <div class="col-md-6">
-                                <input type="email"
-                                       class="form-control"
-                                       name="email"
-                                       value="{{ old('email') }}">
-                            </div>
-                        </div>
+      <div>
+        <img src="img/login.png" height="125" width="125" style="display:block; margin: auto;" >
+      </div>      
+      <h2 class="form-signin-heading" style="text-align:center;">OFD AMS</h2>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Password</label>
+      @if (count($errors) > 0)
+      <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were problems with input:
+        <br><br>
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
 
-                            <div class="col-md-6">
-                                <input type="password"
-                                       class="form-control"
-                                       name="password">
-                            </div>
-                        </div>
+      <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+      <input type="password" class="form-control" name="password" placeholder="Password">
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <label>
-                                    <input type="checkbox"
-                                           name="remember">Remember me
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit"
-                                        class="btn btn-primary"
-                                        style="margin-right: 15px;">
-                                    Login
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@include('partials.footer')
+      <label class="checkbox" style="padding-left:20px;">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" > Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: #c62828; border: 1px solid #d32f2f;">Login</button>   
+    </form>
+  </div>
+</body>

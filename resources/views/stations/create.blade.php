@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="/home">Dashboard</a></li>
+    <li><a href="/stations">Stations</a></li>
+    <li class="active">Create</li>
+  </ol>
+@endsection
 
 @section('content')
     <h3 class="page-title">Station</h3>
@@ -83,12 +90,12 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('district', 'District', ['class' => 'control-label']) !!}
-                    {!! Form::text('district', old('district'), ['class' => 'form-control']) !!}
+                    {!! Form::label('battalion', 'Battalion', ['class' => 'control-label']) !!}
+                    {!! Form::text('battalion', old('battalion'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('district'))
+                    @if($errors->has('battalion'))
                         <p class="help-block">
-                            {{ $errors->first('district') }}
+                            {{ $errors->first('battalion') }}
                         </p>
                     @endif
                 </div>

@@ -1,12 +1,19 @@
 @extends('layouts.app')
 
-@section('content')
-    <h3 class="page-title">Station</h3>
-    <p>
-        <a href="{{ route('stations.create') }}" class="btn btn-success">Add new</a>
-    </p>
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="/home">Dashboard</a></li>
+    <li class="active">Stations</li>
+  </ol>
+@endsection
 
-    <div class="panel panel-default">
+
+@section('content')
+    <!--<p>
+        <a href="{{ route('stations.create') }}" class="btn btn-success">Add new</a>
+    </p>-->
+
+    <div class="panel panel-default" style="margin: 10px;">
         <div class="panel-heading">
             List
         </div>
@@ -20,7 +27,7 @@
                     <th>Address</th>
                     <th>City</th>
                     <th>Zipcode</th>
-                    <th>District</th>
+                    <th>Battalion</th>
                     <th>Related Document</th>
                     <th>Related Photo</th>
                     

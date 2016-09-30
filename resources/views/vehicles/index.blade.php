@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="/home">Dashboard</a></li>
+    <li class="active">Vehicles</li>
+  </ol>
+@endsection
+
 @section('content')
-    <h3 class="page-title">Vehicle</h3>
-    <p>
+    <!--<p>
         <a href="{{ route('vehicles.create') }}" class="btn btn-success">Add new</a>
-    </p>
+    </p>-->
 
     <div class="panel panel-default">
         <div class="panel-heading">

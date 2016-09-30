@@ -36,7 +36,6 @@
 
             <p>&nbsp;</p>
 
-            <a href="{{ route('stations.index') }}" class="btn btn-default">Back to list</a>
         </div>
     </div>
 @stop
