@@ -49,7 +49,10 @@
         </div>
     </div>
 
-    {!! Form::submit('Save',['class' => 'btn btn-danger']) !!}
+    
+    <div>{!! Form::submit('Save',['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
+    <a href="{{ route('vehicles.index') }}" class="btn btn-danger">Cancel</a>
+</div>
 @stop
 
