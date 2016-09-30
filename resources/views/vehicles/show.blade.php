@@ -1,8 +1,13 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="/home">Dashboard</a></li>
+    <li><a href="/vehicles">Vehicles</a></li>
+    <li class="active">{{ $vehicle->vehicle_number }}</li>
+  </ol>
+@endsection
 
 @section('content')
-    <h3 class="page-title">Vehicle</h3>
-
     <div class="panel panel-default">
         <div class="panel-heading">
             View

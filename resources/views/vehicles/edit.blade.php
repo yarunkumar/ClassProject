@@ -3,13 +3,13 @@
 @section('crumbs')
   <ol class="breadcrumb">
     <li><a href="/home">Dashboard</a></li>
-    <li class="active">Stations</li>
+    <li><a href="/vehicles">Vehicles</a></li>
+    <li class="active">{{ $vehicle->vehicle_number }}</li>
   </ol>
 @endsection
 
 
 @section('content')
-    <h3 class="page-title">Vehicle</h3>
     {!! Form::model($vehicle,['method' => 'PUT', 'route' => ['vehicles.update', $vehicle->id]]) !!}
 
     <div class="panel panel-default">
@@ -53,14 +53,16 @@
                     @endif
                 </div>
             </div>
-            
+
+    <div>
+        {!! Form::submit('Update',['class' => 'btn btn-success']) !!}
+    {!! Form::close() !!}
+    <a href="{{ route('vehicles.index') }}" class="btn btn-default">Cancel</a>
         </div>
     </div>
 
     
-    <div>{!! Form::submit('Update',['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
-    <a href="{{ route('vehicles.index') }}" class="btn btn-danger">Cancel</a>
+
 </div>
 @stop
 

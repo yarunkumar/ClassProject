@@ -1,12 +1,18 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="/home">Dashboard</a></li>
+    <li><a href="/vehicles">Vehicles</a></li>
+    <li class="active">Create</li>
+  </ol>
+@endsection
 
 @section('content')
-    <h3 class="page-title">Vehicle</h3>
     {!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Create
+            Create New Vehicle
         </div>
         <div class="panel-body">
             <div class="row">
@@ -45,14 +51,13 @@
                     @endif
                 </div>
             </div>
-            
+            {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+            <a href="{{ route('vehicles.index') }}" class="btn btn-default">Cancel</a>
         </div>
     </div>
 
-    
-    <div>{!! Form::submit('Save',['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
-    <a href="{{ route('vehicles.index') }}" class="btn btn-danger">Cancel</a>
-</div>
+
+
 @stop
 

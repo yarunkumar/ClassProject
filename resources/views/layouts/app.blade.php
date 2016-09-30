@@ -1,5 +1,6 @@
 @include('partials.header')
 @include('partials.navbar')
+
 <div class="sub-nav row" style="margin-top: -25px;">
   <div class="col-md-12">
     <span class="nav-view">@yield('crumbs')</span>
@@ -7,7 +8,7 @@
 
 
     <div class="dropdown">
-      <a href="#" style="text-decoration: none; color: white;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Welcome, Mickey <span class="caret"></span></a>
+      <a href="#" style="text-decoration: none; color: white;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Welcome, {{ Auth::user()->name }}! <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a href="#">Account</a></li>
         <li><a href="#">Manage</a></li>
@@ -33,6 +34,7 @@
         <p>{{ Session::get('message') }}</p>
     </div>
 @endif
+
 @if ($errors->count() > 0)
     <div class="note note-danger">
         <ul class="list-unstyled">
@@ -44,11 +46,10 @@
 @endif
 
 @yield('content')
-
  
 @include('partials.javascripts')
-
 @yield('javascript')
+
 @include('partials.footer')
 
 

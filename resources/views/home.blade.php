@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-<link rel="stylesheet" href="{{ url('css') }}/dashboard.css"/>
 
 @section('crumbs')
   <ol class="breadcrumb">
@@ -93,4 +92,6 @@
     </div>
 
 </div>
+
+<div id="chart"></div>
 @endsection

@@ -1,4 +1,4 @@
-  <link rel="stylesheet" href="{{ url('css') }}/dashboard.css"/>
+  <link rel="stylesheet" href="{{ url('css') }}/nav.css"/>
 
   <nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
@@ -16,11 +16,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/home"><strong>OMAHA FIRE</strong></a></li>
-        <li data-toggle="tooltip" class="tip" data-placement="bottom" title="All Assets"><a href="#"><i class="fa fa-th fa-lg" aria-hidden="true"></i></a></li>
-        <li data-toggle="tooltip" class="tip" data-placement="bottom" title="Stations"><a href="/stations"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
-        <li data-toggle="tooltip" class="tip" data-placement="bottom" title="Vehicles"><a href="/vehicles"><i class="fa fa-ambulance fa-lg" aria-hidden="true"></i></a></li>
-        <li data-toggle="tooltip" class="tip" data-placement="bottom" title="Service"><a href="#"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></a></li>
-        <li data-toggle="tooltip" class="tip" data-placement="bottom" title="Reports"><a href="#"><i class="fa fa-line-chart fa-lg" aria-hidden="true"></i></a></li>
+        <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="All Assets"><a href="#"><i class="fa fa-th fa-lg" aria-hidden="true"></i></a></li>
+        <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Stations"><a href="/stations"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+        <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Vehicles"><a href="/vehicles"><i class="fa fa-ambulance fa-lg" aria-hidden="true"></i></a></li>
+        <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Service"><a href="#"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></a></li>
+        <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Reports"><a href="#"><i class="fa fa-line-chart fa-lg" aria-hidden="true"></i></a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -28,9 +28,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Asset</a></li>
+            <!--<li><a href="#">Asset</a></li>-->
             <li><a href="/stations/create">Station</a></li>
-            <li><a href="/vehicles/create">Vehicles</a></li>
+            <li><a href="/vehicles/create">Vehicle</a></li>
             <!--<li role="separator" class="divider"></li>
             <li><a href="#">Other</a></li>-->
           </ul>
@@ -39,7 +39,7 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Lookup Asset">
           </div>
-          <button type="submit" class="btn btn-default" style="margin-right: 15px;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          <button type="submit" class="btn btn-default" style="margin-right: 15px;"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
       </ul>
     </div>

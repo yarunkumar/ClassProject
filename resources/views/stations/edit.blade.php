@@ -8,12 +8,11 @@
 @endsection
 
 @section('content')
-    <h3 class="page-title">Station</h3>
     {!! Form::model($station,['method' => 'PUT', 'route' => ['stations.update', $station->id], 'files' => true,]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Edit
+            Edit Station
         </div>
         <div class="panel-body">
             <div class="row">
@@ -129,11 +128,12 @@
                 </div>
             </div>
             
+            {!! Form::submit('Update',['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+            <a href="{{ route('stations.index') }}" class="btn btn-default">Cancel</a>
+
         </div>
     </div>
-
-    {!! Form::submit('Update',['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
 @stop
 
 @section('javascript')

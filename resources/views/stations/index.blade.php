@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('crumbs')
   <ol class="breadcrumb">
     <li><a href="/home">Dashboard</a></li>
@@ -15,10 +16,10 @@
 
     <div class="panel panel-default" style="margin: 10px;">
         <div class="panel-heading">
-            List
+            Station List
         </div>
         <div class="panel-body">
-            <table class="table table-bordered table-striped {{ count($stations) > 0 ? 'datatable' : '' }}">
+            <table class="table table-striped {{ count($stations) > 0 ? 'datatable' : '' }}">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -30,8 +31,8 @@
                     <th>Battalion</th>
                     <th>Related Document</th>
                     <th>Related Photo</th>
+                    <th>Actions</th>
                     
-                    <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,15 +50,15 @@
                         <td>@if($station->station_image!= '')<img src="{{ asset('uploads/thumb/'.$station->station_image) }}">@endif</td>
                         
                             <td>
-                                <a href="{{ route('stations.show',[$station->id]) }}" class="btn btn-xs btn-primary">View</a>
-                                <a href="{{ route('stations.edit',[$station->id]) }}" class="btn btn-xs btn-info">Edit</a>
-                                {!! Form::open(array(
-            'style' => 'display: inline-block;',
-            'method' => 'DELETE',
-            'onsubmit' => "return confirm('".trans("Are you sure?")."');",
-            'route' => ['stations.destroy', $station->id])) !!}
-{!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
-{!! Form::close() !!}
+                                <a href="{{ route('stations.show',[$station->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a href="{{ route('stations.edit',[$station->id]) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            {!! Form::open(array(
+                                'style' => 'display: inline-block;',
+                                'method' => 'DELETE',
+                                'onsubmit' => "return confirm('".trans("Are you sure?")."');",
+                                'route' => ['stations.destroy', $station->id])) !!}
+                            {{Form::button('<i class="fa fa-trash"></i>', array('type' => 'submit', 'class' => 'btn btn-xs btn-danger'))}}
+                            {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach

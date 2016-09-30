@@ -8,12 +8,11 @@
 @endsection
 
 @section('content')
-    <h3 class="page-title">Station</h3>
     {!! Form::open(['method' => 'POST', 'route' => ['stations.store'], 'files' => true,]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Create
+            Create New Station
         </div>
         <div class="panel-body">
             <div class="row">
@@ -128,12 +127,13 @@
                     @endif
                 </div>
             </div>
-            
+            {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
+            <a href="{{ route('stations.index') }}" class="btn btn-default">Cancel</a>
+            {!! Form::close() !!}
         </div>
     </div>
 
-    {!! Form::submit('Save',['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
+
 @stop
 
 @section('javascript')
