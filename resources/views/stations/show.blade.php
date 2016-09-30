@@ -1,7 +1,13 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li><a href="{{ route('stations.index') }}">Station</a></li>
+    <li class="active">{{ $station->station_name }}</li>
+  </ol>
+@endsection
 
 @section('content')
-    <h3 class="page-title">Station</h3>
 
     <div id="exTab3" class="pill-container">
         <ul  class="nav nav-pills">
@@ -36,7 +42,7 @@
                             <td>{{ $station->city }}</td>
                                 </tr><tr><th>Zipcode</th>
                             <td>{{ $station->zipcode }}</td>
-                                </tr><tr><th>District</th>
+                                </tr><tr><th>Battalion</th>
                             <td>{{ $station->district }}</td>
                                 </tr><tr><th>Related Document</th>
                             <td><a href="{{ asset('uploads/'.$station->station_document) }}">Download file</a></td>

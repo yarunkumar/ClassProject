@@ -1,6 +1,4 @@
 @extends('layouts.app')
-
-
 @section('crumbs')
   <ol class="breadcrumb">
     <li><a href="{{ url('/') }}">Dashboard</a></li>
@@ -10,9 +8,6 @@
 
 
 @section('content')
-    <!--<p>
-        <a href="{{ route('stations.create') }}" class="btn btn-success">Add new</a>
-    </p>-->
 
     <div class="panel panel-default" style="margin: 10px;">
         <div class="panel-heading">

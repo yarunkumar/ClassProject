@@ -1,9 +1,8 @@
 @extends('layouts.app')
-
 @section('crumbs')
   <ol class="breadcrumb">
-    <li><a href="/home">Dashboard</a></li>
-    <li><a href="/vehicles">Vehicles</a></li>
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li><a href="{{ route('vehicles.index') }}">Vehicles</a></li>
     <li class="active">{{ $vehicle->vehicle_number }}</li>
   </ol>
 @endsection

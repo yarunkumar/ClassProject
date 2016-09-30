@@ -10,12 +10,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ url('/') }}"><img style="filter: grayscale(65%);" src="{{ url('/img/c40.png') }}"></a>
+      <a class="navbar-brand" href="{{ url('/') }}"><img style="filter: grayscale(85%);" src="{{ url('/img/c40.png') }}"></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ url('/') }}"><strong>OMAHA FIRE DEPARTMENT</strong></a></li>
+        <li><a href="{{ url('/') }}"><strong>OMAHA FIRE</strong></a></li>
         <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="All Assets"><a href="#"><i class="fa fa-th fa-lg" aria-hidden="true"></i></a></li>
         <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Stations"><a href="{{ route('stations.index') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
         <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Vehicles"><a href="{{ route('vehicles.index') }}"><i class="fa fa-ambulance fa-lg" aria-hidden="true"></i></a></li>
