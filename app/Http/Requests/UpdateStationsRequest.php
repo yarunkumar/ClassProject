@@ -23,7 +23,7 @@ class UpdateStationsRequest extends FormRequest
     public function rules()
     {
         return [
-            'station_name' => 'required|unique:stations,station_name,'.$this->route('stations'),
+            'station_name' => 'required|string:stations,station_name,'.$this->route('stations'),
             'station_number' => 'required|integer',
             'station_document' => 'max:20480',
             'station_image' => 'max:20480',
