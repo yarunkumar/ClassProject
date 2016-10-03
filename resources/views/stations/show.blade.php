@@ -3,7 +3,7 @@
   <ol class="breadcrumb">
     <li><a href="{{ url('/') }}">Dashboard</a></li>
     <li><a href="{{ route('stations.index') }}">Station</a></li>
-    <li class="active">{{ $station->station_name }}</li>
+    <li class="active">Station {{ $station->station_number }}</li>
   </ol>
 @endsection
 
