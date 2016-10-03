@@ -50,7 +50,7 @@
                             {!! Form::open(array(
                                 'style' => 'display: inline-block;',
                                 'method' => 'DELETE',
-                                'onsubmit' => "return confirm('".trans("Are you sure?")."');",
+                                'onsubmit' => "return confirm('".trans("Are you sure you want to delete $station->station_name? This action cannot be undone")."');",
                                 'route' => ['stations.destroy', $station->id])) !!}
                             {{Form::button('<i class="fa fa-trash"></i>', array('type' => 'submit', 'class' => 'btn btn-xs btn-danger'))}}
                             {!! Form::close() !!}
