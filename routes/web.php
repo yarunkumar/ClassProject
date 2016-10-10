@@ -22,7 +22,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
 
-    Route::resource('stations', 'StationsController');
+Route::resource('stations', 'StationsController');
 Route::resource('vehicles', 'VehiclesController');
 Route::resource('assets', 'AssetsController');
 Route::resource('asset_types', 'AssetTypesController');
@@ -30,5 +30,8 @@ Route::resource('mobile_computers', 'MobileComputersController');
 Route::resource('items', 'ItemsController');
 Route::resource('asset_types', 'AssetTypesController');
 Route::resource('types', 'TypesController');
+Route::resource('personnels', 'PersonnelsController');
+Route::resource('grants', 'GrantsController');
+Route::resource('all_assets', 'AllAssetsController');
 
 });
