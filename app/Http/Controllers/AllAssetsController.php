@@ -6,6 +6,7 @@ use App\AllAsset;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAllAssetsRequest;
 use App\Http\Requests\UpdateAllAssetsRequest;
+use Illuminate\Routing\Route;
 
 class AllAssetsController extends Controller
 {
@@ -22,6 +23,7 @@ class AllAssetsController extends Controller
         return view('all_assets.index', compact('all_assets'));
     }
 
+
     /**
      * Show the form for creating new AllAsset.
      *
@@ -29,10 +31,43 @@ class AllAssetsController extends Controller
      */
     public function create()
     {
-        
-        return view('all_assets.create', compact(''));
+        $relations = [
+            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+
+        ];
+
+        return view('all_assets.create', $relations);
+
+    }
+    /**
+     * Show the form for creating new Mobile Computer.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function mobile()
+    {
+        $relations = [
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+
+        ];
+
+        return view('all_assets.mobile', compact('') + $relations);
+
     }
 
+    public function desktop()
+    {
+        $relations = [
+            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+
+        ];
+        return view('all_assets.desktop', compact('') + $relations);
+
+    }
     /**
      * Store a newly created AllAsset in storage.
      *
@@ -54,9 +89,14 @@ class AllAssetsController extends Controller
      */
     public function edit($id)
     {
-        
+        $relations = [
+            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+
+        ];
         $allasset = AllAsset::findOrFail($id);
-        return view('all_assets.edit', compact('allasset', ''));
+        return view('all_assets.edit', compact('allasset', '') + $relations);
     }
 
     /**
@@ -82,8 +122,15 @@ class AllAssetsController extends Controller
      */
     public function show($id)
     {
+        $relations = [
+            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+
+        ];
+
         $allasset = AllAsset::findOrFail($id);
-        return view('all_assets.show', compact('allasset'));
+        return view('all_assets.show', compact('allasset')+$relations);
     }
 
     /**

@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateVehiclesRequest extends FormRequest
+class UpdateStatusesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,6 @@ class UpdateVehiclesRequest extends FormRequest
     public function rules()
     {
         return [
-            'van' => 'required|unique:vehicles,van,'.$this->route('vehicle'),
             
         ];
     }

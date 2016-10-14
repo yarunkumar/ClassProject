@@ -29,6 +29,11 @@ class Station extends Model
 
     }
 
+    public function allassets() {
+        return $this->hasMany('App\AllAsset');
+
+    }
+
     /**
      * Get attribute from date format
      * @param $input

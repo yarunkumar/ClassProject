@@ -23,6 +23,7 @@ class StoreVehiclesRequest extends FormRequest
     public function rules()
     {
         return [
+            'van' => 'required|unique:vehicles,van',
             
         ];
     }

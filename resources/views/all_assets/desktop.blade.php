@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">All Assets</h3>
-    
-    {!! Form::model($allasset, ['method' => 'PUT', 'route' => ['all_assets.update', $allasset->id]]) !!}
+    <h3 class="page-title">Desktop</h3>
+    {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Edit
+            Create
         </div>
-
+        
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
@@ -399,7 +398,7 @@
                 <div class="col-xs-12 form-group">
                     {!! Form::label('network_status', 'networked', ['class' => 'control-label']) !!}
                     {!! Form::hidden('network_status', 0) !!}
-                    {!! Form::checkbox('network_status', 1, $allasset->network_status == 1, ['class' => 'form-control']) !!}
+                    {!! Form::checkbox('network_status', 1, false, ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('network_status'))
                         <p class="help-block">
@@ -588,23 +587,10 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
-                    {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('vehicle_id'))
-                        <p class="help-block">
-                            {{ $errors->first('vehicle_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            
         </div>
     </div>
 
-    {!! Form::submit('Update', ['class' => 'btn btn-danger']) !!}
+    {!! Form::submit('Save', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
 @stop
 

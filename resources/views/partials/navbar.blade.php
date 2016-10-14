@@ -34,6 +34,7 @@
             <li><a href="{{ route('all_assets.create') }}">Asset</a></li>
             <li><a href="{{ route('grants.create') }}">Grant</a></li>
             <li><a href="{{ route('personnels.create') }}">Personnel</a></li>
+{{--            <li><a href="{{ route('all_assets.mobile') }}">Mobile</a></li>--}}
             <!--<li role="separator" class="divider"></li>
             <li><a href="#">Other</a></li>-->
           </ul>

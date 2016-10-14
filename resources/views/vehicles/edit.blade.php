@@ -1,67 +1,105 @@
 @extends('layouts.app')
-@section('crumbs')
-  <ol class="breadcrumb">
-    <li><a href="{{ url('/') }}">Dashboard</a></li>
-    <li><a href="{{ route('vehicles.index') }}">Vehicles</a></li>
-    <li class="active">{{ $vehicle->vehicle_number }}</li>
-  </ol>
-@endsection
-
 
 @section('content')
-    {!! Form::model($vehicle,['method' => 'PUT', 'route' => ['vehicles.update', $vehicle->id]]) !!}
+    <h3 class="page-title">Vehicle</h3>
+    
+    {!! Form::model($vehicle, ['method' => 'PUT', 'route' => ['vehicles.update', $vehicle->id]]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
             Edit
         </div>
+
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('vehicle_number', 'Vehicle Number', ['class' => 'control-label']) !!}
-                    {!! Form::text('vehicle_number', old('vehicle_number'), ['class' => 'form-control']) !!}
+                    {!! Form::label('van', 'OFD VAN #', ['class' => 'control-label']) !!}
+                    {!! Form::text('van', old('van'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('vehicle_number'))
+                    @if($errors->has('van'))
                         <p class="help-block">
-                            {{ $errors->first('vehicle_number') }}
+                            {{ $errors->first('van') }}
                         </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('vin', 'VIN', ['class' => 'control-label']) !!}
-                    {!! Form::text('vin', old('vin'), ['class' => 'form-control']) !!}
+                    {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
+                    {!! Form::text('make', old('make'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('vin'))
+                    @if($errors->has('make'))
                         <p class="help-block">
-                            {{ $errors->first('vin') }}
+                            {{ $errors->first('make') }}
                         </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('station_id', 'Assigned', ['class' => 'control-label']) !!}
-                    {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
+                    {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
+                    {!! Form::text('model', old('model'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('station_id'))
+                    @if($errors->has('model'))
                         <p class="help-block">
-                            {{ $errors->first('station_id') }}
+                            {{ $errors->first('model') }}
                         </p>
                     @endif
                 </div>
             </div>
-
-    <div>
-        {!! Form::submit('Update',['class' => 'btn btn-success']) !!}
-    {!! Form::close() !!}
-    <a href="{{ route('vehicles.index') }}" class="btn btn-default">Cancel</a>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('year', 'Year', ['class' => 'control-label']) !!}
+                    {!! Form::number('year', old('year'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('year'))
+                        <p class="help-block">
+                            {{ $errors->first('year') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('unittype_id', 'Type', ['class' => 'control-label']) !!}
+                    {!! Form::select('unittype_id', $unittypes, old('unittype_id'), ['class' => 'form-control']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('unittype_id'))
+                        <p class="help-block">
+                            {{ $errors->first('unittype_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
+                    {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('status_id'))
+                        <p class="help-block">
+                            {{ $errors->first('status_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
+                    {!! Form::select('grant_id', $grants, old('grant_id'), ['class' => 'form-control']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('grant_id'))
+                        <p class="help-block">
+                            {{ $errors->first('grant_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            
         </div>
     </div>
 
-    
-
-</div>
+    {!! Form::submit('Update', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
 @stop
 

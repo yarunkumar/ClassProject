@@ -7,111 +7,365 @@
         <div class="panel-heading">
             View
         </div>
-        
+
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
-                    <table class="table table-bordered table-striped datatable">
-                        <tr><th>Asset Name</th>
-                    <td>{{ $all_asset->name }}</td>
-                        </tr><tr><th>Model</th>
-                    <td>{{ $all_asset->model }}</td>
-                        </tr><tr><th>Make</th>
-                    <td>{{ $all_asset->make }}</td>
-                        </tr><tr><th>Manufacturer</th>
-                    <td>{{ $all_asset->manu }}</td>
-                        </tr><tr><th>Serial Number</th>
-                    <td>{{ $all_asset->serial_number }}</td>
-                        </tr><tr><th>Model IMEI #</th>
-                    <td>{{ $all_asset->model_imei }}</td>
-                        </tr><tr><th>Date Purchased</th>
-                    <td>{{ $all_asset->date_purchased }}</td>
-                        </tr><tr><th>Warranty Date</th>
-                    <td>{{ $all_asset->warranty_date }}</td>
-                        </tr><tr><th>Cost</th>
-                    <td>{{ $all_asset->cost }}</td>
-                        </tr><tr><th>IMEI #</th>
-                    <td>{{ $all_asset->imei }}</td>
-                        </tr><tr><th>Mobile Type</th>
-                    <td>{{ $all_asset->mobile_type }}</td>
-                        </tr><tr><th>Operating System</th>
-                    <td>{{ $all_asset->os }}</td>
-                        </tr><tr><th>Comments</th>
-                    <td>{{ $all_asset->comments }}</td>
-                        </tr><tr><th>Netmotion User ID</th>
-                    <td>{{ $all_asset->ntm_uid }}</td>
-                        </tr><tr><th>Netmotion Password</th>
-                    <td>{{ $all_asset->ntm_pass }}</td>
-                        </tr><tr><th>IP address</th>
-                    <td>{{ $all_asset->ip_address }}</td>
-                        </tr><tr><th>MAC #</th>
-                    <td>{{ $all_asset->mac }}</td>
-                        </tr><tr><th>CAD IP address</th>
-                    <td>{{ $all_asset->cad_ip }}</td>
-                        </tr><tr><th>Sim Card ID</th>
-                    <td>{{ $all_asset->sim_id }}</td>
-                        </tr><tr><th>Sim Card Phone #</th>
-                    <td>{{ $all_asset->sim_phone }}</td>
-                        </tr><tr><th>GPS Protocol</th>
-                    <td>{{ $all_asset->gps_protocol }}</td>
-                        </tr><tr><th>Firmware Version</th>
-                    <td>{{ $all_asset->firmware_ver }}</td>
-                        </tr><tr><th>Radio ID</th>
-                    <td>{{ $all_asset->radio_id }}</td>
-                        </tr><tr><th>MEID model #</th>
-                    <td>{{ $all_asset->meid_model_# }}</td>
-                        </tr><tr><th>MEID #</th>
-                    <td>{{ $all_asset->meid }}</td>
-                        </tr><tr><th>Phone #</th>
-                    <td>{{ $all_asset->phone }}</td>
-                        </tr><tr><th>Multi Tech SIM #</th>
-                    <td>{{ $all_asset->multi_tech_sim }}</td>
-                        </tr><tr><th>MDC User ID</th>
-                    <td>{{ $all_asset->mdc_id }}</td>
-                        </tr><tr><th>MDC Password</th>
-                    <td>{{ $all_asset->mdc_pass }}</td>
-                        </tr><tr><th>CPU</th>
-                    <td>{{ $all_asset->cpu }}</td>
-                        </tr><tr><th>Rram</th>
-                    <td>{{ $all_asset->ram }}</td>
-                        </tr><tr><th>Asset Tag #</th>
-                    <td>{{ $all_asset->asset_tag }}</td>
-                        </tr><tr><th>networked</th>
-                    <td>{{ $all_asset->network_status == 1 ? 'Yes' : 'No' }}</td>
-                        </tr><tr><th>Drop Status</th>
-                    <td>{{ $all_asset->drop_status }}</td>
-                        </tr><tr><th>Switch Serial Number</th>
-                    <td>{{ $all_asset->switch_serial }}</td>
-                        </tr><tr><th>Screen Size</th>
-                    <td>{{ $all_asset->screen_size }}</td>
-                        </tr><tr><th>A/C Adapter</th>
-                    <td>{{ $all_asset->ac_adapter }}</td>
-                        </tr><tr><th>Stylus</th>
-                    <td>{{ $all_asset->stylus }}</td>
-                        </tr><tr><th>SEID Number</th>
-                    <td>{{ $all_asset->seid_num }}</td>
-                        </tr><tr><th>EMID</th>
-                    <td>{{ $all_asset->emid }}</td>
-                        </tr><tr><th>TeamViewer Number</th>
-                    <td>{{ $all_asset->tmv_num }}</td>
-                        </tr><tr><th>Teamviewer alias</th>
-                    <td>{{ $all_asset->tmv_alias }}</td>
-                        </tr><tr><th>Model Description</th>
-                    <td>{{ $all_asset->radio_desc }}</td>
-                        </tr><tr><th>Tier level</th>
-                    <td>{{ $all_asset->tier_level }}</td>
-                        </tr><tr><th>System alias</th>
-                    <td>{{ $all_asset->system_alias }}</td>
-                        </tr><tr><th>System ID Num</th>
-                    <td>{{ $all_asset->system_id }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+                    <!-- Custom Tabs -->
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#details" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-info-circle"></i></span> <span class="hidden-xs hidden-sm">Details</span></a>
+                            </li>
+                            <li>
+                                <a href="#assets" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-floppy-o"></i></span> <span class="hidden-xs hidden-sm">Assets</span></a>
+                            </li>
+                            <li>
+                                <a href="#history" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-history"></i></span> <span class="hidden-xs hidden-sm">History</span></a>
+                            </li>
+                            <li>
+                                <a href="#files" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-files-o"></i></span> <span class="hidden-xs hidden-sm">Files</span></a>
+                            </li>
+                            <li class="pull-right">
+                                <a href="#" data-toggle="modal" data-target="#uploadFileModal"><i class="fa fa-paperclip"></i> </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="details">
+                                <div class="row">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="details">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="table-responsive" style="margin-top: 10px;">
+                                                        <table class="table">
+                                                            <tbody>
 
-            <p>&nbsp;</p>
+                                                            @if ($allasset->name )
+                                                                <tr>
+                                                                    <td>{{ ('Asset Name') }}</td>
+                                                                    <td>{{ $allasset->name }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->model )
+                                                                <tr>
+                                                                    <td>{{ ('Model') }}</td>
+                                                                    <td>{{ $allasset->model }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->make )
+                                                                <tr>
+                                                                    <td>{{ ('Make') }}</td>
+                                                                    <td>{{ $allasset->make }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->manu )
+                                                                <tr>
+                                                                    <td>{{ ('Manufacturer') }}</td>
+                                                                    <td>{{ $allasset->manu }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->serial_number )
+                                                                <tr>
+                                                                    <td>{{ ('Serial Number') }}</td>
+                                                                    <td>{{ $allasset->serial_number }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->model_imei )
+                                                                <tr>
+                                                                    <td>{{ ('Model IMEI Number') }}</td>
+                                                                    <td>{{ $allasset->model_imei }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->date_purchased )
+                                                                <tr>
+                                                                    <td>{{ ('Date Purchased') }}</td>
+                                                                    <td>{{ $allasset->date_purchased }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->warranty_date )
+                                                                <tr>
+                                                                    <td>{{ ('Warranty Date') }}</td>
+                                                                    <td>{{ $allasset->warranty_date }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->cost )
+                                                                <tr>
+                                                                    <td>{{ ('Cost') }}</td>
+                                                                    <td>{{ $allasset->cost }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->imei )
+                                                                <tr>
+                                                                    <td>{{ ('IMEI Number') }}</td>
+                                                                    <td>{{ $allasset->imei }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->mobile_type )
+                                                                <tr>
+                                                                    <td>{{ ('Mobile Type') }}</td>
+                                                                    <td>{{ $allasset->mobile_type }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->os )
+                                                                <tr>
+                                                                    <td>{{ ('Operating System') }}</td>
+                                                                    <td>{{ $allasset->os }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->comments )
+                                                                <tr>
+                                                                    <td>{{ ('Comments') }}</td>
+                                                                    <td>{{ $allasset->comments }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->ntm_uid )
+                                                                <tr>
+                                                                    <td>{{ ('Netmotion User ID') }}</td>
+                                                                    <td>{{ $allasset->ntm_uid }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->ntm_pass )
+                                                                <tr>
+                                                                    <td>{{ ('Netmotion Password') }}</td>
+                                                                    <td>{{ $allasset->ntm_pass }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->ip_address )
+                                                                <tr>
+                                                                    <td>{{ ('IP address') }}</td>
+                                                                    <td>{{ $allasset->ip_address }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->mac )
+                                                                <tr>
+                                                                    <td>{{ ('MAC Address') }}</td>
+                                                                    <td>{{ $allasset->mac }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->cad_ip )
+                                                                <tr>
+                                                                    <td>{{ ('CAD IP') }}</td>
+                                                                    <td>{{ $allasset->cad_ip }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->sim_id )
+                                                                <tr>
+                                                                    <td>{{ ('SIM Card IP') }}</td>
+                                                                    <td>{{ $allasset->sim_id }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->sim_phone )
+                                                                <tr>
+                                                                    <td>{{ ('Sim Card Phone #') }}</td>
+                                                                    <td>{{ $allasset->sim_phone }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->gps_protocol )
+                                                                <tr>
+                                                                    <td>{{ ('GPS Protocol') }}</td>
+                                                                    <td>{{ $allasset->gps_protocol }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->firmware_ver )
+                                                                <tr>
+                                                                    <td>{{ ('Firmware Version') }}</td>
+                                                                    <td>{{ $allasset->firmware_ver }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->radio_id )
+                                                                <tr>
+                                                                    <td>{{ ('Radio ID') }}</td>
+                                                                    <td>{{ $allasset->radio_id }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->meid_model_num )
+                                                                <tr>
+                                                                    <td>{{ ('MEID model #') }}</td>
+                                                                    <td>{{ $allasset->meid_model_num }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->meid )
+                                                                <tr>
+                                                                    <td>{{ ('MEID') }}</td>
+                                                                    <td>{{ $allasset->meid }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->phone )
+                                                                <tr>
+                                                                    <td>{{ ('Phone Number') }}</td>
+                                                                    <td>{{ $allasset->phone }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->multi_tech_sim )
+                                                                <tr>
+                                                                    <td>{{ ('Multi Tech SIM #') }}</td>
+                                                                    <td>{{ $allasset->multi_tech_sim }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->mdc_id )
+                                                                <tr>
+                                                                    <td>{{ ('MDC User ID') }}</td>
+                                                                    <td>{{ $allasset->mdc_id }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->mdc_pass )
+                                                                <tr>
+                                                                    <td>{{ ('MDC Password') }}</td>
+                                                                    <td>{{ $allasset->mdc_pass }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->cpu )
+                                                                <tr>
+                                                                    <td>{{ ('CPU') }}</td>
+                                                                    <td>{{ $allasset->cpu }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->mdc_id )
+                                                                <tr>
+                                                                    <td>{{ ('MDC User ID') }}</td>
+                                                                    <td>{{ $allasset->mdc_id }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->mdc_pass )
+                                                                <tr>
+                                                                    <td>{{ ('MDC Password') }}</td>
+                                                                    <td>{{ $allasset->mdc_pass }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->cpu )
+                                                                <tr>
+                                                                    <td>{{ ('CPU') }}</td>
+                                                                    <td>{{ $allasset->cpu }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->ram )
+                                                                <tr>
+                                                                    <td>{{ ('Ram') }}</td>
+                                                                    <td>{{ $allasset->ram }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->asset_tag )
+                                                                <tr>
+                                                                    <td>{{ ('Asset Tag #') }}</td>
+                                                                    <td>{{ $allasset->asset_tag }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->network_status )
+                                                                <tr>
+                                                                    <td>{{ ('Networked') }}</td>
+                                                                    <td>{{ $allasset->network_status == 1 ? 'Yes' : 'No' }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->drop_status )
+                                                                <tr>
+                                                                    <td>{{ ('Drop Status') }}</td>
+                                                                    <td>{{ $allasset->drop_status }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->switch_serial )
+                                                                <tr>
+                                                                    <td>{{ ('Switch Serial Number') }}</td>
+                                                                    <td>{{ $allasset->switch_serial }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->screen_size )
+                                                                <tr>
+                                                                    <td>{{ ('Screen Size') }}</td>
+                                                                    <td>{{ $allasset->screen_size }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->ac_adapter )
+                                                                <tr>
+                                                                    <td>{{ ('A/C Adapter') }}</td>
+                                                                    <td>{{ $allasset->ac_adapter }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->stylus )
+                                                                <tr>
+                                                                    <td>{{ ('Stylus') }}</td>
+                                                                    <td>{{ $allasset->stylus }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->seid_num )
+                                                                <tr>
+                                                                    <td>{{ ('SEID Number') }}</td>
+                                                                    <td>{{ $allasset->seid_num }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->emid )
+                                                                <tr>
+                                                                    <td>{{ ('EMID') }}</td>
+                                                                    <td>{{ $allasset->emid }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->tmv_num )
+                                                                <tr>
+                                                                    <td>{{ ('TeamViewer Number') }}</td>
+                                                                    <td>{{ $allasset->tmv_num }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->tmv_alias )
+                                                                <tr>
+                                                                    <td>{{ ('Teamviewer alias') }}</td>
+                                                                    <td>{{ $allasset->tmv_alias }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->radio_desc )
+                                                                <tr>
+                                                                    <td>{{ ('Model Description') }}</td>
+                                                                    <td>{{ $allasset->radio_desc }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->tier_level )
+                                                                <tr>
+                                                                    <td>{{ ('Tier level') }}</td>
+                                                                    <td>{{ $allasset->tier_level }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->system_alias )
+                                                                <tr>
+                                                                    <td>{{ ('System alias') }}</td>
+                                                                    <td>{{ $allasset->system_alias }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->system_id )
+                                                                <tr>
+                                                                    <td>{{ ('System ID Num') }}</td>
+                                                                    <td>{{ $allasset->system_id }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            {{--show assigned relationships--}}
+                                                            @if ($allasset->station_name )
+                                                                <tr>
+                                                                    <td>{{ ('Assigned Station') }}</td>
+                                                                    <td>{{ $allasset->station_name or '' }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            {{--@if ($allasset->vehicle_id )--}}
+                                                                {{--<tr>--}}
+                                                                    {{--<td>{{ ('Assigned Vehicle') }}</td>--}}
+                                                                    {{--<td>{{ $allasset->vehicle_id }}</td>--}}
+                                                                {{--</tr>--}}
+                                                            {{--@endif--}}
+{{--                                                            <td>{{ $vehicle->station->station_name or '' }}</td>--}}
+                                                            </tbody>
+                                                            <td>
+                                                                <a href="{{ route('all_assets.edit',[$allasset->id]) }}" class="btn btn-xs btn-info">Edit</a>
+                                                                {!! Form::open(array(
+                                            'style' => 'display: inline-block;',
+                                            'method' => 'DELETE',
+                                            'onsubmit' => "return confirm('".trans("Are you sure?")."');",
+                                            'route' => ['all_assets.destroy', $allasset->id])) !!}
+                                                                {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
+                                                                {!! Form::close() !!}
+                                                            </td>
+                                                        </table>
+                                                    </div> <!-- /table-responsive -->
+                                                </div>
+                                    <p>&nbsp;</p>
 
-            <a href="{{ route('all_assets.index') }}" class="btn btn-default">Back to list</a>
-        </div>
-    </div>
+                                    <a href="{{ route('all_assets.index') }}" class="btn btn-default">Back to list</a>
+                                </div>
+                            </div>
 @stop

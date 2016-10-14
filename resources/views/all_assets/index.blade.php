@@ -30,39 +30,39 @@
                     <th>Mobile Type</th>
                     <th>Operating System</th>
                     <th>Comments</th>
-                    <th>Netmotion User ID</th>
-                    <th>Netmotion Password</th>
-                    <th>IP address</th>
-                    <th>MAC #</th>
-                    <th>CAD IP address</th>
-                    <th>Sim Card ID</th>
-                    <th>Sim Card Phone #</th>
-                    <th>GPS Protocol</th>
-                    <th>Firmware Version</th>
-                    <th>Radio ID</th>
-                    <th>MEID model #</th>
-                    <th>MEID #</th>
-                    <th>Phone #</th>
-                    <th>Multi Tech SIM #</th>
-                    <th>MDC User ID</th>
-                    <th>MDC Password</th>
-                    <th>CPU</th>
-                    <th>Rram</th>
-                    <th>Asset Tag #</th>
-                    <th>networked</th>
-                    <th>Drop Status</th>
-                    <th>Switch Serial Number</th>
-                    <th>Screen Size</th>
-                    <th>A/C Adapter</th>
-                    <th>Stylus</th>
-                    <th>SEID Number</th>
-                    <th>EMID</th>
-                    <th>TeamViewer Number</th>
-                    <th>Teamviewer alias</th>
-                    <th>Model Description</th>
-                    <th>Tier level</th>
-                    <th>System alias</th>
-                    <th>System ID Num</th>
+                    {{--<th>Netmotion User ID</th>--}}
+                    {{--<th>Netmotion Password</th>--}}
+                    {{--<th>IP address</th>--}}
+                    {{--<th>MAC #</th>--}}
+                    {{--<th>CAD IP address</th>--}}
+                    {{--<th>Sim Card ID</th>--}}
+                    {{--<th>Sim Card Phone #</th>--}}
+                    {{--<th>GPS Protocol</th>--}}
+                    {{--<th>Firmware Version</th>--}}
+                    {{--<th>Radio ID</th>--}}
+                    {{--<th>MEID model #</th>--}}
+                    {{--<th>MEID #</th>--}}
+                    {{--<th>Phone #</th>--}}
+                    {{--<th>Multi Tech SIM #</th>--}}
+                    {{--<th>MDC User ID</th>--}}
+                    {{--<th>MDC Password</th>--}}
+                    {{--<th>CPU</th>--}}
+                    {{--<th>Rram</th>--}}
+                    {{--<th>Asset Tag #</th>--}}
+                    {{--<th>networked</th>--}}
+                    {{--<th>Drop Status</th>--}}
+                    {{--<th>Switch Serial Number</th>--}}
+                    {{--<th>Screen Size</th>--}}
+                    {{--<th>A/C Adapter</th>--}}
+                    {{--<th>Stylus</th>--}}
+                    {{--<th>SEID Number</th>--}}
+                    {{--<th>EMID</th>--}}
+                    {{--<th>TeamViewer Number</th>--}}
+                    {{--<th>Teamviewer alias</th>--}}
+                    {{--<th>Model Description</th>--}}
+                    {{--<th>Tier level</th>--}}
+                    {{--<th>System alias</th>--}}
+                    {{--<th>System ID Num</th>--}}
                     
                         <th>&nbsp;</th>
                     </tr>
@@ -73,7 +73,7 @@
                         @foreach ($all_assets as $all_asset)
                             <tr>
                             {{--<tr data-entry-id="{{ $all_asset->id }}">--}}
-                                <td></td>
+                                {{--<td></td>--}}
                         <td>{{ $all_asset->name }}</td>
                         <td>{{ $all_asset->model }}</td>
                         <td>{{ $all_asset->make }}</td>
@@ -87,39 +87,39 @@
                         <td>{{ $all_asset->mobile_type }}</td>
                         <td>{{ $all_asset->os }}</td>
                         <td>{{ $all_asset->comments }}</td>
-                        <td>{{ $all_asset->ntm_uid }}</td>
-                        <td>{{ $all_asset->ntm_pass }}</td>
-                        <td>{{ $all_asset->ip_address }}</td>
-                        <td>{{ $all_asset->mac }}</td>
-                        <td>{{ $all_asset->cad_ip }}</td>
-                        <td>{{ $all_asset->sim_id }}</td>
-                        <td>{{ $all_asset->sim_phone }}</td>
-                        <td>{{ $all_asset->gps_protocol }}</td>
-                        <td>{{ $all_asset->firmware_ver }}</td>
-                        <td>{{ $all_asset->radio_id }}</td>
-                        <td>{{ $all_asset->meid_model_num }}</td>
-                        <td>{{ $all_asset->meid }}</td>
-                        <td>{{ $all_asset->phone }}</td>
-                        <td>{{ $all_asset->multi_tech_sim }}</td>
-                        <td>{{ $all_asset->mdc_id }}</td>
-                        <td>{{ $all_asset->mdc_pass }}</td>
-                        <td>{{ $all_asset->cpu }}</td>
-                        <td>{{ $all_asset->ram }}</td>
-                        <td>{{ $all_asset->asset_tag }}</td>
-                        <td>{{ $all_asset->network_status == 1 ? 'Yes' : 'No' }}</td>
-                        <td>{{ $all_asset->drop_status }}</td>
-                        <td>{{ $all_asset->switch_serial }}</td>
-                        <td>{{ $all_asset->screen_size }}</td>
-                        <td>{{ $all_asset->ac_adapter }}</td>
-                        <td>{{ $all_asset->stylus }}</td>
-                        <td>{{ $all_asset->seid_num }}</td>
-                        <td>{{ $all_asset->emid }}</td>
-                        <td>{{ $all_asset->tmv_num }}</td>
-                        <td>{{ $all_asset->tmv_alias }}</td>
-                        <td>{{ $all_asset->radio_desc }}</td>
-                        <td>{{ $all_asset->tier_level }}</td>
-                        <td>{{ $all_asset->system_alias }}</td>
-                        <td>{{ $all_asset->system_id }}</td>
+                        {{--<td>{{ $all_asset->ntm_uid }}</td>--}}
+                        {{--<td>{{ $all_asset->ntm_pass }}</td>--}}
+                        {{--<td>{{ $all_asset->ip_address }}</td>--}}
+                        {{--<td>{{ $all_asset->mac }}</td>--}}
+                        {{--<td>{{ $all_asset->cad_ip }}</td>--}}
+                        {{--<td>{{ $all_asset->sim_id }}</td>--}}
+                        {{--<td>{{ $all_asset->sim_phone }}</td>--}}
+                        {{--<td>{{ $all_asset->gps_protocol }}</td>--}}
+                        {{--<td>{{ $all_asset->firmware_ver }}</td>--}}
+                        {{--<td>{{ $all_asset->radio_id }}</td>--}}
+                        {{--<td>{{ $all_asset->meid_model_num }}</td>--}}
+                        {{--<td>{{ $all_asset->meid }}</td>--}}
+                        {{--<td>{{ $all_asset->phone }}</td>--}}
+                        {{--<td>{{ $all_asset->multi_tech_sim }}</td>--}}
+                        {{--<td>{{ $all_asset->mdc_id }}</td>--}}
+                        {{--<td>{{ $all_asset->mdc_pass }}</td>--}}
+                        {{--<td>{{ $all_asset->cpu }}</td>--}}
+                        {{--<td>{{ $all_asset->ram }}</td>--}}
+                        {{--<td>{{ $all_asset->asset_tag }}</td>--}}
+                        {{--<td>{{ $all_asset->network_status == 1 ? 'Yes' : 'No' }}</td>--}}
+                        {{--<td>{{ $all_asset->drop_status }}</td>--}}
+                        {{--<td>{{ $all_asset->switch_serial }}</td>--}}
+                        {{--<td>{{ $all_asset->screen_size }}</td>--}}
+                        {{--<td>{{ $all_asset->ac_adapter }}</td>--}}
+                        {{--<td>{{ $all_asset->stylus }}</td>--}}
+                        {{--<td>{{ $all_asset->seid_num }}</td>--}}
+                        {{--<td>{{ $all_asset->emid }}</td>--}}
+                        {{--<td>{{ $all_asset->tmv_num }}</td>--}}
+                        {{--<td>{{ $all_asset->tmv_alias }}</td>--}}
+                        {{--<td>{{ $all_asset->radio_desc }}</td>--}}
+                        {{--<td>{{ $all_asset->tier_level }}</td>--}}
+                        {{--<td>{{ $all_asset->system_alias }}</td>--}}
+                        {{--<td>{{ $all_asset->system_id }}</td>--}}
 
                                 <td>
                                     <a href="{{ route('all_assets.show',[$all_asset->id]) }}" class="btn btn-xs btn-primary">View</a>

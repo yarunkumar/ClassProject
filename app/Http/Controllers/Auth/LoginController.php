@@ -33,6 +33,14 @@ class LoginController extends Controller
     protected $username = 'username';
 
     /**
+     * Login with username instead of email.
+    */
+    public function username()
+    {
+        return 'username';
+    }
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -41,4 +49,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+
 }

@@ -15,9 +15,16 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('vehicle_number');
-            $table->string('vin');
+            $table->string('van');
+            $table->string('make');
+            $table->string('model');
+            $table->date('YEAR');
             $table->integer('station_id')->unsigned()->nullable();
             $table->foreign('station_id', 'fk_station')->references('id')->on('stations');
+            $table->integer('status_id')->unsigned()->nullable();
+            $table->foreign('status_id', 'fk_status')->references('id')->on('statuses');
+            $table->integer('grant_id')->unsigned()->nullable();
+            $table->foreign('grant_id', 'fk_status')->references('id')->on('grants');
             
             $table->timestamps();
             $table->softDeletes();

@@ -1,27 +1,27 @@
 @extends('layouts.app')
-@section('crumbs')
-  <ol class="breadcrumb">
-    <li><a href="{{ url('/') }}">Dashboard</a></li>
-    <li><a href="{{ route('vehicles.index') }}">Vehicles</a></li>
-    <li class="active">{{ $vehicle->vehicle_number }}</li>
-  </ol>
-@endsection
 
 @section('content')
+    <h3 class="page-title">Vehicle</h3>
+    
     <div class="panel panel-default">
         <div class="panel-heading">
             View
         </div>
+        
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped datatable">
-                        <tr><th>Vehicle Number</th>
-                    <td>{{ $vehicle->vehicle_number }}</td>
-                        </tr><tr><th>VIN</th>
-                    <td>{{ $vehicle->vin }}</td>
-                        </tr><tr><th>Assigned</th>
-                    <td>{{ $vehicle->station->station_name or '' }}</td>
+                        <tr><th>OFD VAN #</th>
+                    <td>{{ $vehicle->van }}</td>
+                        </tr><tr><th>Make</th>
+                    <td>{{ $vehicle->make }}</td>
+                        </tr><tr><th>Model</th>
+                    <td>{{ $vehicle->model }}</td>
+                        </tr><tr><th>Year</th>
+                    <td>{{ $vehicle->year }}</td>
+                        </tr><tr><th>Type</th>
+                    <td>{{ $vehicle->unittype->name or '' }}</td>
                         </tr>
                     </table>
                 </div>

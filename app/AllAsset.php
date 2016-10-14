@@ -118,6 +118,19 @@ class AllAsset extends Model
             return '';
         }
     }
-    
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo*
+     *
+     */
+    public function station()
+    {
+        return $this->belongsTo(\App\Station::class);
+    }
+
+    public function grant()
+    {
+        return $this->belongsTo('\App\Grant', 'grant_id');
+    }
     
 }
