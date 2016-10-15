@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\AllAsset;
+use App\Personnel;
+use App\Station;
+use App\Grant;
+use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAllAssetsRequest;
 use App\Http\Requests\UpdateAllAssetsRequest;
@@ -32,9 +36,11 @@ class AllAssetsController extends Controller
     public function create()
     {
         $relations = [
-            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'personnels' => Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
         ];
 
@@ -49,8 +55,8 @@ class AllAssetsController extends Controller
     public function mobile()
     {
         $relations = [
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
 
         ];
 
@@ -61,17 +67,17 @@ class AllAssetsController extends Controller
     public function desktop()
     {
         $relations = [
-            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
 
         ];
         return view('all_assets.desktop', compact('') + $relations);
 
     }
     /**
-     * Store a newly created AllAsset in storage.
-     *
-     * @param  \App\Http\Requests\StoreAllAssetsRequest  $request
+     * Store a ne
+     * @param  \App\Http\Requeswly created AllAsset in storage.
+     *ts\StoreAllAssetsRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAllAssetsRequest $request)
@@ -90,9 +96,11 @@ class AllAssetsController extends Controller
     public function edit($id)
     {
         $relations = [
-            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'personnels' => Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
         ];
         $allasset = AllAsset::findOrFail($id);
@@ -123,9 +131,11 @@ class AllAssetsController extends Controller
     public function show($id)
     {
         $relations = [
-            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'personnels' => Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
         ];
 

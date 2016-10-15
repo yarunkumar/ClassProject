@@ -130,7 +130,21 @@ class AllAsset extends Model
 
     public function grant()
     {
-        return $this->belongsTo('\App\Grant', 'grant_id');
+        return $this->belongsTo('App\Grant', 'grant_id');
+    }
+//    public function grant()
+//    {
+//        return $this->belongsTo(\App\Grant::class);
+//    }
+
+    public function status()
+    {
+        return $this->belongsTo(\App\Status::class);
+    }
+
+    public function personnel()
+    {
+        return $this->belongsTo(\App\Personnel::class);
     }
     
 }

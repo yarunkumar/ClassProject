@@ -24,7 +24,7 @@ class CreateVehiclesTable extends Migration
             $table->integer('status_id')->unsigned()->nullable();
             $table->foreign('status_id', 'fk_status')->references('id')->on('statuses');
             $table->integer('grant_id')->unsigned()->nullable();
-            $table->foreign('grant_id', 'fk_status')->references('id')->on('grants');
+            $table->foreign('grant_id', 'fk_grant')->references('id')->on('grants');
             
             $table->timestamps();
             $table->softDeletes();

@@ -51,6 +51,11 @@ class Vehicle extends Model
         return $this->belongsTo(\App\Status::class);
     }
 
+    public function allassets() {
+        return $this->hasMany('\App\AllAsset');
+
+    }
+
     //Intended to use with multiple file uploads (in progress)
     //    public function relatedfile()
 //    {

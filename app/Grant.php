@@ -80,9 +80,9 @@ class Grant extends Model
     }
 
 
-    public function allassets()
-    {
-        return $this->hasMany('\App\Asset', 'grant_id');
-    }
-    
+//    public function allassets()
+//    {
+//        return $this->hasMany('App\AllAsset');
+//    }
+
 }

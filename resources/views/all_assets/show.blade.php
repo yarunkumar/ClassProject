@@ -1,45 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">All Assets</h3>
-    
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            View
-        </div>
 
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- Custom Tabs -->
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#details" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-info-circle"></i></span> <span class="hidden-xs hidden-sm">Details</span></a>
-                            </li>
-                            <li>
-                                <a href="#assets" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-floppy-o"></i></span> <span class="hidden-xs hidden-sm">Assets</span></a>
-                            </li>
-                            <li>
-                                <a href="#history" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-history"></i></span> <span class="hidden-xs hidden-sm">History</span></a>
-                            </li>
-                            <li>
-                                <a href="#files" data-toggle="tab"><span class="hidden-lg hidden-md"><i class="fa fa-files-o"></i></span> <span class="hidden-xs hidden-sm">Files</span></a>
-                            </li>
-                            <li class="pull-right">
-                                <a href="#" data-toggle="modal" data-target="#uploadFileModal"><i class="fa fa-paperclip"></i> </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane fade in active" id="details">
-                                <div class="row">
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade in active" id="details">
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <div class="table-responsive" style="margin-top: 10px;">
-                                                        <table class="table">
-                                                            <tbody>
+        <div id="exTab3" class="pill-container">
+            <ul  class="nav nav-pills">
+                <li class="active">
+                    <a href="#1b" data-toggle="tab">Overview</a>
+                </li>
+                <li><a href="#2b" data-toggle="tab">Assets</a>
+                </li>
+                <li><a href="#3b" data-toggle="tab">History</a>
+                </li>
+                <li><a href="#4a" data-toggle="tab">Files</a>
+                </li>
+            </ul>
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1b">
+                    <div class="panel panel-default" style="margin: 10px;">
+                        <div class="panel-heading">
+                            Asset Information
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped datatable">
 
                                                             @if ($allasset->name )
                                                                 <tr>
@@ -233,12 +215,12 @@
                                                                     <td>{{ $allasset->mdc_pass }}</td>
                                                                 </tr>
                                                             @endif
-                                                            @if ($allasset->cpu )
-                                                                <tr>
-                                                                    <td>{{ ('CPU') }}</td>
-                                                                    <td>{{ $allasset->cpu }}</td>
-                                                                </tr>
-                                                            @endif
+                                                            {{--@if ($allasset->cpu )--}}
+                                                                {{--<tr>--}}
+                                                                    {{--<td>{{ ('CPU') }}</td>--}}
+                                                                    {{--<td>{{ $allasset->cpu }}</td>--}}
+                                                                {{--</tr>--}}
+                                                            {{--@endif--}}
                                                             @if ($allasset->ram )
                                                                 <tr>
                                                                     <td>{{ ('Ram') }}</td>
@@ -350,22 +332,36 @@
                                                             {{--@endif--}}
 {{--                                                            <td>{{ $vehicle->station->station_name or '' }}</td>--}}
                                                             </tbody>
-                                                            <td>
-                                                                <a href="{{ route('all_assets.edit',[$allasset->id]) }}" class="btn btn-xs btn-info">Edit</a>
-                                                                {!! Form::open(array(
-                                            'style' => 'display: inline-block;',
-                                            'method' => 'DELETE',
-                                            'onsubmit' => "return confirm('".trans("Are you sure?")."');",
-                                            'route' => ['all_assets.destroy', $allasset->id])) !!}
-                                                                {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
-                                                                {!! Form::close() !!}
-                                                            </td>
-                                                        </table>
-                                                    </div> <!-- /table-responsive -->
-                                                </div>
-                                    <p>&nbsp;</p>
 
-                                    <a href="{{ route('all_assets.index') }}" class="btn btn-default">Back to list</a>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="2b">
+                    <h4>Tab for Assets</h4>
+                </div>
+
+                <div class="tab-pane" id="3b">
+                     <h4>Tab for History</h4>
+                </div>
+                <div class="tab-pane" id="4a">
+                    <h4>Tab for Files</h4>
+                </div>
+                                        <td>
+                                            <a href="{{ route('all_assets.edit',[$allasset->id]) }}" class="btn btn-xs btn-info">Edit</a>
+                                            {!! Form::open(array(
+                                                'style' => 'display: inline-block;',
+                                                'method' => 'DELETE',
+                                                'onsubmit' => "return confirm('".trans("Are you sure?")."');",
+                                                'route' => ['all_assets.destroy', $allasset->id])) !!}
+                                            {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
+                                            {!! Form::close() !!}
+                                        </td>
+                                        <a href="{{ route('all_assets.index') }}" class="btn btn-xs btn-info">Back to list</a>
                                 </div>
                             </div>
+
 @stop

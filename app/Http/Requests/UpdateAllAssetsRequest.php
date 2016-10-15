@@ -24,8 +24,8 @@ class UpdateAllAssetsRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'serial_number' => 'required|unique:all_assets,serial_number,'.$this->route('allasset'),
-            
+            'serial_number' => 'required|unique:all_assets,serial_number,'.$this->route('all_asset'),
+
         ];
     }
 }

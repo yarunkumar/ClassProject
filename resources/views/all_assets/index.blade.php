@@ -8,8 +8,9 @@
     </p>
 
     <div class="panel panel-default">
+
         <div class="panel-heading">
-            List
+            Assets List
         </div>
 
         <div class="panel-body">
@@ -17,19 +18,20 @@
                 <thead>
                     <tr>
                         {{--<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>--}}
-                        <th>Asset Name</th>
+                    <th>Asset Name</th>
                     <th>Model</th>
                     <th>Make</th>
                     <th>Manufacturer</th>
                     <th>Serial Number</th>
-                    <th>Model IMEI #</th>
+                    {{--<th>Model IMEI #</th>--}}
                     <th>Date Purchased</th>
                     <th>Warranty Date</th>
                     <th>Cost</th>
-                    <th>IMEI #</th>
-                    <th>Mobile Type</th>
-                    <th>Operating System</th>
+                    {{--<th>IMEI #</th>--}}
+                    {{--<th>Mobile Type</th>--}}
+                    {{--<th>Operating System</th>--}}
                     <th>Comments</th>
+                    <th>Status</th>
                     {{--<th>Netmotion User ID</th>--}}
                     {{--<th>Netmotion Password</th>--}}
                     {{--<th>IP address</th>--}}
@@ -63,6 +65,8 @@
                     {{--<th>Tier level</th>--}}
                     {{--<th>System alias</th>--}}
                     {{--<th>System ID Num</th>--}}
+                    <th>Location</th>
+
                     
                         <th>&nbsp;</th>
                     </tr>
@@ -79,13 +83,13 @@
                         <td>{{ $all_asset->make }}</td>
                         <td>{{ $all_asset->manu }}</td>
                         <td>{{ $all_asset->serial_number }}</td>
-                        <td>{{ $all_asset->model_imei }}</td>
+{{--                        <td>{{ $all_asset->model_imei }}</td>--}}
                         <td>{{ $all_asset->date_purchased }}</td>
                         <td>{{ $all_asset->warranty_date }}</td>
                         <td>{{ $all_asset->cost }}</td>
-                        <td>{{ $all_asset->imei }}</td>
-                        <td>{{ $all_asset->mobile_type }}</td>
-                        <td>{{ $all_asset->os }}</td>
+                        {{--<td>{{ $all_asset->imei }}</td>--}}
+                        {{--<td>{{ $all_asset->mobile_type }}</td>--}}
+                        {{--<td>{{ $all_asset->os }}</td>--}}
                         <td>{{ $all_asset->comments }}</td>
                         {{--<td>{{ $all_asset->ntm_uid }}</td>--}}
                         {{--<td>{{ $all_asset->ntm_pass }}</td>--}}
@@ -120,7 +124,12 @@
                         {{--<td>{{ $all_asset->tier_level }}</td>--}}
                         {{--<td>{{ $all_asset->system_alias }}</td>--}}
                         {{--<td>{{ $all_asset->system_id }}</td>--}}
-
+                            <td>{{$all_asset->status->status or ''}}</td>
+                            <td>{{$all_asset->station->station or ''}}</td>
+                                {{--{{$all_asset->vehicle->vehicle or ''}}--}}
+                                {{--{{$all_asset->personnel->personnel or ''}}--}}
+                                {{--{{$all_asset->grant->grant_name or '' }}--}}
+                            {{--</td>--}}
                                 <td>
                                     <a href="{{ route('all_assets.show',[$all_asset->id]) }}" class="btn btn-xs btn-primary">View</a>
                                     <a href="{{ route('all_assets.edit',[$all_asset->id]) }}" class="btn btn-xs btn-info">Edit</a>

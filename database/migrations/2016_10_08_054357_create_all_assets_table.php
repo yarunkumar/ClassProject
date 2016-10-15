@@ -60,6 +60,15 @@ class CreateAllAssetsTable extends Migration
             $table->string('tier_level')->nullable();
             $table->string('system_alias')->nullable();
             $table->string('system_id')->nullable();
+
+            $table->integer('personnel_id')->unsigned()->nullable();
+            $table->foreign('personnel_id', 'fk_personnel')->references('id')->on('personnels');
+            $table->integer('station_id')->unsigned()->nullable();
+            $table->foreign('station_id', 'fk_station')->references('id')->on('stations');
+            $table->integer('status_id')->unsigned()->nullable();
+            $table->foreign('status_id', 'fk_status')->references('id')->on('statuses');
+            $table->integer('grant_id')->unsigned()->nullable();
+            $table->foreign('grant_id', 'fk_grant')->references('id')->on('grants');
             
             $table->timestamps();
             $table->softDeletes();

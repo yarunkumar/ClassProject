@@ -22,28 +22,22 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
 
-Route::resource('stations', 'StationsController');
-Route::resource('vehicles', 'VehiclesController');
-Route::post('vehicles_mass_destroy', ['uses' => 'VehiclesController@massDestroy', 'as' => 'vehicles.mass_destroy']);
-Route::resource('assets', 'AssetsController');
-Route::resource('asset_types', 'AssetTypesController');
-Route::resource('mobile_computers', 'MobileComputersController');
-Route::resource('items', 'ItemsController');
-Route::resource('types', 'TypesController');
-Route::resource('mobile_equipments', 'MobileEquipmentsController');
-Route::resource('hardwares', 'HardwaresController');
-Route::resource('miscs', 'MiscsController');
-Route::resource('common_fields', 'CommonFieldsController');
-Route::resource('personnels', 'PersonnelsController');
-Route::resource('logs', 'LogsController');
-Route::resource('grants', 'GrantsController');
-Route::resource('people', 'PeopleController');
-Route::resource('all_assets', 'AllAssetsController');
+    Route::resource('all_assets', 'AllAssetsController');
+    Route::resource('grants', 'GrantsController');
+    Route::resource('mobile_computers', 'MobileComputersController');
+    Route::resource('manufacturers', 'ManufacturersController');
+//    Route::resource('models', 'ModelsController');
+    Route::resource('personnels', 'PersonnelsController');
+//    Route::resource('logs', 'LogsController');
+    Route::resource('people', 'PeopleController');
+    Route::resource('stations', 'StationsController');
     Route::resource('statuses', 'StatusesController');
     Route::post('statuses_mass_destroy', ['uses' => 'StatusesController@massDestroy', 'as' => 'statuses.mass_destroy']);
-    Route::resource('manufacturers', 'ManufacturersController');
-    Route::resource('models', 'ModelsController');
+    Route::resource('types', 'TypesController');
     Route::resource('unit_types', 'UnitTypesController');
+    Route::resource('vehicles', 'VehiclesController');
+    Route::post('vehicles_mass_destroy', ['uses' => 'VehiclesController@massDestroy', 'as' => 'vehicles.mass_destroy']);
+
     Route::resource('related_files', 'RelatedFilesController');
     Route::post('related_files_mass_destroy', ['uses' => 'RelatedFilesController@massDestroy', 'as' => 'related_files.mass_destroy']);
 });
