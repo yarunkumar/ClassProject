@@ -28,15 +28,32 @@ body {
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+
+.thumbnail:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail:hover > .thumbnail-dash {
+  background-color: #1565c0;
+}
+
+.thumbnail:hover > .thumbnail-dash > i  {
+  color: #e6e6e6;
+}
+
 .shadow {
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 
 .thumbnail-dash > i {
   color: #1565c0;
   text-align: center;
   padding-top: 20px;
 }
+
+
 
 .caption > h3 {
   text-align: center;
