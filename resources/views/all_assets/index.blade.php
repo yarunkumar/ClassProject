@@ -1,12 +1,13 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li class="active">Assets</li>
+  </ol>
+@endsection
 
 @section('content')
-    <h3 class="page-title">All Assets</h3>
-
-    <p>
-        <a href="{{ route('all_assets.create') }}" class="btn btn-success">Add new</a>
-    </p>
-
+    
     <div class="panel panel-default">
 
         <div class="panel-heading">

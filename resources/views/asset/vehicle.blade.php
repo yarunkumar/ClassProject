@@ -1,0 +1,44 @@
+{!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
+
+<div class="row">
+    <div class="col-xs-6 form-group">
+        {!! Form::label('vehicle_number', 'Vehicle Number *', ['class' => 'control-label']) !!}
+        {!! Form::text('vehicle_number', old('vehicle_number'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('vehicle_number'))
+            <p class="help-block">
+                {{ $errors->first('vehicle_number') }}
+            </p>
+        @endif
+    </div>
+    <div class="col-xs-6 form-group">
+        {!! Form::label('vin', 'VIN *', ['class' => 'control-label']) !!}
+        {!! Form::text('vin', old('vin'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('vin'))
+            <p class="help-block">
+                {{ $errors->first('vin') }}
+            </p>
+        @endif
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 form-group">
+        {!! Form::label('vin', 'VAN (need to fix)*', ['class' => 'control-label']) !!}
+        {!! Form::text('vin', old('vin'), ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="col-xs-6 form-group">
+        {!! Form::label('station_id', 'Assign to', ['class' => 'control-label']) !!}
+        {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('station_id'))
+            <p class="help-block">
+                {{ $errors->first('station_id') }}
+            </p>
+        @endif
+    </div>
+</div>
+
+{!! Form::submit('Save',['class' => 'btn btn-success']) !!}
+{!! Form::close() !!}

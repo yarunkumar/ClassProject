@@ -11,6 +11,7 @@
 @section('content')
 <div class="row" style="margin: 10px 10px 0px 10px">
 
+<a href="{{ route('all_assets.index') }}">
     <div class="col-md-3">
       <div class="thumbnail">
         <div class="thumbnail-dash">
@@ -21,6 +22,7 @@
         </div>
       </div>
     </div>
+</a>
 
 <a href="{{ route('stations.index') }}">
     <div class="col-md-3">
