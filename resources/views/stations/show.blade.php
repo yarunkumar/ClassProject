@@ -69,13 +69,13 @@
                     <table class="table table striped datatable">
                         <tr>
                             <th>Vehicle Number </th>
-                            <th>Vin</th>
+                            <th>OFD VAN #</th>
                             <th>Action</th>
                         </tr>
                         @foreach($station->vehicles as $vehicle)
                             <tr>
                                 <td>{{ $vehicle->vehicle_number }}</td>
-                                <td>{{ $vehicle->vin }}</td>
+                                <td>{{ $vehicle->van }}</td>
                                 <td>
                                     <a href="{{ route('vehicles.show',[$vehicle->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     <a href="{{ route('vehicles.edit',[$vehicle->id]) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

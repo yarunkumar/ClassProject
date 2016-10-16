@@ -23,6 +23,7 @@
                     <th>Year</th>
                     <th>Type</th>
                     <th>Status</th>
+                    <th>Location</th>
                     <th>Grants</th>
                         <th>&nbsp;</th>
                     </tr>
@@ -39,6 +40,7 @@
                         <td>{{ $vehicle->year }}</td>
                         <td>{{ $vehicle->unittype->name or '' }}</td>
                         <td>{{ $vehicle->status->status or '' }}</td>
+                        <td>{{$vehicle->station->station_name or '' }}{{ $vehicle->station->station_number or '' }}</td>
                         <td>{{ $vehicle->grant->grant_name or '' }}</td>
                         
                                 <td>

@@ -1,4 +1,4 @@
-{!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
+{!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
 
     <div class="row">
         <div class="col-xs-6 form-group">
@@ -17,7 +17,7 @@
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
-            {!! Form::text('serial_number', old('erial_number'), ['class' => 'form-control']) !!}
+            {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">

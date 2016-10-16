@@ -1,4 +1,4 @@
-{!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
+{!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
 
 <div class="row">
     <div class="col-xs-6 form-group">
@@ -13,8 +13,14 @@
 
 <div class="row">
     <div class="col-xs-6 form-group">
-        {!! Form::label('unit', 'Unit *', ['class' => 'control-label']) !!}
-        {!! Form::text('unit', old('unit'), ['class' => 'form-control']) !!}
+        {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
+        {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('vehicle_id'))
+            <p class="help-block">
+                {{ $errors->first('vehicle_id') }}
+            </p>
+        @endif
     </div>
     <div class="col-xs-6 form-group">
         {!! Form::label('unit_agency', 'Unit Agency', ['class' => 'control-label']) !!}

@@ -132,10 +132,10 @@ class AllAsset extends Model
     {
         return $this->belongsTo('App\Grant', 'grant_id');
     }
-//    public function grant()
-//    {
-//        return $this->belongsTo(\App\Grant::class);
-//    }
+    public function vehicle()
+    {
+        return $this->belongsTo(\App\Vehicle::class);
+    }
 
     public function status()
     {
@@ -146,5 +146,6 @@ class AllAsset extends Model
     {
         return $this->belongsTo(\App\Personnel::class);
     }
+
     
 }

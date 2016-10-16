@@ -1,4 +1,4 @@
-{!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
+{!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
 
     <div class="row">
         <div class="col-xs-6 form-group">

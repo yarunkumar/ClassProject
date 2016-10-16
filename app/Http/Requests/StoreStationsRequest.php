@@ -23,8 +23,8 @@ class StoreStationsRequest extends FormRequest
     public function rules()
     {
         return [
-            'station_name' => 'required|unique:stations,station_name',
-            'station_number' => 'required|integer',
+            'station_name' => 'required|string|unique:stations,station_name',
+            'station_number' => 'required|integer|unique:stations,station_number',
             'station_document' => 'max:20480',
             'station_image' => 'max:20480',
             

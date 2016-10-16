@@ -69,7 +69,9 @@ class CreateAllAssetsTable extends Migration
             $table->foreign('status_id', 'fk_status')->references('id')->on('statuses');
             $table->integer('grant_id')->unsigned()->nullable();
             $table->foreign('grant_id', 'fk_grant')->references('id')->on('grants');
-            
+            $table->integer('vehicle_id')->unsigned()->nullable();
+            $table->foreign('vehicle_id', 'fk_vehicle')->references('id')->on('vehicles');
+
             $table->timestamps();
             $table->softDeletes();
 

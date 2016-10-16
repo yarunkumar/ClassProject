@@ -4,6 +4,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
+
 /**
  * Class UnitType
  *
@@ -15,7 +16,7 @@ class UnitType extends Model
     use SoftDeletes;
     
     protected $fillable = ['name'];
-    
-    
+
+
     
 }

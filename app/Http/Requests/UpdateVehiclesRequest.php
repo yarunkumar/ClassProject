@@ -23,7 +23,7 @@ class UpdateVehiclesRequest extends FormRequest
     public function rules()
     {
         return [
-            'van' => 'required|unique:vehicles,van,'.$this->route('vehicle'),
+            'van' => 'required|unique:vehicles,van,',
             
         ];
     }

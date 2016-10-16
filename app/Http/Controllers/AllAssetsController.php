@@ -101,6 +101,7 @@ class AllAssetsController extends Controller
             'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
             'personnels' => Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
 
         ];
         $allasset = AllAsset::findOrFail($id);

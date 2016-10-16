@@ -23,8 +23,8 @@ class StoreAllAssetsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'serial_number' => 'required|unique:all_assets,serial_number',
+//            'name' => 'required',
+//            'serial_number' => 'required|unique:all_assets,serial_number',
             
         ];
     }

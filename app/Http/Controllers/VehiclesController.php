@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vehicle;
+use App\UnitType;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreVehiclesRequest;
 use App\Http\Requests\UpdateVehiclesRequest;
@@ -66,6 +67,7 @@ class VehiclesController extends Controller
             'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
             'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
 
         ];
 
