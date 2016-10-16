@@ -317,21 +317,37 @@
                                                                     <td>{{ $allasset->system_id }}</td>
                                                                 </tr>
                                                             @endif
-                                                            {{--show assigned relationships--}}
-                                                            @if ($allasset->station_name )
+
+                                                            @if ($allasset->station_id )
                                                                 <tr>
                                                                     <td>{{ ('Assigned Station') }}</td>
-                                                                    <td>{{ $allasset->station_name or '' }}</td>
+                                                                    <td>{{ $allasset->station->station_name or '' }}</td>
                                                                 </tr>
                                                             @endif
-                                                            {{--@if ($allasset->vehicle_id )--}}
-                                                                {{--<tr>--}}
-                                                                    {{--<td>{{ ('Assigned Vehicle') }}</td>--}}
-                                                                    {{--<td>{{ $allasset->vehicle_id }}</td>--}}
-                                                                {{--</tr>--}}
-                                                            {{--@endif--}}
-{{--                                                            <td>{{ $vehicle->station->station_name or '' }}</td>--}}
-                                                            </tbody>
+                                                            @if ($allasset->vehicle_id )
+                                                                <tr>
+                                                                    <td>{{ ('Assigned Vehicle') }}</td>
+                                                                    <td>{{$allasset->vehicle->vehicle_number or ''}}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->personnel_id )
+                                                                <tr>
+                                                                    <td>{{ ('Assigned Person') }}</td>
+                                                                    <td>{{ $allasset->personnel_id }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->status_id )
+                                                                <tr>
+                                                                    <td>{{ ('Status') }}</td>
+                                                                    <td>{{$allasset->status->status or ''}}</td>
+                                                                </tr>
+                                                            @endif
+                                                            @if ($allasset->grant_id )
+                                                                <tr>
+                                                                    <td>{{ ('Grant') }}</td>
+                                                                    <td>{{$allasset->grant->grant_name or ''}}</td>
+                                                                </tr>
+                                                            @endif
 
                             </table>
 
@@ -352,13 +368,6 @@
                 </div>
                                         <td>
                                             <a href="{{ route('all_assets.edit',[$allasset->id]) }}" class="btn btn-xs btn-info">Edit</a>
-                                            {!! Form::open(array(
-                                                'style' => 'display: inline-block;',
-                                                'method' => 'DELETE',
-                                                'onsubmit' => "return confirm('".trans("Are you sure?")."');",
-                                                'route' => ['all_assets.destroy', $allasset->id])) !!}
-                                            {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
-                                            {!! Form::close() !!}
                                         </td>
                                         <a href="{{ route('all_assets.index') }}" class="btn btn-xs btn-info">Back to list</a>
                                 </div>

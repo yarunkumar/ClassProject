@@ -10,7 +10,7 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAllAssetsRequest;
 use App\Http\Requests\UpdateAllAssetsRequest;
-use Illuminate\Routing\Route;
+//use Illuminate\Routing\Route;
 
 class AllAssetsController extends Controller
 {
@@ -36,10 +36,10 @@ class AllAssetsController extends Controller
     public function create()
     {
         $relations = [
-            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
-            'personnels' => Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
         ];
@@ -96,10 +96,10 @@ class AllAssetsController extends Controller
     public function edit($id)
     {
         $relations = [
-            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
-            'personnels' => Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
             'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
 
@@ -132,11 +132,12 @@ class AllAssetsController extends Controller
     public function show($id)
     {
         $relations = [
-            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
-            'personnels' => Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_name', 'station_name')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+
 
         ];
 

@@ -20,6 +20,11 @@ class StoreAllAssetsRequest extends FormRequest
      *
      * @return array
      */
+
+    //    need to work on common fields validation,
+    //    when required field is not entered
+    //    it is asking to enter the required field
+
     public function rules()
     {
         return [
