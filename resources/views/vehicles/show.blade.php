@@ -59,10 +59,47 @@
                 </div>
             </div>
 
-        <div class="tab-pane" id="2b">
-            <h4>Tab for Assets</h4>
+            <div class="tab-pane" id="2b">
+                <div class="panel panel-default" style="margin: 10px;">
+                    <div class="panel-heading">
+                        Assets List
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table striped datatable">
+                            <tr>
+                                <th>Asset Name</th>
+                                <th>Model</th>
+                                <th>Make</th>
+                                <th>Manufacturer</th>
+                                <th>Serial Number</th>
+                                <th>Date Purchased</th>
+                                <th>Warranty Date</th>
+                                <th>Cost</th>
+                                <th>Comments</th>
+                                <th>Status</th>
+                                <th>Location</th>
+                            </tr>
+                            @foreach($vehicle->allassets as $all_asset)
+                                <tr>
+                                    <td>{{ $all_asset->name }}</td>
+                                    <td>{{ $all_asset->model }}</td>
+                                    <td>{{ $all_asset->make }}</td>
+                                    <td>{{ $all_asset->manu }}</td>
+                                    <td>{{ $all_asset->serial_number }}</td>
+                                    <td>{{ $all_asset->date_purchased }}</td>
+                                    <td>{{ $all_asset->warranty_date }}</td>
+                                    <td>{{ $all_asset->cost }}</td>
+                                    <td>{{ $all_asset->comments }}</td>
+                                    <td>{{$all_asset->status->status or ''}}</td>
+                                    <td>{{$all_asset->station->station_number or ''}}</td>
+                                    {{--{{$all_asset->station->station_name or ''}}--}}
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
 
-        </div>
+            </div>
         <div class="tab-pane" id="3b">
             <h4>History</h4>
 
