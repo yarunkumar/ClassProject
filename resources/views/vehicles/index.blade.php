@@ -1,22 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">Vehicle</h3>
-
-    <p>
-        <a href="{{ route('vehicles.create') }}" class="btn btn-success">Add new</a>
-    </p>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            List
+            Vehicles List
         </div>
 
         <div class="panel-body">
             <table class="table table-bordered table-striped {{ count($vehicles) > 0 ? 'datatable' : '' }}">
                 <thead>
                     <tr>
-                        <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
+                        {{--<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>--}}
                         <th>OFD VAN #</th>
                     <th>Make</th>
                     <th>Model</th>
@@ -33,7 +28,7 @@
                     @if (count($vehicles) > 0)
                         @foreach ($vehicles as $vehicle)
                             <tr data-entry-id="{{ $vehicle->id }}">
-                                <td></td>
+                                {{--<td></td>--}}
                                 <td>{{ $vehicle->van }}</td>
                         <td>{{ $vehicle->make }}</td>
                         <td>{{ $vehicle->model }}</td>

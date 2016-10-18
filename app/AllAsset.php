@@ -113,7 +113,7 @@ class AllAsset extends Model
         'vehicle_id',
         'personnel_id',
     ];
-    
+
     
     /**
      * Set attribute to date format
@@ -197,6 +197,11 @@ class AllAsset extends Model
     public function personnel()
     {
         return $this->belongsTo(\App\Personnel::class);
+    }
+
+    public function unittype()
+    {
+        return $this->belongsTo(\App\UnitType::class);
     }
 
     

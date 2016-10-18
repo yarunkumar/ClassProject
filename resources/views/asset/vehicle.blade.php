@@ -1,5 +1,5 @@
 {!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
-    
+
     <div class="row">
                 <div class="col-xs-6 form-group">
                     {!! Form::label('van', 'OFD VAN #', ['class' => 'control-label']) !!}
@@ -45,19 +45,16 @@
                     @endif
                 </div>
 
-
-        {{--This one is giving error within this view, i checked creating create.blade.php within vehicle folder with exact same method, it is working, not sure why error is happening from here--}}
-
-                {{--<div class="col-xs-6 form-group">--}}
-                    {{--{!! Form::label('unittype_id', 'Type', ['class' => 'control-label']) !!}--}}
-                    {{--{!! Form::select('unittype_id', $unittypes, old('unittype_id'), ['class' => 'form-control']) !!}--}}
-                    {{--<p class="help-block"></p>--}}
-                    {{--@if($errors->has('unittype_id'))--}}
-                        {{--<p class="help-block">--}}
-                            {{--{{ $errors->first('unittype_id') }}--}}
-                        {{--</p>--}}
-                    {{--@endif--}}
-                {{--</div>--}}
+                <div class="col-xs-6 form-group">
+                    {!! Form::label('unittype_id', 'Type', ['class' => 'control-label']) !!}
+                    {!! Form::select('unittype_id', $unittypes, old('unittype_id'), ['class' => 'form-control']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('unittype_id'))
+                        <p class="help-block">
+                            {{ $errors->first('unittype_id') }}
+                        </p>
+                    @endif
+                </div>
 
                 <div class="col-xs-6 form-group">
                     {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
