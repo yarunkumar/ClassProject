@@ -25,9 +25,9 @@
                     <th>Manufacturer</th>
                     <th>Serial Number</th>
                     {{--<th>Model IMEI #</th>--}}
-                    <th>Date Purchased</th>
-                    <th>Warranty Date</th>
-                    <th>Cost</th>
+                    {{--<th>Date Purchased</th>--}}
+                    {{--<th>Warranty Date</th>--}}
+                    {{--<th>Cost</th>--}}
                     {{--<th>IMEI #</th>--}}
                     {{--<th>Mobile Type</th>--}}
                     {{--<th>Operating System</th>--}}
@@ -85,9 +85,9 @@
                         <td>{{ $all_asset->manu }}</td>
                         <td>{{ $all_asset->serial_number }}</td>
 {{--                        <td>{{ $all_asset->model_imei }}</td>--}}
-                        <td>{{ $all_asset->date_purchased }}</td>
-                        <td>{{ $all_asset->warranty_date }}</td>
-                        <td>{{ $all_asset->cost }}</td>
+                        {{--<td>{{ $all_asset->date_purchased }}</td>--}}
+                        {{--<td>{{ $all_asset->warranty_date }}</td>--}}
+                        {{--<td>{{ $all_asset->cost }}</td>--}}
                         {{--<td>{{ $all_asset->imei }}</td>--}}
                         {{--<td>{{ $all_asset->mobile_type }}</td>--}}
                         {{--<td>{{ $all_asset->os }}</td>--}}
