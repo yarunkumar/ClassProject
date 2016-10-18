@@ -2,12 +2,12 @@
 
 <div class="row">
     <div class="col-xs-6 form-group">
-        {!! Form::label('mdc_user_id', 'MDC User ID', ['class' => 'control-label']) !!}
-        {!! Form::text('mdc_user_id', old('mdc_user_id'), ['class' => 'form-control']) !!}
+        {!! Form::label('mdc_id', 'MDC User ID', ['class' => 'control-label']) !!}
+        {!! Form::text('mdc_id', old('mdc_id'), ['class' => 'form-control']) !!}
     </div>
     <div class="col-xs-6 form-group">
-        {!! Form::label('mdc_password', 'MDC Password', ['class' => 'control-label']) !!}
-        {!! Form::text('mdc_password', old('mdc_password'), ['class' => 'form-control']) !!}
+        {!! Form::label('mdc_pass', 'MDC Password', ['class' => 'control-label']) !!}
+        {!! Form::text('mdc_pass', old('mdc_pass'), ['class' => 'form-control']) !!}
     </div>
 </div>
 
@@ -23,14 +23,14 @@
         @endif
     </div>
     <div class="col-xs-6 form-group">
-        {!! Form::label('unit_agency', 'Unit Agency', ['class' => 'control-label']) !!}
-        {!! Form::text('unit_agency', old('unit_agency'), ['class' => 'form-control']) !!}
+        {!! Form::label('manu', 'Unit Agency', ['class' => 'control-label']) !!}
+        {!! Form::text('manu', old('manu'), ['class' => 'form-control']) !!}
     </div>
 </div>
 
 <div class="row">
     <div class="col-xs-6 form-group">
-        {!! Form::label('station_id', 'Assign to', ['class' => 'control-label']) !!}
+        {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
         @if($errors->has('station_id'))
