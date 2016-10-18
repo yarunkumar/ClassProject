@@ -22,7 +22,7 @@ class CreateStationsTable extends Migration
 	        $table->string('city');
             $table->integer('zipcode');
 
-	        $table->string('battalion');
+	        $table->string('district');
             
             $table->timestamps();
             $table->softDeletes();

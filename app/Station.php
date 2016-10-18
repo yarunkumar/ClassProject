@@ -9,9 +9,18 @@ class Station extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = ['station_name', 'station_number', 'station_date', 'address', 'city', 'zipcode', 'district', 'station_document', 'station_image', ];
-    
-    
+    protected $fillable = [
+        'station_name',
+        'station_number',
+        'station_date',
+        'address',
+        'city',
+        'zipcode',
+        'district',
+        'station_document',
+        'station_image', ];
+
+
     /**
      * Set attribute to date format
      * @param $input
