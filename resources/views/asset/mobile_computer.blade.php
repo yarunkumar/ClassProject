@@ -31,6 +31,7 @@
         </div>
 
     </div>
+
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('date_purchased', 'Date Purchased', ['class' => 'control-label']) !!}
@@ -68,6 +69,18 @@
                 {{ $errors->first('vehicle_id') }}
             </p>
         @endif
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
     </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}

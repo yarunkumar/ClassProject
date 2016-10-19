@@ -2,8 +2,8 @@
 
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Manufacture (Make)', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
+            {!! Form::label('manu', 'Manufacture (Make)', ['class' => 'control-label']) !!}
+            {!! Form::text('manu', old('manu'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Model #', ['class' => 'control-label']) !!}
@@ -14,6 +14,10 @@
         <div class="col-xs-6 form-group">
             {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
             {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
         </div>
 
     </div>
@@ -37,6 +41,14 @@
                 {{ $errors->first('vehicle_id') }}
             </p>
         @endif
+    </div>
+</div>
+<div class="row">
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
     </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
