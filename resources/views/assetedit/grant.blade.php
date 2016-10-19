@@ -1,4 +1,4 @@
-{!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
+{!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
 
     <div class="row">
         <div class="col-xs-6 form-group">
