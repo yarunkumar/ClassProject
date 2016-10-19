@@ -11,19 +11,16 @@
         </div>
     </div>
     <div class="row">
+        
         <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
-        </div>
-        <div class="col-xs-6 form-group">
-            {!! Form::label('seid_number', 'SEID Number', ['class' => 'control-label']) !!}
-            {!! Form::text('seid_number', old('seid_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('seid_num', 'SEID Number', ['class' => 'control-label']) !!}
+            {!! Form::text('seid_num', old('seid_num'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('version', 'Version', ['class' => 'control-label']) !!}
-            {!! Form::text('version', old('version'), ['class' => 'form-control']) !!}
+            {!! Form::label('firmware_ver', 'Version', ['class' => 'control-label']) !!}
+            {!! Form::text('firmware_ver', old('firmware_ver'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('emid', 'EMID', ['class' => 'control-label']) !!}
@@ -32,14 +29,28 @@
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('phone_number', 'Phone Number', ['class' => 'control-label']) !!}
-            {!! Form::text('phone_number', old('phone_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('phone', 'Phone Number', ['class' => 'control-label']) !!}
+            {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('ipad_name', 'IPad Name', ['class' => 'control-label']) !!}
-            {!! Form::text('ipad_name', old('ipad_name'), ['class' => 'form-control']) !!}
+            {!! Form::label('name', 'IPad Name', ['class' => 'control-label']) !!}
+            {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
         </div>
     </div>
+    <div class="row">
+    <div class="col-xs-6 form-group">
+        {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
+        {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('station_id'))
+            <p class="help-block">
+                {{ $errors->first('station_id') }}
+            </p>
+        @endif
+    </div>
+    
+
+</div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
