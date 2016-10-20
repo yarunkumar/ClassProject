@@ -15,6 +15,7 @@ class CreateAllAssetsTable extends Migration
         Schema::create('all_assets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
+            $table->string('asset_type')->nullable();
             $table->string('model')->nullable();
             $table->string('make')->nullable();
             $table->string('manu')->nullable();
