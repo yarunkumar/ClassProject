@@ -2,12 +2,12 @@
 
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('netmotion_user_id', 'Netmotion User ID *', ['class' => 'control-label']) !!}
-            {!! Form::text('netmotion_user_id', old('netmotion_user_id'), ['class' => 'form-control']) !!}
+            {!! Form::label('ntm_uid', 'Netmotion User ID *', ['class' => 'control-label']) !!}
+            {!! Form::text('ntm_uid', old('ntm_uid'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('netmotion_password', 'Netmotion Password', ['class' => 'control-label']) !!}
-            {!! Form::text('netmotion_password', old('netmotion_password'), ['class' => 'form-control']) !!}
+            {!! Form::label('ntm_pass', 'Netmotion Password', ['class' => 'control-label']) !!}
+            {!! Form::text('ntm_pass', old('ntm_pass'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -16,8 +16,8 @@
             {!! Form::text('ip_address', old('ip_address'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('cad_ip_address', 'CAD IP Address', ['class' => 'control-label']) !!}
-            {!! Form::text('cad_ip_address', old('cad_ip_address'), ['class' => 'form-control']) !!}
+            {!! Form::label('cad_ip', 'CAD IP Address', ['class' => 'control-label']) !!}
+            {!! Form::text('cad_ip', old('cad_ip'), ['class' => 'form-control']) !!}
         </div>
     </div>
      <div class="row">

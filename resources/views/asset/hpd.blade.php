@@ -16,8 +16,8 @@
             {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('hdp_warranty_date', 'HPD Warranty Date', ['class' => 'control-label']) !!}
-            {!! Form::text('hdp_warranty_date', old('hdp_warranty_date'), ['class' => 'form-control']) !!}
+            {!! Form::label('warranty_date', 'HPD Warranty Date', ['class' => 'control-label']) !!}
+            {!! Form::text('warranty_date', old('warranty_date'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -26,8 +26,8 @@
             {!! Form::text('ip_address', old('ip_address'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('firmware_verision', 'Firmware Verision', ['class' => 'control-label']) !!}
-            {!! Form::text('firmware_verision', old('firmware_verision'), ['class' => 'form-control']) !!}
+            {!! Form::label('firmware_ver', 'Firmware Verision', ['class' => 'control-label']) !!}
+            {!! Form::text('firmware_ver', old('firmware_ver'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">

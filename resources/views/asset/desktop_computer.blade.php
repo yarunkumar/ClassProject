@@ -6,18 +6,19 @@
             {!! Form::text('ip_address', old('ip_address'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('computer_name', 'Computer Name', ['class' => 'control-label']) !!}
-            {!! Form::text('computer_name', old('computer_name'), ['class' => 'form-control']) !!}
+            {!! Form::label('name', 'Computer Name', ['class' => 'control-label']) !!}
+            {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
-        </div>
+        
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
             {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('manu', 'Brand', ['class' => 'control-label']) !!}
+            {!! Form::text('manu', old('manu'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -46,14 +47,14 @@
             {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('asset_tag_number', 'Asset Tag #', ['class' => 'control-label']) !!}
-            {!! Form::text('asset_tag_number', old('asset_tag_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('asset_tag', 'Asset Tag #', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_tag', old('asset_tag'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('os_version', 'OS Version', ['class' => 'control-label']) !!}
-            {!! Form::text('os_version', old('os_version'), ['class' => 'form-control']) !!}
+            {!! Form::label('os', 'OS Version', ['class' => 'control-label']) !!}
+            {!! Form::text('os', old('os'), ['class' => 'form-control']) !!}
         </div>
 
     </div>

@@ -2,8 +2,8 @@
 
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
+            {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+            {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
@@ -15,15 +15,16 @@
             {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
             {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control']) !!}
         </div>
-        <div class="col-xs-6 form-group">
-            {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-            {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+         <div class="col-xs-6 form-group">
+            {!! Form::label('imei', 'IMEI #', ['class' => 'control-label']) !!}
+            {!! Form::text('imei', old('imei'), ['class' => 'form-control']) !!}
         </div>
+        
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('model_imei_number', 'Model IMEI #', ['class' => 'control-label']) !!}
-            {!! Form::text('model_imei_number', old('model_imei_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('model_imei', 'Model IMEI #', ['class' => 'control-label']) !!}
+            {!! Form::text('model_imei', old('model_imei'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('mobile_type', 'Mobile Type', ['class' => 'control-label']) !!}
@@ -42,13 +43,7 @@
             {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-6 form-group">
-            {!! Form::label('os_version', 'OS Version', ['class' => 'control-label']) !!}
-            {!! Form::text('os_version', old('os_version'), ['class' => 'form-control']) !!}
-        </div>
-
-    </div>
+    
      <div class="row">
         <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}

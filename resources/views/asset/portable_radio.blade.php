@@ -2,13 +2,10 @@
 
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('model_number', 'Model Number', ['class' => 'control-label']) !!}
-            {!! Form::text('model_number', old('model_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('model', 'Model Number', ['class' => 'control-label']) !!}
+            {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
         </div>
-        <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
-        </div>
+        
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
@@ -26,8 +23,8 @@
             {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('model_description', 'Model Description', ['class' => 'control-label']) !!}
-            {!! Form::text('model_description', old('model_description'), ['class' => 'form-control']) !!}
+            {!! Form::label('radio_desc', 'Model Description', ['class' => 'control-label']) !!}
+            {!! Form::text('radio_desc', old('radio_desc'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -36,8 +33,8 @@
             {!! Form::text('system_alias', old('system_alias'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('system_id_number', 'System ID Number', ['class' => 'control-label']) !!}
-            {!! Form::text('system_id_number', old('system_id_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('system_id', 'System ID Number', ['class' => 'control-label']) !!}
+            {!! Form::text('system_id', old('system_id'), ['class' => 'form-control']) !!}
         </div>
     </div>
      <div class="row">
