@@ -104,8 +104,8 @@ class AllAssetsController extends Controller
             'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
 
         ];
-        $allasset = AllAsset::findOrFail($id);
-        return view('all_assets.edit', compact('allasset', '') + $relations);
+        $all_assets = AllAsset::findOrFail($id);
+        return view('all_assets.edit', compact('all_assets', '') + $relations);
     }
 
     /**
