@@ -62,6 +62,7 @@ class AllAsset extends Model
     
     protected $fillable = [
         'name',
+        'asset_type',
         'model',
         'make',
         'manu',
