@@ -1,26 +1,27 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
 
-    <div class="row">
+   <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('team_viewer_number', 'Team Viewer Number', ['class' => 'control-label']) !!}
-            {!! Form::text('team_viewer_number', old('team_viewer_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('tmv_num', 'Team Viewer Number', ['class' => 'control-label']) !!}
+            {!! Form::text('tmv_num', old('tmv_num'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('teamviewer_alias', 'Teamviewer Alias', ['class' => 'control-label']) !!}
-            {!! Form::text('teamviewer_alias', old('teamviewer_alias'), ['class' => 'form-control']) !!}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-6 form-group">
-            {!! Form::label('teamviewer_username', 'Username', ['class' => 'control-label']) !!}
-            {!! Form::text('teamviewer_username', old('teamviewer_username'), ['class' => 'form-control']) !!}
-        </div>
-        <div class="col-xs-6 form-group">
-            {!! Form::label('teamviewer_password', 'Password', ['class' => 'control-label']) !!}
-            {!! Form::text('teamviewer_password', old('teamviewer_password'), ['class' => 'form-control']) !!}
+            {!! Form::label('tmv_alias', 'Teamviewer Alias', ['class' => 'control-label']) !!}
+            {!! Form::text('tmv_alias', old('tmv_alias  '), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="col-xs-6 form-group">
+    <div class="row">
+        <div class="col-xs-6 form-group">
+            {!! Form::label('ntm_uid', 'Username', ['class' => 'control-label']) !!}
+            {!! Form::text('ntm_uid', old('ntm_uid'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('ntm_pass', 'Password', ['class' => 'control-label']) !!}
+            {!! Form::text('ntm_pass', old('ntm_pass'), ['class' => 'form-control']) !!}
+        </div>
+    </div>
+ <div class="row">
+        <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
@@ -39,6 +40,18 @@
                 {{ $errors->first('vehicle_id') }}
             </p>
         @endif
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
     </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}

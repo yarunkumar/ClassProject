@@ -6,14 +6,14 @@
             {!! Form::text('ip_address', old('ip_address'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('computer_name', 'Computer Name', ['class' => 'control-label']) !!}
-            {!! Form::text('computer_name', old('computer_name'), ['class' => 'form-control']) !!}
+            {!! Form::label('name', 'Computer Name', ['class' => 'control-label']) !!}
+            {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
+            {!! Form::label('manu', 'Brand', ['class' => 'control-label']) !!}
+            {!! Form::text('manu', old('manu'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
@@ -57,7 +57,19 @@
         </div>
 
     </div>
+    <div class="row">
     <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
+    </div>
+     <div class="row">
+        <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
@@ -77,6 +89,8 @@
             </p>
         @endif
     </div>
+    </div>
+    
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

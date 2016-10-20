@@ -1,13 +1,13 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
 
-    <div class="row">
+   <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('netmotion_user_id', 'Netmotion User ID *', ['class' => 'control-label']) !!}
-            {!! Form::text('netmotion_user_id', old('netmotion_user_id'), ['class' => 'form-control']) !!}
+            {!! Form::label('ntm_uid', 'Netmotion User ID *', ['class' => 'control-label']) !!}
+            {!! Form::text('ntm_uid', old('ntm_uid'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('netmotion_password', 'Netmotion Password', ['class' => 'control-label']) !!}
-            {!! Form::text('netmotion_password', old('netmotion_password'), ['class' => 'form-control']) !!}
+            {!! Form::label('ntm_pass', 'Netmotion Password', ['class' => 'control-label']) !!}
+            {!! Form::text('ntm_pass', old('ntm_pass'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -16,11 +16,12 @@
             {!! Form::text('ip_address', old('ip_address'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('cad_ip_address', 'CAD IP Address', ['class' => 'control-label']) !!}
-            {!! Form::text('cad_ip_address', old('cad_ip_address'), ['class' => 'form-control']) !!}
+            {!! Form::label('cad_ip', 'CAD IP Address', ['class' => 'control-label']) !!}
+            {!! Form::text('cad_ip', old('cad_ip'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="col-xs-6 form-group">
+     <div class="row">
+        <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
@@ -39,6 +40,18 @@
                 {{ $errors->first('vehicle_id') }}
             </p>
         @endif
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
     </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}

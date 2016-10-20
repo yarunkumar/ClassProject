@@ -12,22 +12,22 @@
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('meid_model_number', 'MEID Model #', ['class' => 'control-label']) !!}
-            {!! Form::text('meid_model_number', old('meid_model_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('meid_model_#', 'MEID Model #', ['class' => 'control-label']) !!}
+            {!! Form::text('meid_model_#', old('meid_model_#'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('meid_number', 'MEID Number', ['class' => 'control-label']) !!}
-            {!! Form::text('meid_number', old('meid_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('meid', 'MEID Number', ['class' => 'control-label']) !!}
+            {!! Form::text('meid', old('meid'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('phone_number', 'Phone Number', ['class' => 'control-label']) !!}
-            {!! Form::text('phone_number', old('phone_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('phone', 'Phone Number', ['class' => 'control-label']) !!}
+            {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('multi_tech_sim', 'Multi-Tech SIM', ['class' => 'control-label']) !!}
-            {!! Form::text('multi_tech_sim', old('multi_tech_sim'), ['class' => 'form-control']) !!}
+            {!! Form::label('sim_id', 'Multi-Tech SIM', ['class' => 'control-label']) !!}
+            {!! Form::text('sim_id', old('sim_id'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-xs-6 form-group">
@@ -49,6 +49,17 @@
                 {{ $errors->first('vehicle_id') }}
             </p>
         @endif
+    </div>
+    <div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
     </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}

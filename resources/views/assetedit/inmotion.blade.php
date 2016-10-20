@@ -2,8 +2,8 @@
 
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('manufacture', 'Hotspot Manufacture', ['class' => 'control-label']) !!}
-            {!! Form::text('manufacture', old('manufacture'), ['class' => 'form-control']) !!}
+            {!! Form::label('manu', 'Hotspot Manufacture', ['class' => 'control-label']) !!}
+            {!! Form::text('manu', old('manu'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Hotstpot Model', ['class' => 'control-label']) !!}
@@ -16,27 +16,28 @@
             {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('mac_number', 'MAC #', ['class' => 'control-label']) !!}
-            {!! Form::text('mac_number', old('mac_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('imei', 'Hotspot IMEI #', ['class' => 'control-label']) !!}
+            {!! Form::text('imei', old('imei'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('model_imei_number', 'Model IMWI Number', ['class' => 'control-label']) !!}
-            {!! Form::text('model_imei_number', old('model_imei_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('mac', 'Model MAC #', ['class' => 'control-label']) !!}
+            {!! Form::text('mac', old('mac'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('imei_number', 'IMEI Number', ['class' => 'control-label']) !!}
-            {!! Form::text('imei_number', old('imei_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('meid_model_#', 'Hotspot Model IMEI Number', ['class' => 'control-label']) !!}
+            {!! Form::text('meid_model_#', old('meid_model_#'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('firmware_version', 'Firmware Version', ['class' => 'control-label']) !!}
-            {!! Form::text('firmware_version', old('firmware_version'), ['class' => 'form-control']) !!}
+            {!! Form::label('firmware_ver', 'Firmware Version', ['class' => 'control-label']) !!}
+            {!! Form::text('firmware_ver', old('firmware_ver'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="col-xs-6 form-group">
+     <div class="row">
+        <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
@@ -56,6 +57,17 @@
             </p>
         @endif
     </div>
-
+    </div>
+    <div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
+    </div>
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

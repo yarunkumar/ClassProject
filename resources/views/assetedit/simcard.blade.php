@@ -1,22 +1,23 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
 
-    <div class="row">
+  <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('sim_card_id', 'SIM Card ID', ['class' => 'control-label']) !!}
-            {!! Form::text('sim_card_id', old('sim_card_id'), ['class' => 'form-control']) !!}
+            {!! Form::label('sim_id', 'SIM Card ID', ['class' => 'control-label']) !!}
+            {!! Form::text('sim_id', old('sim_id'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('sim_card_phone_number', 'Sim Card Phone Number', ['class' => 'control-label']) !!}
-            {!! Form::text('sim_card_phone_number', old('sim_card_phone_number'), ['class' => 'form-control']) !!}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-6 form-group">
-            {!! Form::label('sim_card_ip', 'SIM Card IP', ['class' => 'control-label']) !!}
-            {!! Form::text('sim_card_ip', old('sim_card_ip'), ['class' => 'form-control']) !!}
+            {!! Form::label('sim_phone', 'Sim Card Phone Number', ['class' => 'control-label']) !!}
+            {!! Form::text('sim_phone', old('sim_phone'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="col-xs-6 form-group">
+    <div class="row">
+        <div class="col-xs-6 form-group">
+            {!! Form::label('ip_address', 'SIM Card IP', ['class' => 'control-label']) !!}
+            {!! Form::text('ip_address', old('ip_address'), ['class' => 'form-control']) !!}
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
@@ -36,6 +37,17 @@
             </p>
         @endif
     </div>
-
+</div>
+<div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
+    </div>
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

@@ -1,13 +1,13 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
 
-    <div class="row">
+   <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('model_number', 'Model Number', ['class' => 'control-label']) !!}
-            {!! Form::text('model_number', old('model_number'), ['class' => 'form-control']) !!}
+            {!! Form::label('model', 'Model Number', ['class' => 'control-label']) !!}
+            {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
+            {!! Form::label('cost', 'Cost', ['class' => 'control-label']) !!}
+            {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -16,8 +16,8 @@
             {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('size', 'Size', ['class' => 'control-label']) !!}
-            {!! Form::text('size', old('size'), ['class' => 'form-control']) !!}
+            {!! Form::label('screen_size', 'Size', ['class' => 'control-label']) !!}
+            {!! Form::text('screen_size', old('screen_size'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -25,12 +25,11 @@
             {!! Form::label('date_purchases', 'Date Purchased', ['class' => 'control-label']) !!}
             {!! Form::text('date_purchases', old('date_purchases'), ['class' => 'form-control']) !!}
         </div>
-        <div class="col-xs-6 form-group">
-            {!! Form::label('cost', 'Cost', ['class' => 'control-label']) !!}
-            {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
-        </div>
+        
+
     </div>
-    <div class="col-xs-6 form-group">
+    <div class="row">
+        <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
@@ -50,6 +49,20 @@
             </p>
         @endif
     </div>
+        </div>
+        <div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
+    </div>
+
+
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

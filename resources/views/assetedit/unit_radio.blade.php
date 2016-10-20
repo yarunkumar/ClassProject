@@ -1,14 +1,11 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
 
-    <div class="row">
+     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
             {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
         </div>
-        <div class="col-xs-6 form-group">
-            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
-            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
-        </div>
+        
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
@@ -26,8 +23,8 @@
             {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('model_description', 'Model Description', ['class' => 'control-label']) !!}
-            {!! Form::text('model_description', old('model_description'), ['class' => 'form-control']) !!}
+            {!! Form::label('radio_desc', 'Model Description', ['class' => 'control-label']) !!}
+            {!! Form::text('radio_desc', old('radio_desc'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -42,11 +39,12 @@
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('system_id_num', 'System ID', ['class' => 'control-label']) !!}
-            {!! Form::text('system_id_num', old('system_id_num'), ['class' => 'form-control']) !!}
+            {!! Form::label('system_id', 'System ID', ['class' => 'control-label']) !!}
+            {!! Form::text('system_id', old('system_id'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="col-xs-6 form-group">
+ <div class="row">
+        <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
         <p class="help-block"></p>
@@ -65,6 +63,18 @@
                 {{ $errors->first('vehicle_id') }}
             </p>
         @endif
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-6 form-group">
+            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
+            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+        
     </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
