@@ -127,8 +127,16 @@
                         {{--<td>{{ $all_asset->system_alias }}</td>--}}
                         {{--<td>{{ $all_asset->system_id }}</td>--}}
                             <td>{{$all_asset->status->status or ''}}</td>
-                            <td>{{$all_asset->station->station_name or ''}}{{$all_asset->station->station_number or ''}}</td>
-                                {{--{{$all_asset->vehicle->vehicle or ''}}--}}
+{{--                                @if($all_asset->station_id )--}}
+                            <td>
+                                @if ($all_asset->station_id )
+                                    {{$all_asset->station->station_name or ''}}{{$all_asset->station->station_number or ''}}
+                                @endif
+                                @if ($all_asset->vehicle_id )
+                                    {{$all_asset->vehicle->vehicle_number or ''}}
+                                @endif
+
+                            </td>
                                 {{--{{$all_asset->personnel->personnel or ''}}--}}
                                 {{--{{$all_asset->grant->grant_name or '' }}--}}
                             {{--</td>--}}

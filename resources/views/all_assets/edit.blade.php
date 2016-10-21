@@ -14,9 +14,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             Edit New Assest
-        
-   
-    
+
+
+
      @if($all_assets->asset_type=="IPAD")
 @include('assetedit.ipad')
          @endif
