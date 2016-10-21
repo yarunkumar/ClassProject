@@ -23,6 +23,13 @@ class StationsController extends Controller
 
     public function create()
     {
+        $relations = [
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+
+
+        ];
         
         return view('stations.create');
     }
