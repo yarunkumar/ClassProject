@@ -69,11 +69,11 @@
 <div>
         <div class="col-xs-6 form-group">
             {!! Form::label('battalion', 'Battalion *', ['class' => 'control-label']) !!}
-            {!! Form::text('battalion', old('battalion'), ['class' => 'form-control']) !!}
+            {!! Form::text('district', old('district'), ['class' => 'form-control']) !!}
             <p class="help-block"></p>
-            @if($errors->has('battalion'))
+            @if($errors->has('district'))
                 <p class="help-block">
-                    {{ $errors->first('battalion') }}
+                    {{ $errors->first('district') }}
                 </p>
             @endif
         </div>
