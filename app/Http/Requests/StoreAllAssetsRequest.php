@@ -29,7 +29,7 @@ class StoreAllAssetsRequest extends FormRequest
     {
         return [
 //            'name' => 'required',
-//            'serial_number' => 'required|unique:all_assets,serial_number',
+            'serial_number' => 'unique:all_assets,serial_number',
             
         ];
     }

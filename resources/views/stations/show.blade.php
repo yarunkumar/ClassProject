@@ -74,6 +74,7 @@
                             <th>Comments</th>
                             <th>Status</th>
                             <th>Location</th>
+                            <th>Actions</th>
                         </tr>
                         @foreach($station->allassets as $all_asset)
                             <tr>
@@ -88,7 +89,10 @@
                                 <td>{{ $all_asset->comments }}</td>
                                 <td>{{$all_asset->status->status or ''}}</td>
                                 <td>{{$all_asset->station->station_number or ''}}</td>
-                                {{--{{$all_asset->station->station_name or ''}}--}}
+                                <td>
+                                    <a href="{{ route('all_assets.show',[$all_asset->id]) }}" class="btn btn-xs btn-primary">View</a>
+                                    <a href="{{ route('all_assets.edit',[$all_asset->id]) }}" class="btn btn-xs btn-info">Edit</a>
+                                </td>
                             </tr>
                         @endforeach
                     </table>
@@ -133,5 +137,6 @@
         <div class="tab-pane" id="4a">
             <h4>Tab for Other</h4>
         </div>
+    </div>
     </div>
 @stop

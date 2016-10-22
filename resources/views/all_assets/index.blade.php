@@ -79,7 +79,7 @@
                             <tr>
                             {{--<tr data-entry-id="{{ $all_asset->id }}">--}}
                                 {{--<td></td>--}}
-                        <td>{{ $all_asset->name }}</td>
+                        <td>{{ $all_asset->asset_type }}</td>
                         <td>{{ $all_asset->model }}</td>
                         <td>{{ $all_asset->make }}</td>
                         <td>{{ $all_asset->manu }}</td>
