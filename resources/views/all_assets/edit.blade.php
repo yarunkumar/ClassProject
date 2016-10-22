@@ -77,7 +77,7 @@
          @if($all_assets->asset_type=="grant")
 @include('assetedit.grant')
          @endif
-         @if($all_assets->asset_type=="dock")
+         @if($all_assets->asset_type=="Dock")
 @include('assetedit.dock')
          @endif
          @if($all_assets->asset_type=="desktop_computer")
