@@ -35,6 +35,16 @@
             {!! Form::label('firmware_ver', 'Firmware Version', ['class' => 'control-label']) !!}
             {!! Form::text('firmware_ver', old('firmware_ver'), ['class' => 'form-control']) !!}
         </div>
+         <div class="col-xs-6 form-group">
+                    {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
+                    {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('status_id'))
+                        <p class="help-block">
+                            {{ $errors->first('status_id') }}
+                        </p>
+                    @endif
+                </div>
     </div>
      <div class="row">
         <div class="col-xs-6 form-group">
@@ -59,13 +69,15 @@
     </div>
     </div>
     <div class="row">
-    <div class="col-xs-6 form-group">
-            {!! Form::label('asset_type', 'Asset Type', ['class' => 'control-label']) !!}
-            {!! Form::text('asset_type', old('asset_type'), ['class' => 'form-control']) !!}
-        </div>
+    
         <div class="col-xs-6 form-group">
             {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
             {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="col-xs-6 form-group">
+            
+            {!! Form::hidden('asset_type', 'InMotion', ['class' => 'form-control']) !!}
         </div>
         
     </div>
