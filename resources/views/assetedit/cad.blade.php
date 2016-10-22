@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-xs-6 form-group">
             
-            {!! Form::hidden('asset_type', 'cad', ['class' => 'form-control']) !!}
+            {!! Form::hidden('asset_type', 'Cad', ['class' => 'form-control']) !!}
         </div>
 </div>
 
