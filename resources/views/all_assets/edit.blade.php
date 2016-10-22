@@ -17,7 +17,7 @@
 
 
 
-     @if($all_assets->asset_type=="IPAD")
+     @if($all_assets->asset_type=="IPad")
 @include('assetedit.ipad')
          @endif
          @if($all_assets->asset_type=="HPD")
@@ -32,28 +32,28 @@
          @if($all_assets->asset_type=="x_series")
 @include('assetedit.x_series')
          @endif
-         @if($all_assets->asset_type=="unit_radio")
+         @if($all_assets->asset_type=="Unit Radio")
 @include('assetedit.unit_radio')
          @endif
-         @if($all_assets->asset_type=="cad")
+         @if($all_assets->asset_type=="Cad")
 @include('assetedit.cad')
          @endif
-         @if($all_assets->asset_type=="trimble_gps")
+         @if($all_assets->asset_type=="Tremble GPS Unit")
 @include('assetedit.trimble_gps')
          @endif
-         @if($all_assets->asset_type=="teamviewer")
+         @if($all_assets->asset_type=="Team Viewer")
 @include('assetedit.teamviewer')
          @endif
          @if($all_assets->asset_type=="station")
 @include('assetedit.staion')
          @endif
-         @if($all_assets->asset_type=="simcard")
+         @if($all_assets->asset_type=="Sim Card")
 @include('assetedit.simcard')
          @endif
-         @if($all_assets->asset_type=="printer")
+         @if($all_assets->asset_type=="Printer")
 @include('assetedit.printer')
          @endif
-         @if($all_assets->asset_type=="portable_radio")
+         @if($all_assets->asset_type=="Portable Radio")
 @include('assetedit.portable_radio')
          @endif
          @if($all_assets->asset_type=="person")
@@ -71,7 +71,7 @@
          @if($all_assets->asset_type=="laptop_computer")
 @include('assetedit.laptop_computer')
          @endif
-         @if($all_assets->asset_type=="inmotion")
+         @if($all_assets->asset_type=="InMotion")
 @include('assetedit.inmotion')
          @endif
          @if($all_assets->asset_type=="grant")
@@ -80,7 +80,7 @@
          @if($all_assets->asset_type=="Dock")
 @include('assetedit.dock')
          @endif
-         @if($all_assets->asset_type=="desktop_computer")
+         @if($all_assets->asset_type=="Desktop Computer")
 @include('assetedit.desktop_computer')
          @endif
          @if($all_assets->asset_type=="")
