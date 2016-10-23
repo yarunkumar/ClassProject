@@ -13,10 +13,8 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Edit New Assest
-
-
-
+            Edit New Assets
+            
      @if($all_assets->asset_type=="IPad")
 @include('assetedit.ipad')
          @endif

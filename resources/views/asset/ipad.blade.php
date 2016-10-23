@@ -80,13 +80,8 @@
         
     </div>
 
-    <div class="row">
-    
-        
-                <div class="col-xs-6 form-group">
-            
-            {!! Form::hidden('asset_type', 'IPad', ['class' => 'form-control']) !!}
-        </div>
+            {!! Form::hidden('asset_type', 'IPad', old('IPad'),['class' => 'form-control']) !!}
+
 </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
