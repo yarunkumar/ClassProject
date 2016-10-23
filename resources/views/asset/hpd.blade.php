@@ -22,11 +22,11 @@
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('ip_address', 'IP Aaddress', ['class' => 'control-label']) !!}
+            {!! Form::label('ip_address', 'IP Address', ['class' => 'control-label']) !!}
             {!! Form::text('ip_address', old('ip_address'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('firmware_ver', 'Firmware Verision', ['class' => 'control-label']) !!}
+            {!! Form::label('firmware_ver', 'Firmware Version', ['class' => 'control-label']) !!}
             {!! Form::text('firmware_ver', old('firmware_ver'), ['class' => 'form-control']) !!}
         </div>
     </div>
