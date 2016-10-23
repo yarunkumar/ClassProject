@@ -38,7 +38,7 @@ class AllAssetsController extends Controller
         $relations = [
             'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
             'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => \App\Vehicle::get()->pluck('vehicle_number', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
             'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),

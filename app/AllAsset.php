@@ -176,6 +176,7 @@ class AllAsset extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo*
      *
      */
+
     public function station()
     {
         return $this->belongsTo(\App\Station::class);
