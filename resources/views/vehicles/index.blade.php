@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li class="active">Vehicles</li>
+  </ol>
+@endsection
+
 
 @section('content')
 
@@ -39,8 +46,8 @@
                         <td>{{ $vehicle->grant->grant_name or '' }}</td>
                         
                                 <td>
-                                    <a href="{{ route('vehicles.show',[$vehicle->id]) }}" class="btn btn-xs btn-primary">View</a>
-                                    <a href="{{ route('vehicles.edit',[$vehicle->id]) }}" class="btn btn-xs btn-info">Edit</a>
+                                    <a href="{{ route('vehicles.show',[$vehicle->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="{{ route('vehicles.edit',[$vehicle->id]) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i</a>
                                     {!! Form::open(array(
                                     'style' => 'display: inline-block;',
                                     'method' => 'DELETE',

@@ -47,15 +47,34 @@
                             <td>
                                 <a href="{{ route('stations.show',[$station->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 <a href="{{ route('stations.edit',[$station->id]) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            {!! Form::open(array(
-                                'style' => 'display: inline-block;',
-                                'method' => 'DELETE',
-                                'onsubmit' => "return confirm('".trans("Are you sure you want to delete $station->station_name? This action cannot be undone")."');",
-                                'route' => ['stations.destroy', $station->id])) !!}
-                            {{Form::button('<i class="fa fa-trash"></i>', array('type' => 'submit', 'class' => 'btn btn-xs btn-danger'))}}
-                            {!! Form::close() !!}
+                                <a type="button" data-toggle="modal" data-target="#{{ $station->station_number }}" class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
                             </td>
                         </tr>
+
+
+                        <div class="modal fade" id="{{ $station->station_number }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                              </div>
+                              <div class="modal-body">
+                                Are you sure you want to delete {{ $station->station_name }}? This action cannot be undone.
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                {!! Form::open(array(
+                                    'style' => 'display: inline-block;',
+                                    'method' => 'DELETE',
+                                    'route' => ['stations.destroy', $station->id])) !!}
+                                {{Form::button('<i class="fa fa-trash"></i> DELETE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
+                                {!! Form::close() !!}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     @endforeach
                 @else
                     <tr>

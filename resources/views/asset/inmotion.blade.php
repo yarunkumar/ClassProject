@@ -1,5 +1,6 @@
 {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
-
+<p style="color:red; font-style: italic">* Required<p>
+    
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('manu', 'Hotspot Manufacture', ['class' => 'control-label']) !!}
@@ -13,7 +14,7 @@
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
-            {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control']) !!}
+            {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control', 'required' => 'required']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('imei', 'Hotspot IMEI #', ['class' => 'control-label']) !!}
@@ -82,5 +83,5 @@
         
     </div>
 
-{!! Form::submit('Save',['class' => 'btn btn-success']) !!}
+{!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

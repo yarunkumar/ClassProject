@@ -20,6 +20,7 @@
         <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Stations"><a href="{{ route('stations.index') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
         <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Vehicles"><a href="{{ route('vehicles.index') }}"><i class="fa fa-ambulance fa-lg" aria-hidden="true"></i></a></li>
         <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Service"><a href="#"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></a></li>
+        <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Grants"><a href="{{ route('grants.index') }}"><i class="fa fa-usd fa-lg" aria-hidden="true"></i></a></li>
         <li data-toggle="tooltip" class="tip nav-icon" data-placement="bottom" title="Reports"><a href="#"><i class="fa fa-line-chart fa-lg" aria-hidden="true"></i></a></li>
       </ul>
       

@@ -1,5 +1,6 @@
 {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
-
+<p style="color:red; font-style: italic">* Required<p>
+    
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('tmv_num', 'Team Viewer Number', ['class' => 'control-label']) !!}
@@ -68,5 +69,5 @@
         </div>
         
     </div>
-{!! Form::submit('Save',['class' => 'btn btn-success']) !!}
+{!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

@@ -1,7 +1,13 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li><a href="{{ route('grants.index') }}">Grants</a></li>
+    <li class="active">{{ $grant->grant_name }}</li>
+  </ol>
+@endsection
 
 @section('content')
-    <h3 class="page-title">Grant</h3>
     
     <div class="panel panel-default">
         <div class="panel-heading">

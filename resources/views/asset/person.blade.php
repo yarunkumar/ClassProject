@@ -1,5 +1,6 @@
 {!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
-
+<p style="color:red; font-style: italic">* Required<p>
+    
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('ofd_id_number', 'OFD ID Number', ['class' => 'control-label']) !!}
@@ -42,5 +43,5 @@
         @endif
     </div>
 
-{!! Form::submit('Save',['class' => 'btn btn-success']) !!}
+{!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

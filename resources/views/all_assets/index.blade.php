@@ -141,15 +141,15 @@
                                 {{--{{$all_asset->grant->grant_name or '' }}--}}
                             {{--</td>--}}
                                 <td>
-                                    <a href="{{ route('all_assets.show',[$all_asset->id]) }}" class="btn btn-xs btn-primary">View</a>
-                                    <a href="{{ route('all_assets.edit',[$all_asset->id]) }}" class="btn btn-xs btn-info">Edit</a>
+                                    <a href="{{ route('all_assets.show',[$all_asset->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="{{ route('all_assets.edit',[$all_asset->id]) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                     {!! Form::open(array(
-                'style' => 'display: inline-block;',
-                'method' => 'DELETE',
-                'onsubmit' => "return confirm('".trans("Are you sure?")."');",
-                'route' => ['all_assets.destroy', $all_asset->id])) !!}
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("Are you sure?")."');",
+                                        'route' => ['all_assets.destroy', $all_asset->id])) !!}
                                         {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
-                                        {!! Form::close() !!}
+                                    {!! Form::close() !!}
                                 </td>
                             </tr>
                         @endforeach

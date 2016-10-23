@@ -1,9 +1,10 @@
 {!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
-
+<p style="color:red; font-style: italic">* Required<p>
+    
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('grant_id', 'Grant ID *', ['class' => 'control-label']) !!}
-            {!! Form::text('grant_id', old('grant_id'), ['class' => 'form-control']) !!}
+            {!! Form::text('grant_id', old('grant_id'), ['class' => 'form-control', 'required' => 'required']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('date_issued', 'Date Issued', ['class' => 'control-label']) !!}
@@ -38,5 +39,5 @@
         
     </div>
 
-{!! Form::submit('Save',['class' => 'btn btn-success']) !!}
+{!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
