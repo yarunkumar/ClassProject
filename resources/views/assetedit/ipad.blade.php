@@ -25,7 +25,7 @@
         
         <div class="col-xs-6 form-group">
             {!! Form::label('seid_num', 'SEID Number', ['class' => 'control-label']) !!}
-            {!! Form::text('seid_num', old('seid_num'), ['class' => 'form-control']) !!}
+            {!! Form::number('seid_num', old('seid_num'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -41,7 +41,7 @@
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('phone', 'Phone Number', ['class' => 'control-label']) !!}
-            {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
+            {!! Form::number('phone', old('phone'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('name', 'IPad Name', ['class' => 'control-label']) !!}

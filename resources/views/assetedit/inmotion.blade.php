@@ -17,7 +17,7 @@
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('imei', 'Hotspot IMEI #', ['class' => 'control-label']) !!}
-            {!! Form::text('imei', old('imei'), ['class' => 'form-control']) !!}
+            {!! Form::number('imei', old('imei'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -26,8 +26,8 @@
             {!! Form::text('mac', old('mac'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('meid_model_#', 'Hotspot Model IMEI Number', ['class' => 'control-label']) !!}
-            {!! Form::text('meid_model_#', old('meid_model_#'), ['class' => 'form-control']) !!}
+            {!! Form::label('meid_model_num', 'Hotspot Model IMEI Number', ['class' => 'control-label']) !!}
+            {!! Form::number('meid_model_num', old('meid_model_num'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">

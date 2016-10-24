@@ -20,11 +20,11 @@ class CreateAllAssetsTable extends Migration
             $table->string('make')->nullable();
             $table->string('manu')->nullable();
             $table->string('serial_number')->nullable();
-            $table->string('model_imei')->nullable();
+            $table->integer('model_imei')->nullable();
             $table->date('date_purchased')->nullable();
             $table->date('warranty_date')->nullable();
             $table->string('cost')->nullable();
-            $table->string('imei')->nullable();
+            $table->integer('imei')->nullable();
             $table->string('mobile_type')->nullable();
             $table->string('os')->nullable();
             $table->text('comments')->nullable();
