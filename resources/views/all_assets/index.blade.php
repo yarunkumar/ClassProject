@@ -22,6 +22,7 @@
                     <th>Asset Type</th>
                     <th>Make</th>
                     <th>Model</th>
+
                     <th>Serial Number</th>
                     {{--<th>Model IMEI #</th>--}}
                     {{--<th>Date Purchased</th>--}}
@@ -81,7 +82,7 @@
                         <td>{{ $all_asset->asset_type }}</td>
                         <td>{{ $all_asset->make }}</td>
                         <td>{{ $all_asset->model }}</td>
-                        {--<td>{{ $all_asset->manu }}</td>--}
+{{--                        {--<td>{{ $all_asset->manu }}</td>--}--}}
                         <td>{{ $all_asset->serial_number }}</td>
                         {{--<td>{{ $all_asset->model_imei }}</td>--}}
                         {{--<td>{{ $all_asset->date_purchased }}</td>--}}
@@ -90,7 +91,7 @@
                         {{--<td>{{ $all_asset->imei }}</td>--}}
                         {{--<td>{{ $all_asset->mobile_type }}</td>--}}
                         {{--<td>{{ $all_asset->os }}</td>--}}
-                        {--<td>{{ $all_asset->comments }}</td>--}
+{{--                        {--<td>{{ $all_asset->comments }}</td>--}--}}
 
                         {{--<td>{{ $all_asset->ntm_uid }}</td>--}}
                         {{--<td>{{ $all_asset->ntm_pass }}</td>--}}
