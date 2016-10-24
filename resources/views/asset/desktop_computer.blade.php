@@ -81,12 +81,6 @@
             </p>
         @endif
     </div>
-    <div class="col-xs-6 form-group">
-            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
-        </div>
-</div>
-<div class="row">
       <div class="col-xs-6 form-group">
                     {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
                     {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control']) !!}
@@ -101,8 +95,14 @@
             
             {!! Form::hidden('asset_type', 'Desktop Computer', ['class' => 'form-control']) !!}
         </div>
-        
+</div>
+
+<div class="row">
+    <div class="col-xs-12 form-group">
+        {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
+</div>
 
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

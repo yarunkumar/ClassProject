@@ -72,18 +72,17 @@
     
 
 </div>
-<div class="row">
-    
-        <div class="col-xs-6 form-group">
-            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
-        </div>
-        
+<div class="row"> 
+    <div class="col-xs-6 form-group">
+        {!! Form::hidden('asset_type', 'IPad', old('IPad'),['class' => 'form-control']) !!}
     </div>
-
-            {!! Form::hidden('asset_type', 'IPad', old('IPad'),['class' => 'form-control']) !!}
-
 </div>
 
+<div class="row">
+    <div class="col-xs-12 form-group">
+        {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
+    </div>
+</div>
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

@@ -19,10 +19,9 @@
                 <thead>
                     <tr>
                         {{--<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>--}}
-                    <th>Asset Name</th>
-                    <th>Model</th>
+                    <th>Asset Type</th>
                     <th>Make</th>
-                    <th>Manufacturer</th>
+                    <th>Model</th>
                     <th>Serial Number</th>
                     {{--<th>Model IMEI #</th>--}}
                     {{--<th>Date Purchased</th>--}}
@@ -31,7 +30,7 @@
                     {{--<th>IMEI #</th>--}}
                     {{--<th>Mobile Type</th>--}}
                     {{--<th>Operating System</th>--}}
-                    <th>Comments</th>
+
                     <th>Status</th>
                     {{--<th>Netmotion User ID</th>--}}
                     {{--<th>Netmotion Password</th>--}}
@@ -80,18 +79,18 @@
                             {{--<tr data-entry-id="{{ $all_asset->id }}">--}}
                                 {{--<td></td>--}}
                         <td>{{ $all_asset->asset_type }}</td>
-                        <td>{{ $all_asset->model }}</td>
                         <td>{{ $all_asset->make }}</td>
-                        <td>{{ $all_asset->manu }}</td>
+                        <td>{{ $all_asset->model }}</td>
+                        {--<td>{{ $all_asset->manu }}</td>--}
                         <td>{{ $all_asset->serial_number }}</td>
-{{--                        <td>{{ $all_asset->model_imei }}</td>--}}
+                        {{--<td>{{ $all_asset->model_imei }}</td>--}}
                         {{--<td>{{ $all_asset->date_purchased }}</td>--}}
                         {{--<td>{{ $all_asset->warranty_date }}</td>--}}
                         {{--<td>{{ $all_asset->cost }}</td>--}}
                         {{--<td>{{ $all_asset->imei }}</td>--}}
                         {{--<td>{{ $all_asset->mobile_type }}</td>--}}
                         {{--<td>{{ $all_asset->os }}</td>--}}
-                        <td>{{ $all_asset->comments }}</td>
+                        {--<td>{{ $all_asset->comments }}</td>--}
 
                         {{--<td>{{ $all_asset->ntm_uid }}</td>--}}
                         {{--<td>{{ $all_asset->ntm_pass }}</td>--}}

@@ -14,11 +14,9 @@
             <li class="active">
                 <a href="#1b" data-toggle="tab">Overview</a>
             </li>
-            <li><a href="#2b" data-toggle="tab">Assets</a>
+            <li><a href="#2b" data-toggle="tab">Vehicles</a>
             </li>
-            <li><a href="#3b" data-toggle="tab">Vehicles</a>
-            </li>
-            <li><a href="#4a" data-toggle="tab">Other</a>
+            <li><a href="#3b" data-toggle="tab">Assets</a>
             </li>
         </ul>
 
@@ -55,7 +53,7 @@
             </div>
         </div>
 
-        <div class="tab-pane" id="2b">
+        <div class="tab-pane" id="3b">
             <div class="panel panel-default" style="margin: 10px;">
                 <div class="panel-heading">
                     Assets List
@@ -100,7 +98,7 @@
             </div>
 
         </div>
-        <div class="tab-pane" id="3b">
+        <div class="tab-pane" id="2b">
 
             <div class="panel panel-default" style="margin: 10px;">
                 <div class="panel-heading">
@@ -133,9 +131,6 @@
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane" id="4a">
-            <h4>Tab for Other</h4>
         </div>
     </div>
     </div>

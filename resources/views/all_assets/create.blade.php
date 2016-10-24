@@ -264,4 +264,10 @@
         });
     </script>
 
+    <script>
+        $('#clear').click( function() {
+            $( "form input:text" ).val('');
+        });
+    </script>
+
 @stop

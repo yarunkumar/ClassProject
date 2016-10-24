@@ -24,9 +24,7 @@
                     <th>City</th>
                     <th>Zipcode</th>
                     <th>Battalion</th>
-                    <th>Related Document</th>
-                    <th>Related Photo</th>
-                    <th>Actions</th>
+                    <th></th>
                     
                 </tr>
                 </thead>
@@ -41,8 +39,6 @@
                         <td>{{ $station->city }}</td>
                         <td>{{ $station->zipcode }}</td>
                         <td>{{ $station->district }}</td>
-                        <td><a href="{{ asset('uploads/'.$station->station_document) }}">Download file</a></td>
-                        <td>@if($station->station_image!= '')<img src="{{ asset('uploads/thumb/'.$station->station_image) }}">@endif</td>
                         
                             <td>
                                 <a href="{{ route('stations.show',[$station->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
