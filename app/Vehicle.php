@@ -19,7 +19,7 @@ class Vehicle extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = ['van', 'make', 'model', 'year', 'unittype_id','status_id','grant_id','station_id'];
+    protected $fillable = ['van', 'vehicle_number','make', 'model', 'year', 'unittype_id','status_id','grant_id','station_id'];
     
     
     /**

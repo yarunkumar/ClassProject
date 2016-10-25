@@ -19,7 +19,8 @@
                 <thead>
                     <tr>
                         {{--<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>--}}
-                        <th>OFD VAN #</th>
+                    <th>OFD VAN #</th>
+                    <th>RIG #</th>
                     <th>Make</th>
                     <th>Model</th>
                     <th>Year</th>
@@ -35,14 +36,15 @@
                     @if (count($vehicles) > 0)
                         @foreach ($vehicles as $vehicle)
                             <tr data-entry-id="{{ $vehicle->id }}">
-                                {{--<td></td>--}}
-                                <td>{{ $vehicle->van }}</td>
+                        <td>{{ $vehicle->van }}</td>
+                        <td>{{ $vehicle->vehicle_number }}</td>
                         <td>{{ $vehicle->make }}</td>
                         <td>{{ $vehicle->model }}</td>
                         <td>{{ $vehicle->year }}</td>
                         <td>{{ $vehicle->unittype->name or '' }}</td>
                         <td>{{ $vehicle->status->status or '' }}</td>
-                        <td>{{$vehicle->station->station_name or '' }}{{ $vehicle->station->station_number or '' }}</td>
+                        <td>{{$vehicle->station->station_name or '' }}</td>
+                                {{--{{ $vehicle->station->station_number or '' }}--}}
                         <td>{{ $vehicle->grant->grant_name or '' }}</td>
                         
                                 <td>

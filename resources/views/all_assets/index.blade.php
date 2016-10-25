@@ -133,7 +133,7 @@
                                     {{$all_asset->station->station_name or ''}}{{$all_asset->station->station_number or ''}}
                                 @endif
                                 @if ($all_asset->vehicle_id )
-                                    {{$all_asset->vehicle->van or ''}}
+                                    {{$all_asset->vehicle->unit_type or ''}}{{$all_asset->vehicle->vehicle_number or ''}}
                                 @endif
 
                             </td>

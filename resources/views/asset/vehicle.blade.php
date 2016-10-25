@@ -14,6 +14,17 @@
                 </div>
 
                 <div class="col-xs-6 form-group">
+                    {!! Form::label('RIG #', 'RIG #', ['class' => 'control-label']) !!}
+                    {!! Form::text('vehicle_number', old('vehicle_number'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('vehicle_number'))
+                        <p class="help-block">
+                             {{ $errors->first('vehicle_number') }}
+                        </p>
+                    @endif
+                </div>
+
+                <div class="col-xs-6 form-group">
                     {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
                     {!! Form::text('make', old('make'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>

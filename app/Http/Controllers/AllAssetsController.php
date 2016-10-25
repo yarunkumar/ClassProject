@@ -25,6 +25,8 @@ class AllAssetsController extends Controller
         $all_assets = AllAsset::all();
 
         return view('all_assets.index', compact('all_assets'));
+
+
     }
 
 

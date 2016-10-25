@@ -13,6 +13,17 @@
                 </div>
 
                 <div class="col-xs-6 form-group">
+                    {!! Form::label('RIG #', 'RIG #', ['class' => 'control-label']) !!}
+                    {!! Form::text('vehicle_number', old('vehicle_number'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('vehicle_number'))
+                        <p class="help-block">
+                            {{ $errors->first('vehicle_number') }}
+                        </p>
+                    @endif
+                </div>
+
+                <div class="col-xs-6 form-group">
                     {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
                     {!! Form::text('make', old('make'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -48,16 +59,16 @@
 
         {{--This one is giving error within this view, i checked creating create.blade.php within vehicle folder with exact same method, it is working, not sure why error is happening from here--}}
 
-                {{--<div class="col-xs-6 form-group">--}}
-                    {{--{!! Form::label('unittype_id', 'Type', ['class' => 'control-label']) !!}--}}
-                    {{--{!! Form::select('unittype_id', $unittypes, old('unittype_id'), ['class' => 'form-control']) !!}--}}
-                    {{--<p class="help-block"></p>--}}
-                    {{--@if($errors->has('unittype_id'))--}}
-                        {{--<p class="help-block">--}}
-                            {{--{{ $errors->first('unittype_id') }}--}}
-                        {{--</p>--}}
-                    {{--@endif--}}
-                {{--</div>--}}
+                <div class="col-xs-6 form-group">
+                    {!! Form::label('unittype_id', 'Type', ['class' => 'control-label']) !!}
+                    {!! Form::select('unittype_id', $unittypes, old('unittype_id'), ['class' => 'form-control']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('unittype_id'))
+                        <p class="help-block">
+                            {{ $errors->first('unittype_id') }}
+                        </p>
+                    @endif
+                </div>
 
                 <div class="col-xs-6 form-group">
                     {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
@@ -69,6 +80,7 @@
                         </p>
                     @endif
                 </div>
+
                 <div class="col-xs-6 form-group">
                     {!! Form::label('station_id', 'Assign to a station', ['class' => 'control-label']) !!}
                     {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
