@@ -40,4 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('related_files', 'RelatedFilesController');
     Route::post('related_files_mass_destroy', ['uses' => 'RelatedFilesController@massDestroy', 'as' => 'related_files.mass_destroy']);
+
+    Route::get('/getImport', 'ExcelController@getImport');
+    Route::get('/postImport', 'ExcelController@postImport');
+    Route::get('/getExport', 'ExcelController@getExport');
 });

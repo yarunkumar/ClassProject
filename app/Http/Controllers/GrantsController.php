@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreGrantsRequest;
 use App\Http\Requests\UpdateGrantsRequest;
 
+
 class GrantsController extends Controller
 {
 
@@ -114,5 +115,50 @@ class GrantsController extends Controller
                 $entry->delete();
             }
         }
+    }
+
+    /**
+     * Export import excel.
+     *
+     * @param download $type
+     */
+
+    public function importExport()
+    {
+        return view('importExport');
+    }
+    public function downloadExcel($type)
+    {
+        $data = Grant::get()->toArray();
+        return Excel::create('itsolutionstuff_example', function($excel) use ($data) {
+            $excel->sheet('mySheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
+    }
+    public function importExcel()
+    {
+        if(Input::hasFile('import_file')){
+            $path = Input::file('import_file')->getRealPath();
+            $data = Excel::load($path, function($reader) {
+            })->get();
+            if(!empty($data) && $data->count()){
+                foreach ($data as $key => $value) {
+                    $insert[] = [   'Grant Name' => $value->grant_name,
+                                    'Date Issued' => $value->description,
+                                    'grant_type' => $value->grant_type,
+                                    'date_matures' => $value->date_matures,
+                                    'grant_value' => $value->grant_value,
+                                    'grant_comments' => $value->grant_comments,
+                    ];
+                }
+                if(!empty($insert)){
+                    DB::table('items')->insert($insert);
+                    dd('Insert Record successfully.');
+                }
+            }
+        }
+        return back();
     }
 }

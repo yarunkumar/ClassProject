@@ -14,6 +14,22 @@
         </div>
 
         <div class="panel-body">
+
+            {{--<a href="#" class="btn-danger">Delete All</a>--}}
+            <a href="#" class="btn btn-success">Import</a>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info">Export</button>
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu" id="export-menu">
+                    <li id="export-to-excel"><a href="{{URL::to('getExport')}}">Export to Excel</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Other</a> </li>
+                </ul>
+            </div>
+            <p></p>
             <table class="table table-bordered table-striped {{ count($grants) > 0 ? 'datatable' : '' }}">
                 <thead>
                     <tr>
