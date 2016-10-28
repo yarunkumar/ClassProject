@@ -137,6 +137,9 @@ class GrantsController extends Controller
             });
         })->download($type);
     }
+
+    //Need to revisit import function, as of now, it is not importing
+
     public function importExcel()
     {
         if(Input::hasFile('import_file')){

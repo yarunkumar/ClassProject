@@ -89,17 +89,16 @@
                     @endif
                 </div>
                 <div class="col-xs-6 form-group">
-                    {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
-                    {!! Form::select('grant_id', $grants, old('grant_id'), ['class' => 'form-control']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('grant_id'))
-                        <p class="help-block">
-                            {{ $errors->first('grant_id') }}
-                        </p>
-                    @endif
+                            {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
+                            {!! Form::select('grant_id', $grants, old('grant_id'), ['class' => 'form-control']) !!}
+                            <p class="help-block"></p>
+                            @if($errors->has('grant_id'))
+                                <p class="help-block">
+                                    {{ $errors->first('grant_id') }}
+                                </p>
+                            @endif
+                        </div>
                 </div>
-
-    </div>
                         {!! Form::open(['method' => 'POST', 'route' => ['related_files.store'], 'files' => true,]) !!}
                         <div class="row">
                             <div class="col-xs-12 form-group">

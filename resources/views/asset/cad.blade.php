@@ -50,6 +50,7 @@
             </p>
         @endif
     </div>
+
 </div>
 
 <div class="row">
@@ -58,14 +59,48 @@
     </div>
 </div>
 
+<div class="col-xs-6 form-group">
+    {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
+    {!! Form::select('vendor_id', $vendors, old('vendor_id'), ['class' => 'form-control']) !!}
+    <p class="help-block"></p>
+    @if($errors->has('vendor_id'))
+        <p class="help-block">
+            {{ $errors->first('vendor_id') }}
+        </p>
+    @endif
+</div>
+
+<div class="col-xs-6 form-group">
+    {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
+    {!! Form::select('grant_id[]', $grants, old('grant_id'), ['class' => 'form-control']) !!}
+    <p class="help-block"></p>
+    @if($errors->has('grant_id'))
+        <p class="help-block">
+            {{ $errors->first('grant_id') }}
+        </p>
+    @endif
+</div>
+
+{{--grant_id[] passes array of related grant_ids, so use [] in other views--}}
+
+<div class="col-xs-6 form-group">
+    {!! Form::label('grant_id', 'Grant (created to test grant many to many asset)', ['class' => 'control-label']) !!}
+    {!! Form::select('grant_id[]', $grants, old('grant_id'), ['class' => 'form-control']) !!}
+    <p class="help-block"></p>
+    @if($errors->has('grant_id'))
+        <p class="help-block">
+            {{ $errors->first('grant_id') }}
+        </p>
+    @endif
+</div>
+
+
 <div class="row">
     <div class="col-xs-12 form-group">
         {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
         {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
 </div>
-    
-
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
 

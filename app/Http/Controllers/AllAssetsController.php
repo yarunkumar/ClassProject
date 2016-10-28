@@ -43,39 +43,15 @@ class AllAssetsController extends Controller
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
-            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
+            'unittypes' => \App\UnitType::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
         ];
 
         return view('all_assets.create', $relations);
 
-    }
-    /**
-     * Show the form for creating new Mobile Computer.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function mobile()
-    {
-        $relations = [
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'vehicles' => Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
-
-        ];
-
-        return view('all_assets.mobile', compact('') + $relations);
 
     }
 
-    public function desktop()
-    {
-        $relations = [
-            'stations' => Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-
-        ];
-        return view('all_assets.desktop', compact('') + $relations);
-
-    }
     /**
      * Store a ne
      * @param  \App\Http\Requeswly created AllAsset in storage.
@@ -84,9 +60,18 @@ class AllAssetsController extends Controller
      */
     public function store(StoreAllAssetsRequest $request)
     {
+//        dd($request);
+//        as of now, it is passing grant ids to the table
+//        but not being stored at the related asset_grants table
+
         AllAsset::create($request->all());
 
+
         return redirect()->route('all_assets.index');
+
+
+//        not syncing
+//        $all_assets->grants()->sync($request->grants, false);
     }
 
     /**
@@ -103,6 +88,7 @@ class AllAssetsController extends Controller
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
             'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
 
         ];
@@ -139,6 +125,7 @@ class AllAssetsController extends Controller
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
             'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
 
         ];

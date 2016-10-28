@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('unit_types', 'UnitTypesController');
     Route::resource('vehicles', 'VehiclesController');
     Route::post('vehicles_mass_destroy', ['uses' => 'VehiclesController@massDestroy', 'as' => 'vehicles.mass_destroy']);
+	Route::resource('vendors', 'VendorsController');
+    Route::post('vendors_mass_destroy', ['uses' => 'VendorsController@massDestroy', 'as' => 'vendors.mass_destroy']);
 
     Route::resource('related_files', 'RelatedFilesController');
     Route::post('related_files_mass_destroy', ['uses' => 'RelatedFilesController@massDestroy', 'as' => 'related_files.mass_destroy']);

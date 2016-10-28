@@ -109,10 +109,13 @@ class AllAsset extends Model
         'system_alias',
         'system_id',
         'status_id',
-        'grant_id',
+//        removed grant_id because included within the asset_grants table
+//        without removing app is giving error on grant_id
+//        'grant_id',
         'station_id',
         'vehicle_id',
         'personnel_id',
+        'vendor_id',
     ];
 
     
@@ -182,9 +185,11 @@ class AllAsset extends Model
         return $this->belongsTo(\App\Station::class);
     }
 
+//    Grant many to many to assets, asset_grants table migration file is included, but giving error when placing foreign keys, pls try on your end (might be to the myisam)
+
     public function grant()
     {
-        return $this->belongsTo('App\Grant', 'grant_id');
+        return $this->belongsToMany('App\Grant', 'asset_grants','all_asset_id','grant_id');
     }
     public function vehicle()
     {
@@ -201,10 +206,17 @@ class AllAsset extends Model
         return $this->belongsTo(\App\Personnel::class);
     }
 
-    public function unittype()
+    public function vendor()
     {
-        return $this->belongsTo(\App\UnitType::class);
+        return $this->belongsTo(\App\Vendor::class);
     }
+
+//    low on priority list, will work later
+
+//    public function unittype()
+//    {
+//        return $this->belongsTo(\App\UnitType::class);
+//    }
 
     
 }

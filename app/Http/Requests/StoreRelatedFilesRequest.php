@@ -23,8 +23,9 @@ class StoreRelatedFilesRequest extends FormRequest
     public function rules()
     {
         return [
-            'related_file' => 'max:20480',
+            'related_file' => 'max:20480|mimes:pdf,gif,jpg,jpeg,png',
             'related_image' => 'max:20480',
+//            'related_file' =>
             
         ];
     }
