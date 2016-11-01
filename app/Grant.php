@@ -82,7 +82,7 @@ class Grant extends Model
 
     public function allassets()
     {
-        return $this->belongsToMany('App\AllAsset', 'asset_grants','all_asset_id','grant_id');
+        return $this->belongsToMany('App\AllAsset', 'asset_grant','grant_id','all_asset_id');
     }
 
 }

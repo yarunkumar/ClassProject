@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssetGrantsTable extends Migration
+class CreateGrantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,20 @@ class CreateAssetGrantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('asset_grants', function (Blueprint $table) {
+        Schema::create('grants', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('grant_name')->nullable();
+            $table->date('date_issued')->nullable();
+            $table->string('grant_type')->nullable();
+            $table->date('date_matures')->nullable();
+            $table->decimal('grant_value', 15, 2)->nullable();
+            $table->text('grant_comments')->nullable();
 
+            
             $table->timestamps();
             $table->softDeletes();
 
             $table->index(['deleted_at']);
-
         });
     }
 
@@ -32,6 +38,4 @@ class CreateAssetGrantsTable extends Migration
     {
         Schema::dropIfExists('grants');
     }
-
-
 }

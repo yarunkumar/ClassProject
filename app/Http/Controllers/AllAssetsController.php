@@ -10,6 +10,8 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAllAssetsRequest;
 use App\Http\Requests\UpdateAllAssetsRequest;
+use Illuminate\Support\Facades\Input;
+
 //use Illuminate\Routing\Route;
 
 class AllAssetsController extends Controller
@@ -39,7 +41,7 @@ class AllAssetsController extends Controller
     {
         $relations = [
             'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('', ''),
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
@@ -61,17 +63,18 @@ class AllAssetsController extends Controller
     public function store(StoreAllAssetsRequest $request)
     {
 //        dd($request);
-//        as of now, it is passing grant ids to the table
-//        but not being stored at the related asset_grants table
 
-        AllAsset::create($request->all());
 
+
+        $all_assets = new AllAsset($request->all());
+
+        $all_assets->save();
+
+        $all_assets->grants()->attach(Input::get('grant_id'));
 
         return redirect()->route('all_assets.index');
 
 
-//        not syncing
-//        $all_assets->grants()->sync($request->grants, false);
     }
 
     /**
@@ -93,7 +96,9 @@ class AllAssetsController extends Controller
 
         ];
         $all_assets = AllAsset::findOrFail($id);
+
         return view('all_assets.edit', compact('all_assets', '') + $relations);
+
     }
 
     /**
@@ -105,10 +110,18 @@ class AllAssetsController extends Controller
      */
     public function update(UpdateAllAssetsRequest $request, $id)
     {
+//        dd($request);
         $allasset = AllAsset::findOrFail($id);
+
+
+        $allasset->grants()->sync(Input::get('grant_id'));
         $allasset->update($request->all());
 
+
         return redirect()->route('all_assets.index');
+
+
+
     }
 
     /**
@@ -121,7 +134,7 @@ class AllAssetsController extends Controller
     {
         $relations = [
             'stations' => \App\Station::get()->pluck('station_name', 'station_name')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id'),
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
@@ -131,6 +144,8 @@ class AllAssetsController extends Controller
         ];
 
         $allasset = AllAsset::findOrFail($id);
+//
+//        dd($allasset);
         return view('all_assets.show', compact('allasset')+$relations);
     }
 
@@ -143,6 +158,7 @@ class AllAssetsController extends Controller
     public function destroy($id)
     {
         $allasset = AllAsset::findOrFail($id);
+        $allasset->grants()->detach(Input::get('grant_id'));
         $allasset->delete();
 
         return redirect()->route('all_assets.index');

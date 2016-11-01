@@ -92,6 +92,26 @@ class RelatedFilesController extends Controller
         return view('related_files.show', compact('file'));
     }
 
+    public function storeFiles()
+    {
+        // Request the file input named 'attachments'
+
+        $files = Request::file('attachments');
+
+        //If the array is not empty
+        if ($files[0] != '') {
+            foreach($files as $file) {
+                // Set the destination path
+                $destinationPath = 'uploads';
+                // Get the orginal filname or create the filename of your choice
+                $filename = $file->getClientOriginalName();
+                // Copy the file in our upload folder
+                $file->move($destinationPath, $filename);
+            }
+        }
+        // Retrun a redirection or a view
+        return redirect('/');
+    }
     /**
      * Remove RelatedFile from storage.
      *

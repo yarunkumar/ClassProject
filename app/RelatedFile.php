@@ -16,8 +16,14 @@ class RelatedFile extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = ['related_file', 'comments'];
-    
-    
+    protected $fillable = [
+        'related_file',
+        'comments'
+    ];
+
+    public function station()
+    {
+        return $this->belongsTo(\App\Station::class);
+    }
     
 }

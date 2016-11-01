@@ -36,6 +36,8 @@ class StationsController extends Controller
 
     public function store(StoreStationsRequest $request)
     {
+//        dd($request);
+
         $request = $this->saveFiles($request);
         Station::create($request->all());
 

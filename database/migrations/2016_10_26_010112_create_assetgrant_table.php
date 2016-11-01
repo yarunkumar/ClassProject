@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateAssetGrantsTable extends Migration
+class CreateAssetGrantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,15 @@ class UpdateAssetGrantsTable extends Migration
      */
     public function up()
     {
-        Schema::table('asset_grants', function (Blueprint $table) {
+        Schema::create('asset_grant', function ($table) {
 
             $table->integer('all_asset_id')->unsigned()->nullable();
-            $table->foreign('all_asset_id', 'fk_all_asset')->references('id')->on('all_assets');
+            $table->foreign('all_asset_id')->references('id')->on('all_assets')->onDelete("cascade");
 
             $table->integer('grant_id')->unsigned()->nullable();
-            $table->foreign('grant_id', 'fk_grant')->references('id')->on('grants');
-
+            $table->foreign('grant_id')->references('id')->on('grants')->onDelete("cascade");
 
         });
-
     }
 
     /**
@@ -32,9 +30,8 @@ class UpdateAssetGrantsTable extends Migration
      */
     public function down()
     {
-        Schema::table('asset_grants', function (Blueprint $table) {
-            $table->dropColumn('');
-            
-        });
+        Schema::dropIfExists('asset_grant');
     }
+
+
 }

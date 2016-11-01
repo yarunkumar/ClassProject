@@ -17,7 +17,7 @@ class UpdateVehiclesTable extends Migration
             $table->integer('station_id')->unsigned()->nullable();
             $table->foreign('station_id', 'fk_station')->references('id')->on('stations');
             $table->integer('status_id')->unsigned()->nullable();
-            $table->foreign('status_id', 'fk_status')->references('id')->on('statuses');
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->integer('grant_id')->unsigned()->nullable();
             $table->foreign('grant_id', 'fk_grant')->references('id')->on('grants');
 

@@ -43,6 +43,11 @@ class Station extends Model
 
     }
 
+    public function relatedfiles() {
+        return $this->hasMany('App\RelatedFile');
+
+    }
+
     /**
      * Get attribute from date format
      * @param $input

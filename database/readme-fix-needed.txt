@@ -1,1 +1,0 @@
-one of these update table is giving error, need to check and fix the error

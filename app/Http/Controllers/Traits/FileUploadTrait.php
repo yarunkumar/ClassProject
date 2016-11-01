@@ -11,6 +11,8 @@ trait FileUploadTrait
     /**
      * File upload trait used in controllers to upload files
      */
+
+
     public function saveFiles(Request $request)
     {
         if (! file_exists(public_path('uploads'))) {

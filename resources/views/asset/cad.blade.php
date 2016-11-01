@@ -1,10 +1,14 @@
 {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
-<p style="color:red; font-style: italic">* Required<p>
 
 <div class="row">
     <div class="col-xs-6 form-group">
-        {!! Form::label('mdc_id', 'MDC User ID', ['class' => 'control-label']) !!}
-        {!! Form::text('mdc_id', old('mdc_id'), ['class' => 'form-control']) !!}
+        {!! Form::label('mdc_id', 'MDC User ID', [
+            'class' => 'control-label'
+            ]) !!}
+        {!! Form::text('mdc_id', old('mdc_id'), [
+            'class' => 'form-control',
+            'placeholder' => 'Required'
+            ]) !!}
     </div>
     <div class="col-xs-6 form-group">
         {!! Form::label('mdc_pass', 'MDC Password', ['class' => 'control-label']) !!}
@@ -72,7 +76,11 @@
 
 <div class="col-xs-6 form-group">
     {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
-    {!! Form::select('grant_id[]', $grants, old('grant_id'), ['class' => 'form-control']) !!}
+    {!! Form::select('grant_id[]', $grants, old('grant_id'), [
+        'id' => 'grants',
+        'class' => 'form-control','multiple',
+        ]) !!}
+
     <p class="help-block"></p>
     @if($errors->has('grant_id'))
         <p class="help-block">
@@ -80,19 +88,21 @@
         </p>
     @endif
 </div>
+
+
 
 {{--grant_id[] passes array of related grant_ids, so use [] in other views--}}
 
-<div class="col-xs-6 form-group">
-    {!! Form::label('grant_id', 'Grant (created to test grant many to many asset)', ['class' => 'control-label']) !!}
-    {!! Form::select('grant_id[]', $grants, old('grant_id'), ['class' => 'form-control']) !!}
-    <p class="help-block"></p>
-    @if($errors->has('grant_id'))
-        <p class="help-block">
-            {{ $errors->first('grant_id') }}
-        </p>
-    @endif
-</div>
+{{--<div class="col-xs-6 form-group">--}}
+    {{--{!! Form::label('grant_id', 'Grant (created to test grant many to many asset)', ['class' => 'control-label']) !!}--}}
+    {{--{!! Form::select('grant_id[]', $grants, old('grant_id'), ['class' => 'form-control']) !!}--}}
+    {{--<p class="help-block"></p>--}}
+    {{--@if($errors->has('grant_id'))--}}
+        {{--<p class="help-block">--}}
+            {{--{{ $errors->first('grant_id') }}--}}
+        {{--</p>--}}
+    {{--@endif--}}
+{{--</div>--}}
 
 
 <div class="row">
