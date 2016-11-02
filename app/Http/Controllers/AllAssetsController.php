@@ -46,7 +46,7 @@ class AllAssetsController extends Controller
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
             'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
-            'unittypes' => \App\UnitType::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
         ];
 
         return view('all_assets.create', $relations);
