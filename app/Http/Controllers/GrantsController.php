@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Grant;
+use App\AllAsset;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreGrantsRequest;
 use App\Http\Requests\UpdateGrantsRequest;
@@ -83,6 +84,7 @@ class GrantsController extends Controller
      */
     public function show($id)
     {
+         
         $grant = Grant::findOrFail($id);
         return view('grants.show', compact('grant'));
     }
