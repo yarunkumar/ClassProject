@@ -187,5 +187,8 @@
                
            
 
+<div>
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
+<a href="{{ route('stations.index') }}" class="btn btn-danger">Cancel</a>
+</div>

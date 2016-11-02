@@ -111,7 +111,9 @@
         {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
 </div>
+<div>
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
-
+<a href="{{ route('all_assets.index') }}" class="btn btn-danger">Cancel</a>
+</div>
 <!--<button class="btn btn-default" id="clear">Clear</button>-->
