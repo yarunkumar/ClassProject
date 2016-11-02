@@ -1,4 +1,5 @@
 {!! Form::open(['method' => 'POST', 'route' => ['stations.store'], 'files' => true,]) !!}
+
 <p style="color:red; font-style: italic">* Required<p>
     
     <div class="row">
@@ -23,7 +24,8 @@
                 </p>
             @endif
         </div>
-
+</div>
+  <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('station_number', 'Number *', ['class' => 'control-label']) !!}
             {!! Form::number('station_number', old('station_number'), [
@@ -51,6 +53,10 @@
                 </p>
             @endif
         </div>
+</div>
+          
+<div class="row">
+
 
         <div class="col-xs-6 form-group">
             {!! Form::label('station_date', 'Date', ['class' => 'control-label']) !!}
@@ -73,8 +79,10 @@
                 </p>
             @endif
         </div>
-<div>
-        <div class="col-xs-6 form-group">
+</div>
+    
+<div class="row">
+            <div class="col-xs-6 form-group">
             {!! Form::label('battalion', 'Battalion *', ['class' => 'control-label']) !!}
             {!! Form::text('district', old('district'), ['class' => 'form-control', 'required' => 'required']) !!}
             <p class="help-block"></p>
@@ -94,9 +102,11 @@
                         </p>
                     @endif
                 </div>
-        </div>
-        <div class="row" style="margin: 5px">
-            <div class="row">
+</div>
+        
+            
+        
+<div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('related_file_id', 'Related File', ['class' => 'control-label']) !!}
 
@@ -114,8 +124,8 @@
                         </p>
                     @endif
                 </div>
-            </div>
-
+</div>
+<div class="row">
                     <div class="col-xs-12 form-group">
                         {!! Form::label('station_document', 'Related Document', ['class' => 'control-label']) !!}
                 {!! Form::file('station_document[]', old('station_document'), [
@@ -146,20 +156,22 @@
                     </p>
                 @endif
             </div>
-        </div>
+</div>
 
-                <div class="text-content">
-                    <div class="span7 offset1">
+                
+<div class="text-content">
+        <div class="span7 offset1">
                         @if(Session::has('success'))
                             <div class="alert-box success">
                                 <h2>{!! Session::get('success') !!}</h2>
                             </div>
                         @endif
-                        <div
-                                class="secure">Upload form
-                        </div>
+         </div>
+         
+         <div class="secure">Upload form</div>
+
                         {!! Form::open(array('url'=>'apply/multiple_upload','method'=>'POST', 'files'=>true)) !!}
-                        <div class="control-group">
+        <div class="control-group">
                             <div class="controls">
                                 {!! Form::file('related_file[]', array('multiple'=>true)) !!}
                                 <p class="errors">{!!$errors->first('related_file')!!}</p>
@@ -167,18 +179,13 @@
                                     <p class="errors">{!! Session::get('error') !!}</p>
                                 @endif
                             </div>
-                        </div>
+        </div>
                         {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
                         {!! Form::close() !!}
-                    </div>
-                </div>
+</div>
 
+               
+           
 
-    </div>
-                                {{--<form role="form" method="POST" action="{{ url('/upload') }}" enctype="multipart/form-data">--}}
-                                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-                                    {{--<input type="file" name="attachments[]" multiple/>--}}
-                                    {{--<input name="save" type="submit" value="Save">--}}
-                                {{--</form>--}}
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
