@@ -20,6 +20,8 @@ class UpdateVehiclesTable extends Migration
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->integer('grant_id')->unsigned()->nullable();
             $table->foreign('grant_id', 'fk_grant')->references('id')->on('grants');
+            $table->integer('unittype_id')->unsigned()->nullable();
+            $table->foreign('unittype_id', 'fk_unittype')->references('id')->on('unit_types');
 
         });
 
