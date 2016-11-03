@@ -77,6 +77,37 @@
         {!! Form::hidden('asset_type', 'HPD', ['class' => 'form-control']) !!}
     </div>
 </div>
+<div class="row">
+    
+
+
+<div class="col-xs-6 form-group">
+    {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
+    {!! Form::select('vendor_id', $vendors, old('vendor_id'), ['class' => 'form-control']) !!}
+    <p class="help-block"></p>
+    @if($errors->has('vendor_id'))
+        <p class="help-block">
+            {{ $errors->first('vendor_id') }}
+        </p>
+    @endif
+</div>
+
+<div class="col-xs-6 form-group">
+    {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
+    {!! Form::select('grant_id[]', $grants, old('grant_id'), [
+        'id' => 'grants',
+        'class' => 'form-control','multiple',
+        ]) !!}
+
+    <p class="help-block"></p>
+    @if($errors->has('grant_id'))
+        <p class="help-block">
+            {{ $errors->first('grant_id') }}
+        </p>
+    @endif
+</div>
+
+</div>
 
 <div class="row">
     <div class="col-xs-12 form-group">
@@ -84,5 +115,8 @@
         {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
 </div>
+<div>
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
+<a href="{{ route('all_assets.index') }}" class="btn btn-danger">Cancel</a>
+</div>

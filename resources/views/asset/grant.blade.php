@@ -39,5 +39,8 @@
         
     </div>
 
+<div>
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
+<a href="{{ route('all_assets.index') }}" class="btn btn-danger">Cancel</a>
+</div>

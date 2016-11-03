@@ -140,7 +140,10 @@
                                 @endif
                             </div>
                         </div>
-{!! Form::submit('Create', ['class' => 'btn btn-danger']) !!}
+<div>
+{!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
+<a href="{{ route('vehicles.index') }}" class="btn btn-danger">Cancel</a>
+</div>
 
 
