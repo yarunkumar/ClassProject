@@ -1,11 +1,10 @@
-<script   src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 
 
 
 
 <!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
 <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+
 <script src="{{ url('js') }}/bootstrap.min.js"></script>
 
 <script src="{{ url('js') }}/moment.min.js"></script>
@@ -13,7 +12,8 @@
 <script src="{{ url('js') }}/gcal.js"></script>
 <script src="{{ url('js') }}/calendar.js"></script>
 
-<script src="{{ url('quickadmin/js') }}/main.js"></script>
+<!--<script src="{{ url('quickadmin/js') }}/main.js"></script>-->
+
 
 
 <!-- Load d3.js and c3.js -->

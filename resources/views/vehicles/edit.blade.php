@@ -18,7 +18,7 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('van', 'OFD VAN #', ['class' => 'control-label']) !!}
                     {!! Form::text('van', old('van'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -29,7 +29,7 @@
                     @endif
                 </div>
 
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('RIG #', 'RIG #', ['class' => 'control-label']) !!}
                     {!! Form::text('vehicle_number', old('vehicle_number'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -40,7 +40,7 @@
                     @endif
                 </div>
 
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
                     {!! Form::text('make', old('make'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -53,7 +53,7 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
                     {!! Form::text('model', old('model'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -64,7 +64,7 @@
                     @endif
                 </div>
 
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('year', 'Year', ['class' => 'control-label']) !!}
                     {!! Form::number('year', old('year'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -75,7 +75,7 @@
                     @endif
                 </div>
 
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('unittype_id', 'Type', ['class' => 'control-label']) !!}
                     {!! Form::select('unittype_id', $unittypes, old('unittype_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
@@ -88,7 +88,7 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-2 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
                     {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
@@ -99,7 +99,7 @@
                     @endif
                 </div>
 
-            <div class="col-xs-2 form-group">
+            <div class="col-xs-4 form-group">
                 {!! Form::label('station_id', 'Location', ['class' => 'control-label']) !!}
                 {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
                 <p class="help-block"></p>
@@ -110,7 +110,7 @@
                 @endif
             </div>
 
-            <div class="col-xs-2 form-group">
+            <div class="col-xs-4 form-group">
                 {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
                 {!! Form::select('grant_id', $grants, old('grant_id'), ['class' => 'form-control']) !!}
                 <p class="help-block"></p>
@@ -122,14 +122,13 @@
             </div>
 
         </div>
-
+    {!! Form::submit('Update', ['class' => 'btn btn-success']) !!}
+    {!! Form::close() !!}
+    <a href="{{ route('vehicles.index') }}" class="btn btn-default">Cancel</a>
     </div>
 
 
-        <div class="panel-heading">
-            {!! Form::submit('Update', ['class' => 'btn btn-danger']) !!}
-            {!! Form::close() !!}
-        </div>
+
 
 
 </div>

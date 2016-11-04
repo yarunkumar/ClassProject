@@ -32,6 +32,8 @@
 
     <link rel="stylesheet" href="{{ url('css') }}/c3.min.css"/>
 
+
+
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
    
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
@@ -41,8 +43,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.standalone.min.css"/>
 
 
+    <link rel="stylesheet" href="{{ url('css') }}/bootstrap-table.min.css"/>
+
+<script   src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 
 
+<script src="{{ url('js') }}/bootstrap-table.js"></script>
 
 </head>
 

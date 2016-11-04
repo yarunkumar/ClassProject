@@ -6,18 +6,6 @@
     <span class="nav-view">@yield('crumbs')</span>
     <span class="nav-user">
 
-
-    <div class="dropdown">
-      <a href="#" style="text-decoration: none; color: white;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Welcome, {{ Auth::user()->name }}! <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Account</a></li>
-        <li><a href="#">Manage</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#logout" onclick="$('#logout').submit();">Logout</a></li>
-      </ul>
-    </div>
-
-
     </span>
   </div>
 </div>
