@@ -27,16 +27,16 @@
                     id="table">
                 <thead>
                     <tr>
-                        {{--<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>--}}
+                    {{--<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>--}}
                     <th data-sortable="true">OFD VAN #</th>
-                    <th>RIG #</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Year</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                    <th>Location</th>
-                    <th>Grants</th>
+                    <th data-sortable="true">RIG #</th>
+                    <th data-sortable="true">Make</th>
+                    <th data-sortable="true">Model</th>
+                    <th data-sortable="true">Year</th>
+                    <th data-sortable="true">Type</th>
+                    <th data-sortable="true">Status</th>
+                    <th data-sortable="true">Location</th>
+                    <th data-sortable="true">Grants</th>
                     <th>&nbsp;</th>
                     </tr>
                 </thead>
