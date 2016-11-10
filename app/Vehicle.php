@@ -25,10 +25,10 @@ class Vehicle extends Model
         'make',
         'model',
         'year',
-//        'unittype_id',
-//        'status_id',
+        'unittype_id',
+        'status_id',
 //        'grant_id',
-//        'station_id'
+        'station_id'
     ];
     
     

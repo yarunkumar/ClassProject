@@ -105,6 +105,7 @@ class VendorsController extends Controller
      *
      * @param Request $request
      */
+
     public function massDestroy(Request $request)
     {
         if ($request->input('ids')) {

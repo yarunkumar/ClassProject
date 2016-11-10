@@ -130,11 +130,12 @@
                     @endif
                 </div>
             </div>
-            
+
         </div>
     </div>
 
     {!! Form::submit('Save', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
+
 @stop
 

@@ -43,7 +43,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('related_files', 'RelatedFilesController');
     Route::post('related_files_mass_destroy', ['uses' => 'RelatedFilesController@massDestroy', 'as' => 'related_files.mass_destroy']);
 
+    /**
+     * Part 1 - Upload images in Dropzone
+     */
+//    Route::resource('upload', 'ImageController');
+      Route::get('upload', ['as' => 'upload', 'uses' => 'ImageController@getUpload']);
+    Route::post('upload', ['as' => 'upload-post', 'uses' =>'ImageController@postUpload']);
+    Route::post('upload/delete', ['as' => 'upload-remove', 'uses' =>'ImageController@deleteUpload']);
+    /**
+     * Part 2 - Display already uploaded images in Dropzone
+     */
+//    Route::get('example-2', ['as' => 'upload-2', 'uses' => 'ImageController@getServerImagesPage']);
+//    Route::get('server-images', ['as' => 'server-images', 'uses' => 'ImageController@getServerImages']);
+
     Route::get('/getImport', 'ExcelController@getImport');
     Route::get('/postImport', 'ExcelController@postImport');
     Route::get('/getExport', 'ExcelController@getExport');
+
+    Route::get('dropzone', 'ImageController@dropzone');
+    Route::post('dropzone/store', ['as'=>'dropzone.store','uses'=>'ImageController@dropzoneStore']);
+
 });
