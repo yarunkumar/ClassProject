@@ -1,7 +1,13 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li><a href="{{ route('vendors.index') }}">Vendors</a></li>
+    <li class="active">Edit</li>
+  </ol>
+@endsection
 
 @section('content')
-    <h3 class="page-title">Vendor</h3>
     
     {!! Form::model($vendor, ['method' => 'PUT', 'route' => ['vendors.update', $vendor->id]]) !!}
 
@@ -12,7 +18,7 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_name', 'Vendor Name*', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_name', old('vendor_name'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -22,9 +28,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_address', 'Address', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_address', old('vendor_address'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -34,9 +38,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_web', 'Website', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_web', old('vendor_web'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -48,7 +50,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_phone', 'Phone', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_phone', old('vendor_phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -58,9 +60,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_fax', 'Fax', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_fax', old('vendor_fax'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -70,9 +70,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_tech_sup', 'Tech Support Phone', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_tech_sup', old('vendor_tech_sup'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -84,7 +82,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_rep', 'Representative Name*', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_rep', old('vendor_rep'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -94,9 +92,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_rep_phone', 'Representative Phone', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_rep_phone', old('vendor_rep_phone'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -106,9 +102,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_rep_phone_m', 'Representative Phone (Cell)', ['class' => 'control-label']) !!}
                     {!! Form::text('vendor_rep_phone_m', old('vendor_rep_phone_m'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -120,7 +114,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_email', 'Represetative Email', ['class' => 'control-label']) !!}
                     {!! Form::email('vendor_email', old('vendor_email'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -131,11 +125,13 @@
                     @endif
                 </div>
             </div>
-            
+
+            {!! Form::submit('Update', ['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+            <a href="{{ route('vendors.index') }}" class="btn btn-default">Cancel</a>
         </div>
     </div>
 
-    {!! Form::submit('Update', ['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
+
 @stop
 

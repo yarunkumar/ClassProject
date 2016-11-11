@@ -89,6 +89,8 @@
             
             {!! Form::submit('Create', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
+            <a href="{{ route('grants.index') }}" class="btn btn-default">Cancel</a>
+
         </div>
     </div>
 

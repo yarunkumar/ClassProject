@@ -9,14 +9,13 @@
 
 @section('content')
 
-    <div class="panel panel-default shadow-soft" style="border-radius:0px;">
+    <div class="panel panel-default" hidden>
         <div class="panel-heading">
-            Station List
+            Station Listing
         </div>
         <div class="panel-body">
 
-            <button id="toolbar" type="button" class="btn btn-default" style="background-color: #2196f3; color: white;">Create New</button>
-
+            <a id="toolbar" href="{{ route('stations.create') }}" class="btn" style="background-color: #2196f3; color: white;">New Station</a>
 
             <table  data-toolbar="#toolbar"
                     data-toggle="table"  
@@ -35,7 +34,7 @@
                     <th data-sortable="true">City</th>
                     <th data-sortable="true">Zipcode</th>
                     <th data-sortable="true">Battalion</th>
-                    <th></th>
+                    <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
                     
                 </tr>
                 </thead>
@@ -97,39 +96,41 @@
 
 @section('javascript')
 
-    <script src="{{ url('js/extensions/cookie') }}/bootstrap-table-cookie.js"></script>
-    <script src="{{ url('js/extensions/mobile') }}/bootstrap-table-mobile.js"></script>
+<script src="{{ url('js/extensions/cookie') }}/bootstrap-table-cookie.js"></script>
+<script src="{{ url('js/extensions/mobile') }}/bootstrap-table-mobile.js"></script>
 
-    <script src="{{ url('js/export') }}/bootstrap-table-export.js"></script>
-    <script src="{{ url('js/export') }}/tableExport.js"></script>
-    <script src="{{ url('js/export') }}/jquery.base64.js"></script>
-    <!--<script src="{{ url('js/extensions/multiple-sort') }}/bootstrap-table-multiple-sort.js"></script>-->
+<script src="{{ url('js/export') }}/bootstrap-table-export.js"></script>
+<script src="{{ url('js/export') }}/tableExport.js"></script>
+<script src="{{ url('js/export') }}/jquery.base64.js"></script>
 
-    <script type="text/javascript">
-        $('#table').bootstrapTable({
-            classes: 'table table-responsive table-no-bordered table-striped table-hover',
-            iconsPrefix: 'fa',
-            cookie: true,
-            cookieExpire: '2y',
-            mobileResponsive: true,
-            sortable: true,
-            showExport: true,
-            showColumns: true,
-            exportTypes: ['csv', 'excel', 'txt','json', 'xml'],
-            pageList: ['10','25','50','100','150','200','500','1000'],
-            exportOptions: {
-                fileName: 'assets-export-' + (new Date()).toISOString().slice(0,10),
-            },
-            icons: {
-                paginationSwitchDown: 'fa-caret-square-o-down',
-                paginationSwitchUp: 'fa-caret-square-o-up',
-                sort: 'fa fa-sort-amount-desc',
-                plus: 'fa fa-plus',
-                minus: 'fa fa-minus',
-                columns: 'fa-columns',
-                refresh: 'fa-refresh'
-            },
-        });
-    </script>
+<script type="text/javascript">
+
+    $('#table').bootstrapTable({
+        classes: 'table table-responsive table-no-bordered table-striped table-hover',
+        iconsPrefix: 'fa',
+        cookie: true,
+        cookieExpire: '2y',
+        mobileResponsive: true,
+        sortable: true,
+        showExport: true,
+        showColumns: true,
+        exportTypes: ['csv', 'excel'],
+        pageList: ['10','25','50','100','150','200','500','1000'],
+        exportOptions: {
+            fileName: 'assets-export-' + (new Date()).toISOString().slice(0,10),
+        },
+        icons: {
+            paginationSwitchDown: 'fa-caret-square-o-down',
+            paginationSwitchUp: 'fa-caret-square-o-up',
+            sort: 'fa fa-sort-amount-desc',
+            plus: 'fa fa-plus',
+            minus: 'fa fa-minus',
+            columns: 'fa-columns',
+            refresh: 'fa-refresh'
+        },
+    });
+    $(".panel").fadeIn("fast");
+
+</script>
 
 @endsection

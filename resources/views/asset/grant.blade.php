@@ -1,5 +1,4 @@
 {!! Form::open(['method' => 'POST', 'route' => ['vehicles.store']]) !!}
-<p style="color:red; font-style: italic">* Required<p>
     
     <div class="row">
         <div class="col-xs-6 form-group">

@@ -67,33 +67,7 @@
 </div>
 
 
-<div class="row" style="margin: 15px 0 20px 25px;">
-  <div class="col-md-6 cal shadow">
-    <div id='calendar'></div>
-  </div>
 
-    <div class="col-md-6">
 
-      <div class="thumbnail" style="margin-left: 15px; width: 100%; height: 250px;">
-        
-        <div class="caption">
-          <div style="height: 20px; width: 300px;"><strong>Fiscal Year Expenditures:</strong></div>
-          <div style="float: left;" id="chart"></div>
-        </div>
-      </div>
 
-      <div class="thumbnail" style="margin-left: 15px; width: 100%; height: 250px;">
-        <div class="thumbnail-dash">
-          <i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i>
-        </div>
-        <div class="caption">
-          <h3>Checkout System</h3>
-        </div>
-      </div>
-
-    </div>
-
-</div>
-
-<div id="chart"></div>
 @endsection

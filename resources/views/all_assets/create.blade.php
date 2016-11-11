@@ -2,7 +2,7 @@
 @section('crumbs')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Dashboard</a></li>
-        <li><a href="{{ route('all_assets.index') }}">Asset</a></li>
+        <li><a href="{{ route('all_assets.index') }}">Assets</a></li>
         <li class="active">Create</li>
     </ol>
 @endsection

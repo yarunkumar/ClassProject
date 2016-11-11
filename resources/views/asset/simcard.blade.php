@@ -1,5 +1,4 @@
 {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
-<p style="color:red; font-style: italic">* Required<p>
     
 <div class="row">
         <div class="col-xs-6 form-group">

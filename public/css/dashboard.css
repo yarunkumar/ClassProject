@@ -90,3 +90,21 @@ body {
   background-color: white;
   color: black;
 }
+
+.panel {
+  border-radius:0px;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.10);
+}
+
+.tab-content {
+  background-color: white;
+  padding: 10px;
+}
+
+.tab-contanier {
+  margin: 10px;
+}
+
+.nav-pills > li > a {
+  border-radius: 4px 4px 0 0;
+}

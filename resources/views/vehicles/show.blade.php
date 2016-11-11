@@ -2,8 +2,8 @@
 @section('crumbs')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Dashboard</a></li>
-        <li><a href="{{ route('vehicles.index') }}">Units</a></li>
-        <li class="active">Vehicle {{ $vehicle->vehicle_number }}</li>
+        <li><a href="{{ route('vehicles.index') }}">Vehicles</a></li>
+        <li class="active">{{ $vehicle->van }}</li>
     </ol>
 @endsection
 

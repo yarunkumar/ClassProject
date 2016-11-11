@@ -1,7 +1,5 @@
 {!! Form::open(['method' => 'POST', 'route' => ['stations.store'], 'files' => true,]) !!}
 
-<p style="color:red; font-style: italic">* Required<p>
-
     <div class="row">
         <div class="col-xs-6 form-group">
 {!! Form::label('station_name', 'Name *', ['class' => 'control-label']) !!}

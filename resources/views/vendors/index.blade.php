@@ -1,25 +1,37 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li class="active">Vendors</li>
+  </ol>
+@endsection
 
 @section('content')
-    <h3 class="page-title">Vendor</h3>
 
-    <p>
-        <a href="{{ route('vendors.create') }}" class="btn btn-success">Add new</a>
-    </p>
-
-    <div class="panel panel-default">
+    <div class="panel panel-default" hidden>
         <div class="panel-heading">
-            List
+            Vendor Listing
         </div>
 
         <div class="panel-body">
-            <table class="table table-bordered table-striped {{ count($vendors) > 0 ? 'datatable' : '' }} dt-select">
+
+            <a id="toolbar" href="{{ route('vendors.create') }}" class="btn" style="background-color: #2196f3; color: white;">New Vendor</a>
+
+            <table  data-toolbar="#toolbar"
+                    data-toggle="table"  
+                    data-search="true" 
+                    data-cookie="true"
+                    data-click-to-select="true"
+                    data-cookie-id-table="vendor-v1.1-2"
+                    data-show-columns="true"
+                    id="table">
+
                 <thead>
                     <tr>
-                        <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
-                        <th>Vendor Name</th>
+                        <th data-switchable="false" data-searchable="false" data-sortable="false" style="text-align:center;"><input type="checkbox" id="select-all" /></th>
+                        <th data-sortable="true">Vendor Name</th>
                         <th>Address</th>
-                        <th>Website</th>
+                        <th data-sortable="true">Website</th>
                         <th>Phone</th>
                         <th>Fax</th>
                         <th>Tech Support Phone</th>
@@ -27,7 +39,7 @@
                         <th>Representative Phone</th>
                         <th>Representative Phone (Cell)</th>
                         <th>Represetative Email</th>
-                        <th>&nbsp;</th>
+                        <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
                     </tr>
                 </thead>
                 
@@ -46,14 +58,33 @@
                                 <td>{{ $vendor->vendor_rep_phone }}</td>
                                 <td>{{ $vendor->vendor_rep_phone_m }}</td>
                                 <td>{{ $vendor->vendor_email }}</td>
-                                <td><a href="{{ route('vendors.show',[$vendor->id]) }}" class="btn btn-xs btn-primary">View</a><a href="{{ route('vendors.edit',[$vendor->id]) }}" class="btn btn-xs btn-info">Edit</a>{!! Form::open(array(
-                'style' => 'display: inline-block;',
-                'method' => 'DELETE',
-                'onsubmit' => "return confirm('".trans("Are you sure?")."');",
-                'route' => ['vendors.destroy', $vendor->id])) !!}
-    {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
-    {!! Form::close() !!}</td>
+                                <td>
+                                    <div style="float: right;">
+                                        <a href="{{ route('vendors.show',[$vendor->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a href="{{ route('vendors.edit',[$vendor->id]) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <a type="button" data-toggle="modal" data-target="#{{ $vendor->id }}" class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </div>
+                                </td>
                             </tr>
+
+                            <div class="modal fade" id="{{ $vendor->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are you sure you want to delete {{ $vendor->vendor_name }}? This action cannot be undone.
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         @endforeach
                     @else
                         <tr>
@@ -67,7 +98,46 @@
 @stop
 
 @section('javascript')
-    <script>
-        window.route_mass_crud_entries_destroy = '{{ route('vendors.mass_destroy') }}';
-    </script>
+
+<script src="{{ url('js/extensions/cookie') }}/bootstrap-table-cookie.js"></script>
+<script src="{{ url('js/extensions/mobile') }}/bootstrap-table-mobile.js"></script>
+
+<script src="{{ url('js/export') }}/bootstrap-table-export.js"></script>
+<script src="{{ url('js/export') }}/tableExport.js"></script>
+<script src="{{ url('js/export') }}/jquery.base64.js"></script>
+
+<script type="text/javascript">
+
+    $('#table').bootstrapTable({
+        classes: 'table table-responsive table-no-bordered table-striped table-hover',
+        iconsPrefix: 'fa',
+        cookie: true,
+        cookieExpire: '2y',
+        mobileResponsive: true,
+        sortable: true,
+        showExport: true,
+        showColumns: true,
+        exportTypes: ['csv', 'excel'],
+        pageList: ['10','25','50','100','150','200','500','1000'],
+        exportOptions: {
+            fileName: 'assets-export-' + (new Date()).toISOString().slice(0,10),
+        },
+        icons: {
+            paginationSwitchDown: 'fa-caret-square-o-down',
+            paginationSwitchUp: 'fa-caret-square-o-up',
+            sort: 'fa fa-sort-amount-desc',
+            plus: 'fa fa-plus',
+            minus: 'fa fa-minus',
+            columns: 'fa-columns',
+            refresh: 'fa-refresh'
+        },
+    });
+    $(".panel").fadeIn("fast");
+
+</script>
+
+<script>
+    window.route_mass_crud_entries_destroy = '{{ route('vendors.mass_destroy') }}';
+</script>
+
 @endsection
