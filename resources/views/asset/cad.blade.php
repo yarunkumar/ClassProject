@@ -76,7 +76,7 @@
 
 <div class="col-xs-6 form-group">
     {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
-    {!! Form::select('grant_id[]', $grants, old('grant_id'), [
+    {!! Form::select('grant_id[]', $grants, old('grant_id[]'), [
         'id' => 'grants',
         'class' => 'form-control','multiple',
         ]) !!}
@@ -88,6 +88,7 @@
         </p>
     @endif
 </div>
+
 
 
 
@@ -106,11 +107,24 @@
 
 
 <div class="row">
-    <div class="col-xs-12 form-group">
+    <div class="col-xs-6 form-group">
         {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
         {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('related_file', 'Related File', ['class' => 'control-label']) !!}
+            {!! Form::file('related_file[]', ['class' => 'form-control','multiple']) !!}
+            {!! Form::hidden('related_file_max_size', 20) !!}
+            <p class="help-block">upto 20mb</p>
+            @if($errors->has('related_file'))
+                <p class="help-block">
+                    {{ $errors->first('related_file') }}
+                </p>
+            @endif
+        </div>
 </div>
+
+
 <div>
 {!! Form::submit('Create',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

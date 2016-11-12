@@ -8,12 +8,12 @@
         <div class="panel-heading">
             Create
         </div>
-        
+
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('related_file', 'Related File', ['class' => 'control-label']) !!}
-                    {!! Form::file('related_file', old('related_file'), ['class' => 'form-control']) !!}
+                    {!! Form::file('related_file[]', ['class' => 'form-control','multiple']) !!}
                     {!! Form::hidden('related_file_max_size', 20) !!}
                     <p class="help-block">upto 20mb</p>
                     @if($errors->has('related_file'))
@@ -50,7 +50,7 @@
                     @endif
                 </div>
             </div>
-            
+
         </div>
     </div>
 

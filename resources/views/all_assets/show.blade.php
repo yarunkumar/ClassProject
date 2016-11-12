@@ -342,10 +342,12 @@
                                                                     <td>{{$allasset->status->status or ''}}</td>
                                                                 </tr>
                                                             @endif
-                                                            @if ($allasset->grant_id )
-                                                                <tr>
+                                                            @if ($grants!== '')
+                                                                    <tr>
                                                                     <td>{{ ('Grant') }}</td>
-                                                                    <td>{{$allasset->grant->grant_name or ''}}</td>
+                                                                    <td>
+                                                                        {{$grants}}
+                                                                    </td>
                                                                 </tr>
                                                             @endif
 

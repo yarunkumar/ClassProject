@@ -10,6 +10,7 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAllAssetsRequest;
 use App\Http\Requests\UpdateAllAssetsRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 //use Illuminate\Routing\Route;
@@ -41,7 +42,7 @@ class AllAssetsController extends Controller
     {
         $relations = [
             'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id'),
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
@@ -70,10 +71,32 @@ class AllAssetsController extends Controller
 
         $all_assets->save();
 
-        $all_assets->grants()->attach(Input::get('grant_id'));
+//        $all_assets->grants()->attach(Input::get('grant_id'));
+        $all_assets->grants()->detach();
+        $all_assets->grants()->attach($request["grant_id"]);
 
-        return redirect()->route('all_assets.index');
 
+//        ####Multi upload image
+//        if (isset($request["file"][0])&&$request["file"][0]) {
+//            $file=(json_decode($request["file"]));
+//            foreach ($file as $val) {
+//                if (file_exists(public_path()."/temp/" . $val) && $val !="")
+//                    File::move(public_path()."/temp/" . $val, public_path()."/uploads/" . $val);
+//                ModuleAlbum::create(["name" => $val,"Module_type_id"=>$Module_type_id, "Module_id" => $AllAsset->id]);
+//            }
+//        }
+//
+//        ######store
+//
+//
+//        $all_assets = AllAsset::paginate(10);
+//        return view("AllAssetView::AllAssetajax")->with(['Grant'=>$grant,'tab'=>1,'flag'=>3,'AllAsset'=>$all_assets]);
+//            }else{
+//        $all_assets = AllAsset::paginate(10);
+//        return view("AllAssetView::AllAssetajax")->with(['Grant'=>$grant,'tab'=>1,'flag'=>6,'AllAsset'=>$all_assets]);
+//        }
+
+    return redirect()->route('all_assets.index');
 
     }
 
@@ -87,7 +110,8 @@ class AllAssetsController extends Controller
     {
         $relations = [
             'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id'),
+
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
@@ -96,6 +120,29 @@ class AllAssetsController extends Controller
 
         ];
         $all_assets = AllAsset::findOrFail($id);
+
+        #####relation
+
+//        $grants=AllAsset::grants()->where('all_asset_id',$id)->pluck("grant_id");
+//        Above method gave non-static method error, need to read more on this
+//
+        $grants=DB::table('asset_grant')->where('all_asset_id',$id)->pluck("grant_id");
+
+//        dd($grants);
+        #####edit many to many
+
+        $edit_Grant = AllAsset::with("Grants")->where("id",$id)->get()->toArray();
+//      array including assets with related grants
+//        dd($edit_Grant);
+//        $grants["edit_Grant"]=[];
+//dd($grants);
+//        foreach ($edit_Grant[0]["grants"] as $key=>$val){
+//
+//            array_push($grants["edit_Grant"],$val["id"]) ;
+//            dd($grants);
+//        }
+
+
 
         return view('all_assets.edit', compact('all_assets', '') + $relations);
 
@@ -113,7 +160,6 @@ class AllAssetsController extends Controller
 //        dd($request);
         $allasset = AllAsset::findOrFail($id);
 
-
         $allasset->grants()->sync(Input::get('grant_id'));
         $allasset->update($request->all());
 
@@ -130,11 +176,13 @@ class AllAssetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( $id)
     {
         $relations = [
             'stations' => \App\Station::get()->pluck('station_name', 'station_name')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id'),
+            'grants' => DB::table('asset_grant')
+                    ->leftJoin('grants', 'grant_id', '=', 'grants.id')
+                    ->where('all_asset_id',$id)->pluck('grant_name'),
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
@@ -143,10 +191,12 @@ class AllAssetsController extends Controller
 
         ];
 
+
         $allasset = AllAsset::findOrFail($id);
-//
-//        dd($allasset);
+
+
         return view('all_assets.show', compact('allasset')+$relations);
+
     }
 
     /**

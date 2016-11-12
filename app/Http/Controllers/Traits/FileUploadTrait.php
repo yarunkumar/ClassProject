@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Http\UploadedFile;
+//use Intervention\Image\ImageManagerStatic as Image;
 
 trait FileUploadTrait
 {
@@ -53,31 +54,44 @@ trait FileUploadTrait
         return $request;
     }
     public function uploadFiles(Request $request){
+//dd($request);
 
-            $files->$request;
+
+
+            $file = $request->file('related_file');
+//        dd($file);
             // getting all of the post data
-            $files = Input::file('images');
+//            $file = $request->photo;
             // Making counting of uploaded images
-            $file_count = count($files);
+            $file_count = count($file);
+//        dd($file_count);
             // start count how many uploaded
-            $uploadcount = 0;
-            foreach($files as $file) {
-                $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
-                $validator = Validator::make(array('file'=> $file), $rules);
-                if($validator->passes()){
+            $uploaded = 0;
+
+            foreach($file as $upload) {
+
+//                $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+//                $validator = Validator::make(array('file'=> $upload), $rules);
+//                if($validator->passes()){
                     $destinationPath = 'uploads';
-                    $filename = $file->getClientOriginalName();
-                    $upload_success = $file->move($destinationPath, $filename);
-                    $uploadcount ++;
-                }
+                    $filename = $upload->getClientOriginalName();
+//                dd($filename);
+                    $upload->move($destinationPath, $filename);
+//                    $upload_success = $file->move($destinationPath, $filename);
+                    $uploaded ++;
+//                }
             }
-            if($uploadcount == $file_count){
-                Session::flash('success', 'Upload successfully');
-                return Redirect::to('upload');
+            if($uploaded == $file_count){
+//                Session::flash('success', 'Upload successfully');
+//                dd($request);
+//                request is images as an array
+//                need to process it in the controller
+                return $request;
             }
-            else {
-                return Redirect::to('upload')->withInput()->withErrors($validator);
-            }
+//            else {
+//                return "do it again";
+//            }
+
 
     }
 }

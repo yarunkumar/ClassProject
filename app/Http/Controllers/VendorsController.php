@@ -87,11 +87,11 @@ class VendorsController extends Controller
     }
 
     /**
-     * Remove Vendor from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ * Remove Vendor from storage.
+ *
+ * @param  int  $id
+ * @return \Illuminate\Http\Response
+ */
     public function destroy($id)
     {
         $vendor = Vendor::findOrFail($id);

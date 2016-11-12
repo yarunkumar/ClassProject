@@ -108,14 +108,14 @@ class AllAsset extends Model
         'tier_level',
         'system_alias',
         'system_id',
-//        'status_id',
+        'status_id',
 //        removed grant_id because included within the asset_grants table
 //        without removing app is giving error on grant_id
 //        'grant_id',
-//        'station_id',
-//        'vehicle_id',
-//        'personnel_id',
-//        'vendor_id',
+        'station_id',
+        'vehicle_id',
+        'personnel_id',
+        'vendor_id',
     ];
 
     
