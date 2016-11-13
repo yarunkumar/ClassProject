@@ -68,6 +68,7 @@ class VendorsController extends Controller
      */
     public function update(UpdateVendorsRequest $request, $id)
     {
+
         $vendor = Vendor::findOrFail($id);
         $vendor->update($request->all());
 

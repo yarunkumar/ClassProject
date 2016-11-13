@@ -23,11 +23,8 @@ class UpdateVendorsRequest extends FormRequest
     public function rules()
     {
         return [
-            'vendor_name' => 'required|unique:vendors,vendor_name,'.$request->route('vendor'),
-            
-            
-            
-            
+            'vendor_name' => 'required|unique:vendors,vendor_name,'.$this->route('vendor'),
+
             
             'vendor_rep' => 'required',
             

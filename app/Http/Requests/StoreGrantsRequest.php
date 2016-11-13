@@ -23,7 +23,7 @@ class StoreGrantsRequest extends FormRequest
     public function rules()
     {
         return [
-            'grant_name' => 'required',
+            'grant_name' => 'required|unique:grants,grant_name',
             'date_issued' => 'required',
             'grant_value' => 'numeric',
             

@@ -67,13 +67,80 @@ class AllAssetsController extends Controller
 
 
 
-        $all_assets = new AllAsset($request->all());
+//        $all_assets = new AllAsset($request->all());
+        $all_assets = new AllAsset([
+                'name'=> $request->name,
+                'asset_type'=> $request->asset_type,
+                'model'=> $request->model,
+                'make'=> $request->make,
+                'manu'=> $request->manu,
+                'serial_number'=> $request->serial_number,
+                'model_imei'=> $request->model_imei,
+                'date_purchased'=> $request->date_purchased,
+                'warranty_date'=> $request->warranty_date,
+                'cost'=> $request->cost,
+                'imei'=> $request->imei,
+                'mobile_type'=> $request->mobile_type,
+                'os'=> $request->os,
+                'comments'=> $request->comments,
+                'ntm_uid'=> $request->ntm_uid,
+                'ntm_pass'=> $request->ntm_pass,
+                'ip_address'=> $request->ip_address,
+                'mac'=> $request->mac,
+                'cad_ip'=> $request->cad_ip,
+                'sim_id'=> $request->sim_id,
+                'sim_phone'=> $request->sim_phone,
+                'gps_protocol'=> $request->gps_protocol,
+                'firmware_ver'=> $request->firmware_ver,
+                'radio_id'=> $request->radio_id,
+                'meid_model_num'=> $request->meid_model_num,
+                'meid'=> $request->meid,
+                'phone'=> $request->phone,
+                'multi_tech_sim'=> $request->multi_tech_sim,
+                'mdc_id'=> $request->mdc_id,
+                'mdc_pass'=> $request->mdc_pass,
+                'cpu'=> $request->cpu,
+                'ram'=> $request->ram,
+                'asset_tag'=> $request->asset_tag,
+                'network_status'=> $request->network_status,
+                'drop_status'=> $request->drop_status,
+                'switch_serial'=> $request->switch_serial,
+                'screen_size'=> $request->screen_size,
+                'ac_adapter'=> $request->ac_adpater,
+                'stylus'=> $request->stylus,
+                'seid_num'=> $request->seid_num,
+                'emid'=> $request->emid,
+                'tmv_num'=> $request->tmv_num,
+                'tmv_alias'=> $request->tmv_alias,
+                'radio_desc'=> $request->radio_desc,
+                'tier_level'=> $request->tier_level,
+                'system_alias'=> $request->system_alias,
+                'system_id'=> $request->system_id,
+
+//                fk values checking if it passing empty values then setting it to null, otherwise fk constraint error.
+
+                'grant_id'=> $request->grant_id != '' ? $request->grant_id : null,
+                'status_id'=> $request->status_id != '' ? $request->status_id : null,
+                'station_id'=>$request->station_id != '' ? $request->station_id : null,
+                'vehicle_id'=>$request->vehicle_id != '' ? $request->vehicle_id : null,
+                'personnel_id'=>$request->personnel_id != '' ? $request->personnel_id : null,
+                'vendor_id'=>$request->vendor_id != '' ? $request->vendor_id : null,
+            ]
+
+        );
+//        dd($request);
+//        $car = new Car([
+//            'name' => $request->name,
+//            'manufacturer_id' => $request->manufacturer != '' ? $request->manufacturer : null,  // fk column
+//        ]);
 
         $all_assets->save();
 
 //        $all_assets->grants()->attach(Input::get('grant_id'));
         $all_assets->grants()->detach();
         $all_assets->grants()->attach($request["grant_id"]);
+
+
 
 
 //        ####Multi upload image
@@ -161,7 +228,67 @@ class AllAssetsController extends Controller
         $allasset = AllAsset::findOrFail($id);
 
         $allasset->grants()->sync(Input::get('grant_id'));
-        $allasset->update($request->all());
+//        $allasset->update($request->all());
+        $allasset ->update([
+                'name'=> $request->name,
+                'asset_type'=> $request->asset_type,
+                'model'=> $request->model,
+                'make'=> $request->make,
+                'manu'=> $request->manu,
+                'serial_number'=> $request->serial_number,
+                'model_imei'=> $request->model_imei,
+                'date_purchased'=> $request->date_purchased,
+                'warranty_date'=> $request->warranty_date,
+                'cost'=> $request->cost,
+                'imei'=> $request->imei,
+                'mobile_type'=> $request->mobile_type,
+                'os'=> $request->os,
+                'comments'=> $request->comments,
+                'ntm_uid'=> $request->ntm_uid,
+                'ntm_pass'=> $request->ntm_pass,
+                'ip_address'=> $request->ip_address,
+                'mac'=> $request->mac,
+                'cad_ip'=> $request->cad_ip,
+                'sim_id'=> $request->sim_id,
+                'sim_phone'=> $request->sim_phone,
+                'gps_protocol'=> $request->gps_protocol,
+                'firmware_ver'=> $request->firmware_ver,
+                'radio_id'=> $request->radio_id,
+                'meid_model_num'=> $request->meid_model_num,
+                'meid'=> $request->meid,
+                'phone'=> $request->phone,
+                'multi_tech_sim'=> $request->multi_tech_sim,
+                'mdc_id'=> $request->mdc_id,
+                'mdc_pass'=> $request->mdc_pass,
+                'cpu'=> $request->cpu,
+                'ram'=> $request->ram,
+                'asset_tag'=> $request->asset_tag,
+                'network_status'=> $request->network_status,
+                'drop_status'=> $request->drop_status,
+                'switch_serial'=> $request->switch_serial,
+                'screen_size'=> $request->screen_size,
+                'ac_adapter'=> $request->ac_adpater,
+                'stylus'=> $request->stylus,
+                'seid_num'=> $request->seid_num,
+                'emid'=> $request->emid,
+                'tmv_num'=> $request->tmv_num,
+                'tmv_alias'=> $request->tmv_alias,
+                'radio_desc'=> $request->radio_desc,
+                'tier_level'=> $request->tier_level,
+                'system_alias'=> $request->system_alias,
+                'system_id'=> $request->system_id,
+
+//                fk values checking if it passing empty values then setting it to null, otherwise fk constraint error.
+
+                'grant_id'=> $request->grant_id != '' ? $request->grant_id : null,
+                'status_id'=> $request->status_id != '' ? $request->status_id : null,
+                'station_id'=>$request->station_id != '' ? $request->station_id : null,
+                'vehicle_id'=>$request->vehicle_id != '' ? $request->vehicle_id : null,
+                'personnel_id'=>$request->personnel_id != '' ? $request->personnel_id : null,
+                'vendor_id'=>$request->vendor_id != '' ? $request->vendor_id : null,
+            ]
+
+        );
 
 
         return redirect()->route('all_assets.index');
