@@ -27,7 +27,7 @@ class Vehicle extends Model
         'year',
         'unittype_id',
         'status_id',
-//        'grant_id',
+        'grant_id',
         'station_id'
     ];
     

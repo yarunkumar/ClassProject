@@ -227,8 +227,11 @@ class AllAssetsController extends Controller
 //        dd($request);
         $allasset = AllAsset::findOrFail($id);
 
-        $allasset->grants()->sync(Input::get('grant_id'));
-//        $allasset->update($request->all());
+//        $allasset->grants()->sync(Input::get('grant_id'));
+//        in above case, it was giving error because sync method expects an array
+
+        $allasset->grants()->sync( (array) Input::get('grant_id'));
+
         $allasset ->update([
                 'name'=> $request->name,
                 'asset_type'=> $request->asset_type,
@@ -280,7 +283,6 @@ class AllAssetsController extends Controller
 
 //                fk values checking if it passing empty values then setting it to null, otherwise fk constraint error.
 
-                'grant_id'=> $request->grant_id != '' ? $request->grant_id : null,
                 'status_id'=> $request->status_id != '' ? $request->status_id : null,
                 'station_id'=>$request->station_id != '' ? $request->station_id : null,
                 'vehicle_id'=>$request->vehicle_id != '' ? $request->vehicle_id : null,

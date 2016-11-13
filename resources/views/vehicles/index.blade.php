@@ -53,8 +53,7 @@
                         <td>{{ $vehicle->year }}</td>
                         <td>{{ $vehicle->unittype->name or '' }}</td>
                         <td>{{ $vehicle->status->status or '' }}</td>
-                        <td>{{$vehicle->station->station_name or '' }}</td>
-                                {{--{{ $vehicle->station->station_number or '' }}--}}
+                        <td>{{ $vehicle->station->station_name or '' }}</td>
                         <td>{{ $vehicle->grant->grant_name or '' }}</td>
                         
                         <td>
@@ -64,7 +63,6 @@
                                 <a type="button" data-toggle="modal" data-target="#{{ $vehicle->van }}" class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </div>
                         </td>
-
                         </tr>
 
 
