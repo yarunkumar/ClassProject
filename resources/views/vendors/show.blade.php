@@ -8,16 +8,27 @@
 @endsection
 
 @section('content')
-    
 
-<div class="row">
-<div class="col-md-offset-3 col-md-6">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            View
-        </div>
-        
-        <div class="panel-body">
+    <div id="exTab3" class="pill-container">
+        <ul  class="nav nav-pills">
+            <li class="active">
+                <a href="#1b" data-toggle="tab">Overview</a>
+            </li>
+            <li><a href="#2b" data-toggle="tab">Assets</a>
+            </li>
+            
+            </li>
+            <li><a href="#4a" data-toggle="tab">Other</a>
+            </li>
+        </ul>
+
+        <div class="tab-content clearfix">
+            <div class="tab-pane active" id="1b">
+                <div class="panel panel-default" style="margin: 10px;">
+                    <div class="panel-heading">
+                        Vendor Information
+                    </div>
+                        <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-responsive table-no-bordered table-striped table-hover">
@@ -38,7 +49,60 @@
 
             <p>&nbsp;</p>
         </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="2b">
+            <div class="panel panel-default" style="margin: 10px;">
+                <div class="panel-heading">
+                    Assets List
+                </div>
+                <div class="panel-body">
+
+                                   
+                    <table class="table table striped datatable">
+                        <tr>
+                            
+                            <th>Asset Name</th>
+                            <th>Model</th>
+                            <th>Make</th>
+                            <th>Manufacturer</th>
+                            <th>Serial Number</th>
+                            <th>Date Purchased</th>
+                            <th>Warranty Date</th>
+                            <th>Cost</th>
+                            <th>Comments</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                        </tr>
+                        @foreach($vendor->allassets as $all_asset)
+                            <tr>
+                                
+                                <td>{{ $all_asset->name }}</td>
+                                <td>{{ $all_asset->model }}</td>
+                                <td>{{ $all_asset->make }}</td>
+                                <td>{{ $all_asset->manu }}</td>
+                                <td>{{ $all_asset->serial_number }}</td>
+                                <td>{{ $all_asset->date_purchased }}</td>
+                                <td>{{ $all_asset->warranty_date }}</td>
+                                <td>{{ $all_asset->cost }}</td>
+                                <td>{{ $all_asset->comments }}</td>
+                                <td>{{$all_asset->status->status or ''}}</td>
+                                <td>{{$all_asset->station->station_number or ''}}</td>
+                                {{--{{$all_asset->station->station_name or ''}}--}}
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="3b">
+
+           
+        </div>
+        <div class="tab-pane" id="4a">
+            <h4>Tab for Other</h4>
+        </div>
     </div>
-</div>
-</div>
 @stop

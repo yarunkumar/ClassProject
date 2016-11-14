@@ -28,7 +28,6 @@
 
                 <thead>
                     <tr>
-                        <th data-switchable="false" data-searchable="false" data-sortable="false" style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         <th data-sortable="true">Vendor Name</th>
                         <th>Address</th>
                         <th data-sortable="true">Website</th>
@@ -47,7 +46,7 @@
                     @if (count($vendors) > 0)
                         @foreach ($vendors as $vendor)
                             <tr data-entry-id="{{ $vendor->id }}">
-                                <td></td>
+                                
                                 <td>{{ $vendor->vendor_name }}</td>
                                 <td>{{ $vendor->vendor_address }}</td>
                                 <td>{{ $vendor->vendor_web }}</td>
