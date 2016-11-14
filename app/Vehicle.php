@@ -19,17 +19,7 @@ class Vehicle extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = [
-        'van',
-        'vehicle_number',
-        'make',
-        'model',
-        'year',
-        'unittype_id',
-        'status_id',
-        'grant_id',
-        'station_id'
-    ];
+    protected $fillable = ['van', 'make', 'model', 'year', 'unittype_id','status_id','grant_id','station_id'];
     
     
     /**
@@ -59,11 +49,6 @@ class Vehicle extends Model
     public function status()
     {
         return $this->belongsTo(\App\Status::class);
-    }
-
-    public function allassets() {
-        return $this->hasMany('\App\AllAsset');
-
     }
 
     //Intended to use with multiple file uploads (in progress)

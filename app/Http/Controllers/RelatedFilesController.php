@@ -45,13 +45,18 @@ class RelatedFilesController extends Controller
      */
     public function store(StoreRelatedFilesRequest $request)
     {
-        dd($request);
+//        dd($request);
+//        $path = $request->photo->store('images');
         $request = $this->uploadFiles($request);
-//        dd();
-//        if ($request->file('photo')->isValid()) {
-//            //
-//        }
-        RelatedFile::create($request->all());
+
+        if ($request->hasFile('related_file') ) {
+            $related_file = $request->hasFile('related_file');
+            foreach ($related_file as $files) {
+//                return 1;
+            }
+        }
+
+//        RelatedFile::create($request->all());
 
         return redirect()->route('related_files.index');
     }

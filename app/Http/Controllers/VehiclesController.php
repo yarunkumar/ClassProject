@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Vehicle;
 use App\UnitType;
+use App\Grant;
+use App\Status;
+use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreVehiclesRequest;
 use App\Http\Requests\UpdateVehiclesRequest;
@@ -31,9 +33,9 @@ class VehiclesController extends Controller
     public function create()
     {
         $relations = [
-            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'unittypes' => UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
 
         ];
@@ -45,7 +47,7 @@ class VehiclesController extends Controller
     /**
      * Store a newly created Vehicle in storage.
      *
-     * @param  \App\Http\Requests\StoreVehiclesRequest  $request
+     * @param  Http\Requests\StoreVehiclesRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreVehiclesRequest $request)
@@ -64,10 +66,9 @@ class VehiclesController extends Controller
     public function edit($id)
     {
         $relations = [
-            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
-            'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
+            'unittypes' => UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
         ];
 
@@ -79,7 +80,7 @@ class VehiclesController extends Controller
     /**
      * Update Vehicle in storage.
      *
-     * @param  \App\Http\Requests\UpdateVehiclesRequest  $request
+     * @param  Http\Requests\UpdateVehiclesRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -100,9 +101,9 @@ class VehiclesController extends Controller
     public function show($id)
     {
         $relations = [
-            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
-            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'unittypes' => UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
         ];
 

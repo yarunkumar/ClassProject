@@ -25,5 +25,6 @@ class RelatedFile extends Model
     {
         return $this->belongsTo(\App\Station::class);
     }
+
     
 }
