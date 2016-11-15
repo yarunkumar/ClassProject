@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\UnitType;
-use App\Grant;
-use App\Status;
 use App\Vehicle;
+use App\UnitType;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreVehiclesRequest;
 use App\Http\Requests\UpdateVehiclesRequest;
@@ -33,9 +31,10 @@ class VehiclesController extends Controller
     public function create()
     {
         $relations = [
-            'unittypes' => UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'statuses' => Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
 
 
         ];
@@ -47,12 +46,25 @@ class VehiclesController extends Controller
     /**
      * Store a newly created Vehicle in storage.
      *
-     * @param  Http\Requests\StoreVehiclesRequest  $request
+     * @param  \App\Http\Requests\StoreVehiclesRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreVehiclesRequest $request)
     {
-        Vehicle::create($request->all());
+        Vehicle::create([
+            'van'=> $request->van,
+            'vehicle_number'=> $request->vehicle_number,
+            'make'=>$request->make,
+            'model'=>$request->model,
+            'year'=>$request->year,
+
+//           relation's to update with fk constraint and null value
+//
+            'unittype_id'=>$request->unittype_id != '' ? $request->unittype_id : null,
+            'status_id'=>$request->status_id != '' ? $request->status_id : null,
+            'grant_id'=>$request->grant_id != '' ? $request->grant_id : null,
+            'station_id'=>$request->station_id != '' ? $request->station_id : null,
+        ]);
 
         return redirect()->route('vehicles.index');
     }
@@ -66,9 +78,10 @@ class VehiclesController extends Controller
     public function edit($id)
     {
         $relations = [
-            'unittypes' => UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'statuses' => Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
 
         ];
 
@@ -80,7 +93,7 @@ class VehiclesController extends Controller
     /**
      * Update Vehicle in storage.
      *
-     * @param  Http\Requests\UpdateVehiclesRequest  $request
+     * @param  \App\Http\Requests\UpdateVehiclesRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -101,9 +114,9 @@ class VehiclesController extends Controller
     public function show($id)
     {
         $relations = [
-            'unittypes' => UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
-            'grants' => Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
-            'statuses' => Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
 
         ];
 
