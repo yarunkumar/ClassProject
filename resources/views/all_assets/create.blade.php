@@ -21,7 +21,7 @@
                     <option id="2">Computer Monitor</option>
                     <option id="3">Desktop Computer</option>
                     <option id="4">Dock</option>
-                    <option id="5">Fire Station</option>
+                    {{--<option id="5">Fire Station</option>--}}
                     {{--<option id="6">Grant</option>--}}
                     <option id="7">HPD</option>
                     <option id="8">IPad</option>
@@ -37,7 +37,7 @@
                     <option id="18">Teamviewer</option>
                     <option id="19">Trimble GPS Unit</option>
                     <option id="20">Unit Radio</option>
-                    <option id="21">Vehicle/Unit</option>
+                    {{--<option id="21">Vehicle/Unit</option>--}}
                     <option id="22">X-Series</option>
                 </select>
             </div>
