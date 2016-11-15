@@ -51,20 +51,7 @@ class VehiclesController extends Controller
      */
     public function store(StoreVehiclesRequest $request)
     {
-        Vehicle::create([
-            'van'=> $request->van,
-            'vehicle_number'=> $request->vehicle_number,
-            'make'=>$request->make,
-            'model'=>$request->model,
-            'year'=>$request->year,
-
-//           relation's to update with fk constraint and null value
-//
-            'unittype_id'=>$request->unittype_id != '' ? $request->unittype_id : null,
-            'status_id'=>$request->status_id != '' ? $request->status_id : null,
-            'grant_id'=>$request->grant_id != '' ? $request->grant_id : null,
-            'station_id'=>$request->station_id != '' ? $request->station_id : null,
-        ]);
+        Vehicle::create($request->all());
 
         return redirect()->route('vehicles.index');
     }
@@ -82,6 +69,7 @@ class VehiclesController extends Controller
             'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
             'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
+            'vendors' => \App\Station::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
 
         ];
 
@@ -102,6 +90,7 @@ class VehiclesController extends Controller
         $vehicle = Vehicle::findOrFail($id);
         $vehicle->update($request->all());
 
+
         return redirect()->route('vehicles.index');
     }
 
@@ -117,6 +106,8 @@ class VehiclesController extends Controller
             'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
             'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
+            'vendors' => \App\Station::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
 
         ];
 

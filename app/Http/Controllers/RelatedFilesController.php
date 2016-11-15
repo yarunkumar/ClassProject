@@ -106,7 +106,7 @@ class RelatedFilesController extends Controller
     {
         // Request the file input named 'attachments'
 
-        $files = Request::file('attachments');
+        $files = Request::file('related_file');
 
         //If the array is not empty
         if ($files[0] != '') {

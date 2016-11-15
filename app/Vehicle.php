@@ -36,9 +36,19 @@ class Vehicle extends Model
         return $this->belongsTo(\App\UnitType::class);
     }
 
+    public function setGrantIdAttribute($input)
+    {
+        $this->attributes['grant_id'] = $input ? $input : null;
+    }
+
     public function grant()
     {
         return $this->belongsTo(\App\Grant::class);
+    }
+
+    public function setStationIdAttribute($input)
+    {
+        $this->attributes['station_id'] = $input ? $input : null;
     }
 
     public function station()
@@ -46,11 +56,30 @@ class Vehicle extends Model
         return $this->belongsTo(\App\Station::class);
     }
 
+    public function setStatusIdAttribute($input)
+    {
+        $this->attributes['status_id'] = $input ? $input : null;
+    }
+
     public function status()
     {
         return $this->belongsTo(\App\Status::class);
     }
 
+    public function setVendorIdAttribute($input)
+    {
+        $this->attributes['vendor_id'] = $input ? $input : null;
+    }
+
+    public function vendor()
+    {
+        return $this->belongsTo(\App\Vendor::class);
+    }
+
+    public function allassets() {
+        return $this->hasMany(\App\AllAsset::class);
+
+    }
     //Intended to use with multiple file uploads (in progress)
     //    public function relatedfile()
 //    {

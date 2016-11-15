@@ -13,16 +13,21 @@ class CreateAssetGrantTable extends Migration
     public function up()
     {
         Schema::create('asset_grant', function ($table) {
+             $table->engine = 'InnoDB';
+			$table->increments('id');
+			
+			$table->timestamps();
+            $table->softDeletes();
 
+            $table->index(['deleted_at']);
+			
             $table->integer('all_asset_id')->unsigned()->nullable();
-            $table->foreign('all_asset_id')->references('id')->on('all_assets')->onDelete("cascade");
+            $table->foreign('all_asset_id', 'fk_asset_grant_all_asset')->references('id')->on('all_assets')->onUpdate('Cascade');
 
             $table->integer('grant_id')->unsigned()->nullable();
-            $table->foreign('grant_id')->references('id')->on('grants')->onDelete("cascade");
-
+            $table->foreign('grant_id', 'fk_asset_grant_grant')->references('id')->on('grants')->onUpdate('Cascade');
         });
-    }
-
+	 }
     /**
      * Reverse the migrations.
      *

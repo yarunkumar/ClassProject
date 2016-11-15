@@ -13,7 +13,8 @@ class CreateRelatedFilesTable extends Migration
     public function up()
     {
         Schema::create('related_files', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+			$table->increments('id');
             $table->string('related_file')->nullable();
             $table->string('related_image')->nullable();
             $table->text('comments')->nullable();

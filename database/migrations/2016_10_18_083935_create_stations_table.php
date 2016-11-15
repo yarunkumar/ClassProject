@@ -13,7 +13,8 @@ class CreateStationsTable extends Migration
     public function up()
     {
         Schema::create('stations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+		    $table->increments('id');
             $table->string('station_name');
 	        $table->integer('station_number');
 	        $table->string('station_date');

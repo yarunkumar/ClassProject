@@ -13,14 +13,14 @@ class CreateGrantsTable extends Migration
     public function up()
     {
         Schema::create('grants', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';           
+		    $table->increments('id');
             $table->string('grant_name')->nullable();
             $table->date('date_issued')->nullable();
             $table->string('grant_type')->nullable();
             $table->date('date_matures')->nullable();
             $table->decimal('grant_value', 15, 2)->nullable();
             $table->text('grant_comments')->nullable();
-
             
             $table->timestamps();
             $table->softDeletes();

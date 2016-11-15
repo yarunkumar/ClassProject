@@ -40,6 +40,17 @@ class Vendor extends Model
         return $this->hasMany('App\AllAsset');
     }
 
-    
-    
+    public function vehicles()
+    {
+        return $this->hasMany('App\Vehicle');
+    }
+
+    public function stations()
+    {
+        return $this->hasMany('App\Station');
+    }
+
+
+
+
 }

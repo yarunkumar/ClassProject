@@ -21,6 +21,7 @@ class UpdateVehiclesTable extends Migration
             $table->foreign('grant_id', 'fk_vehicles_grant')->references('id')->on('grants')->onUpdate('cascade');
 			$table->integer('unittype_id')->unsigned()->nullable();
             $table->foreign('unittype_id', 'fk_vehicles_unittype')->references('id')->on('unit_types')->onUpdate('cascade');
+
         });
     }
 

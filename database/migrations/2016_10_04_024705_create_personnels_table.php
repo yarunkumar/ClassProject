@@ -13,7 +13,8 @@ class CreatePersonnelsTable extends Migration
     public function up()
     {
         Schema::create('personnels', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+			$table->increments('id');
             $table->string('ofd_id')->nullable();
             $table->string('ofd_full_name')->nullable();
             $table->string('ofd_email')->nullable();

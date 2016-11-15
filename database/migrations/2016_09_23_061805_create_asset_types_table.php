@@ -13,7 +13,8 @@ class CreateAssetTypesTable extends Migration
     public function up()
     {
         Schema::create('asset_types', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+		    $table->increments('id');
             $table->integer('mobile');
             $table->integer('hardware');
             $table->integer('misc');

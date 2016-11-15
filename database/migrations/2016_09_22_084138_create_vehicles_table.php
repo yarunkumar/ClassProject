@@ -13,12 +13,13 @@ class CreateVehiclesTable extends Migration
     public function up()
     {
         Schema::create('vehicles', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('vehicle_number');
+            $table->engine = 'InnoDB';
+			$table->increments('id');
+            $table->string('vehicle_number')->nullable();
             $table->string('van');
-            $table->string('make');
-            $table->string('model');
-            $table->date('YEAR');
+            $table->string('make')->nullable();
+            $table->string('model')->nullable();
+            $table->string('year', 4)->nullable();
 
             $table->timestamps();
             $table->softDeletes();

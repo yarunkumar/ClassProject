@@ -9,7 +9,17 @@ class Station extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = ['station_name', 'station_number', 'station_date', 'address', 'city', 'zipcode', 'district', 'station_document', 'station_image', ];
+    protected $fillable = [
+        'station_name',
+        'station_number',
+        'station_date',
+        'address',
+        'city',
+        'zipcode',
+        'district',
+        'station_document',
+        'station_image',
+    ];
     
     
     /**
@@ -23,10 +33,6 @@ class Station extends Model
         } else {
             $this->attributes['station_date'] = '';
         }
-    }
-    public function vehicles() {
-        return $this->hasMany('App\Vehicle');
-
     }
 
     /**
@@ -45,5 +51,22 @@ class Station extends Model
 
     }
 
+    public function vehicles() {
+        return $this->hasMany(\App\Vehicle::class);
 
+    }
+
+    public function setVendorIdAttribute($input)
+    {
+        $this->attributes['vendor_id'] = $input ? $input : null;
+    }
+    public function vendors() {
+        return $this->belongsTo(\App\Vendor::class);
+
+    }
+
+    public function allassets() {
+        return $this->hasMany(\App\AllAsset::class);
+
+    }
 }
