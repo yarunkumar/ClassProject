@@ -22,7 +22,7 @@
                     data-search="true" 
                     data-cookie="true"
                     data-click-to-select="true"
-                    data-cookie-id-table="assetTable-v3.5.2-11-g5a835a5"
+                    data-cookie-id-table="station-index-v1.1-1"
                     data-show-columns="true"
                     id="table">
                 <thead>

@@ -13,14 +13,14 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Create
+            Create Grants
         </div>
         
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-4 form-group">
                     {!! Form::label('grant_name', 'Grant Name *', ['class' => 'control-label']) !!}
-                    {!! Form::text('grant_name', old('grant_name'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::text('grant_name', old('grant_name'), ['class' => 'form-control','placeholder' => 'Required', 'required' => 'required']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('grant_name'))
                         <p class="help-block">
@@ -31,7 +31,7 @@
 
                 <div class="col-xs-4 form-group">
                     {!! Form::label('date_issued', 'Date Issued *', ['class' => 'control-label']) !!}
-                    {!! Form::text('date_issued', old('date_issued'), ['class' => 'form-control date', 'placeholder' => '']) !!}
+                    {!! Form::text('date_issued', old('date_issued'), ['class' => 'form-control date','placeholder' => 'Required', 'required' => 'required']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('date_issued'))
                         <p class="help-block">
