@@ -105,9 +105,9 @@
                 </div>
                 <div class="col-xs-6 form-group">
                     {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
-                    {!! Form::select('grant_id[]', $grants, old('grant_id'), [
+                    {!! Form::select('grant_id', $grants, old('grant_id'), [
                         'id' => 'grants',
-                        'class' => 'form-control','multiple',
+                        'class' => 'form-control',
                         ]) !!}
 
                     <p class="help-block"></p>

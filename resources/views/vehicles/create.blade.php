@@ -62,6 +62,18 @@
                 </div>
             </div>
             <div class="row">
+
+                <div class="col-xs-3 form-group">
+                    {!! Form::label('Vehicle #', 'Vehicle #', ['class' => 'control-label']) !!}
+                    {!! Form::text('vehicle_number', old('vehicle_number'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('vehicle_number'))
+                        <p class="help-block">
+                            {{ $errors->first('vehicle_number') }}
+                        </p>
+                    @endif
+                </div>
+
                 <div class="col-xs-3 form-group">
                     {!! Form::label('unittype_id', 'Type', ['class' => 'control-label']) !!}
                     {!! Form::select('unittype_id', $unittypes, old('unittype_id'), ['class' => 'form-control']) !!}

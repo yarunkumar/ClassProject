@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
+use Intervention\Image\Facades\Image;
+//use Illuminate\Http\UploadedFile;
 //use Intervention\Image\ImageManagerStatic as Image;
 
 trait FileUploadTrait
@@ -20,6 +21,9 @@ trait FileUploadTrait
             mkdir(public_path('uploads'), 0777);
             mkdir(public_path('uploads/thumb'), 0777);
         }
+
+        $finalRequest = $request;
+
         foreach ($request->all() as $key => $value) {
             if ($request->hasFile($key)) {
                 if ($request->has($key . '_max_width') && $request->has($key . '_max_height')) {
@@ -27,6 +31,9 @@ trait FileUploadTrait
                     $filename = time() . '-' . $request->file($key)->getClientOriginalName();
                     $file     = $request->file($key);
                     $image    = Image::make($file);
+                    if (! file_exists(public_path('uploads/thumb'))) {
+                        mkdir(public_path('uploads/thumb'), 0777, true);
+                    }
                     Image::make($file)->resize(50, 50)->save(public_path('uploads/thumb') . '/' . $filename);
                     $width  = $image->width();
                     $height = $image->height();
@@ -42,16 +49,16 @@ trait FileUploadTrait
                         });
                     }
                     $image->save(public_path('uploads') . '/' . $filename);
-                    $request = new Request(array_merge($request->all(), [$key => $filename]));
+                    $finalRequest = new Request(array_merge($finalRequest->all(), [$key => $filename]));
                 } else {
                     $filename = time() . '-' . $request->file($key)->getClientOriginalName();
                     $request->file($key)->move(public_path('uploads'), $filename);
-                    $request = new Request(array_merge($request->all(), [$key => $filename]));
+                    $finalRequest = new Request(array_merge($finalRequest->all(), [$key => $filename]));
                 }
             }
         }
 
-        return $request;
+        return $finalRequest;
     }
     public function uploadFiles(Request $request){
 //dd($request);

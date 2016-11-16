@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="col-xs-6 form-group">
-                    {!! Form::label('RIG #', 'RIG #', ['class' => 'control-label']) !!}
+                    {!! Form::label('Vehicle #', 'Vehicle #', ['class' => 'control-label']) !!}
                     {!! Form::text('vehicle_number', old('vehicle_number'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('vehicle_number'))

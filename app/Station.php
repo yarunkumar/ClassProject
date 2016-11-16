@@ -20,6 +20,7 @@ class Station extends Model
         'station_document',
         'station_image',
         'vendor_id',
+        'grant_id'
     ];
     
     
@@ -68,6 +69,11 @@ class Station extends Model
 
     public function allassets() {
         return $this->hasMany(\App\AllAsset::class);
+
+    }
+
+    public function grants() {
+        return $this->belongsTo(\App\Grant::class);
 
     }
 }

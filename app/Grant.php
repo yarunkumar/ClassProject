@@ -20,7 +20,14 @@ class Grant extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = ['grant_name', 'date_issued', 'grant_type', 'date_matures', 'grant_value', 'grant_comments'];
+    protected $fillable = [
+        'grant_name',
+        'date_issued',
+        'grant_type',
+        'date_matures',
+        'grant_value',
+        'grant_comments'
+    ];
     
     
     /**
