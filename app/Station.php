@@ -19,6 +19,7 @@ class Station extends Model
         'district',
         'station_document',
         'station_image',
+        'vendor_id',
     ];
     
     

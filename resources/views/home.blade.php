@@ -29,7 +29,7 @@
       <div class="thumbnail stationss">
         <div class="thumbnail-dash">
           <i class="fa fa-home fa-4x" aria-hidden="true"></i>
-          
+
         </div>
         <div class="caption">
           <h3>Stations</h3>

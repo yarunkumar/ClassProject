@@ -33,7 +33,8 @@ class Vendor extends Model
         'vendor_rep',
         'vendor_rep_phone',
         'vendor_rep_phone_m',
-        'vendor_email'];
+        'vendor_email'
+    ];
 
     public function allassets()
     {

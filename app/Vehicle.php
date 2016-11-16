@@ -19,7 +19,17 @@ class Vehicle extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = ['van', 'make', 'model', 'year', 'unittype_id','status_id','grant_id','station_id'];
+    protected $fillable = [
+        'van',
+        'make',
+        'model',
+        'year',
+        'unittype_id',
+        'status_id',
+        'grant_id',
+        'station_id',
+        'vendor_id',
+    ];
     
     
     /**
@@ -70,10 +80,9 @@ class Vehicle extends Model
     {
         $this->attributes['vendor_id'] = $input ? $input : null;
     }
-
-    public function vendor()
-    {
+    public function vendor() {
         return $this->belongsTo(\App\Vendor::class);
+
     }
 
     public function allassets() {
