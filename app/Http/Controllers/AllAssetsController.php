@@ -190,7 +190,6 @@ class AllAssetsController extends Controller
 
         ];
         $all_assets = AllAsset::findOrFail($id);
-
         return view('all_assets.edit', compact('all_assets', '') + $relations);
 
     }

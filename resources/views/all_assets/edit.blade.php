@@ -27,7 +27,7 @@
          @if($all_assets->asset_type=="Desktop Monitor")
 @include('assetedit.computer_monitor')
          @endif
-         @if($all_assets->asset_type=="x_series")
+         @if($all_assets->asset_type=="X-Series")
 @include('assetedit.x_series')
          @endif
          @if($all_assets->asset_type=="Unit Radio")
@@ -66,14 +66,11 @@
          @if($all_assets->asset_type=="mobile_computer")
 @include('assetedit.mobile_computer')
          @endif
-         @if($all_assets->asset_type=="laptop_computer")
+         @if($all_assets->asset_type=="Laptop")
 @include('assetedit.laptop_computer')
          @endif
          @if($all_assets->asset_type=="InMotion")
 @include('assetedit.inmotion')
-         @endif
-         @if($all_assets->asset_type=="grant")
-@include('assetedit.grant')
          @endif
          @if($all_assets->asset_type=="Dock")
 @include('assetedit.dock')

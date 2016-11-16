@@ -1,5 +1,7 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
 
+{!! Form::hidden('asset_type', 'Cad', ['class' => 'form-control']) !!}
+
 <div class="row">
     <div class="col-xs-3 form-group">
         {!! Form::label('mdc_id', 'MDC User ID *', ['class' => 'control-label']) !!}
@@ -80,19 +82,6 @@
         {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
 
-    {{--Files would be listed within the tab view under the asset, as of now edit is not resolved so commented out--}}
-
-    {{--<div class="col-xs-6">--}}
-        {{--{!! Form::label('related_file', 'Related File', ['class' => 'control-label']) !!}--}}
-        {{--{!! Form::file('related_file[]', ['class' => 'form-control','multiple']) !!}--}}
-        {{--{!! Form::hidden('related_file_max_size', 20) !!}--}}
-        {{--<p class="help-block">upto 20mb</p>--}}
-        {{--@if($errors->has('related_file'))--}}
-            {{--<p class="help-block">--}}
-                {{--{{ $errors->first('related_file') }}--}}
-            {{--</p>--}}
-        {{--@endif--}}
-    {{--</div>--}}
 </div>
 
 

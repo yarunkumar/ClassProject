@@ -68,10 +68,8 @@
         @endif
     </div>
 </div>
+
 <div class="row">
-
-
-
     <div class="col-xs-6 form-group">
         {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
         {!! Form::select('vendor_id', $vendors, old('vendor_id'), ['class' => 'form-control']) !!}
@@ -97,17 +95,15 @@
             </p>
         @endif
     </div>
-
 </div>
-<div class="row">
 
-    <div class="col-xs-6 form-group">
+<div class="row">
+    <div class="col-xs-12 form-group">
         {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-        {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
+        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
 
     <div class="col-xs-6 form-group">
-
         {!! Form::hidden('asset_type', 'InMotion', ['class' => 'form-control']) !!}
     </div>
 
