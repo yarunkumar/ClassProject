@@ -60,7 +60,7 @@ class Station extends Model
     {
         $this->attributes['vendor_id'] = $input ? $input : null;
     }
-    public function vendors() {
+    public function vendor() {
         return $this->belongsTo(\App\Vendor::class);
 
     }

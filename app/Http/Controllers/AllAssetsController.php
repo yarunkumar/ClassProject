@@ -163,7 +163,7 @@ class AllAssetsController extends Controller
 //        return view("AllAssetView::AllAssetajax")->with(['Grant'=>$grant,'tab'=>1,'flag'=>6,'AllAsset'=>$all_assets]);
 //        }
 
-    return redirect()->route('all_assets.index');
+        return redirect()->route('all_assets.index');
 
     }
 
@@ -179,10 +179,9 @@ class AllAssetsController extends Controller
             'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
 
             'grants' => \App\Grant::get()->pluck('grant_name', 'id'),
-//            'grants' => DB::table('asset_grant')
-//                ->leftJoin('grants', 'grant_id', '=', 'grants.id')
-//                ->where('all_asset_id',$id)->pluck('grant_name'),
-
+            'grantsSet' => DB::table('asset_grant')
+                ->leftJoin('grants', 'grant_id', '=', 'grants.id')
+                ->where('all_asset_id',$id)->pluck('grant_id')->toArray(),
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
@@ -191,31 +190,7 @@ class AllAssetsController extends Controller
 
         ];
         $all_assets = AllAsset::findOrFail($id);
-        $grants = AllAsset::with("Grants")->where("id",$id)->get()->toArray();
-        #####relation
 
-//        $grants=AllAsset::grants()->where('all_asset_id',$id)->pluck("grant_id");
-//        Above method gave non-static method error, need to read more on this
-//
-//        $grants=DB::table('asset_grant')->where('all_asset_id',$id)->pluck("grant_id");
-//        $grants=Grant::where('active', true)->orderBy('grant_name',$id)->pluck('grant_name');
-
-//        dd($grants);
-        #####edit many to many
-
-//        $edit_Grant = AllAsset::with("Grants")->where("id",$id)->get()->toArray();
-
-//      array including assets with related grants
-//        dd($edit_Grant);
-//        $grants["edit_Grant"]=[];
-//dd($grants);
-//        foreach ($edit_Grant[0]["grants"] as $key=>$val){
-//
-//            array_push($grants["edit_Grant"],$val["id"]) ;
-//            dd($grants);
-//        }
-
-//dd($all_assets);
         return view('all_assets.edit', compact('all_assets', '') + $relations);
 
     }
@@ -315,8 +290,8 @@ class AllAssetsController extends Controller
         $relations = [
             'stations' => \App\Station::get()->pluck('station_name', 'station_name')->prepend('Please select', ''),
             'grants' => DB::table('asset_grant')
-                    ->leftJoin('grants', 'grant_id', '=', 'grants.id')
-                    ->where('all_asset_id',$id)->pluck('grant_name'),
+                ->leftJoin('grants', 'grant_id', '=', 'grants.id')
+                ->where('all_asset_id',$id)->pluck('grant_name'),
             'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
             'personnels' => \App\Personnel::get()->pluck('personnel_id', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),

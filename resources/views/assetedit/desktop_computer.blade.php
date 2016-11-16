@@ -100,10 +100,10 @@
             
             {!! Form::hidden('asset_type', 'Desktop Computer', ['class' => 'form-control']) !!}
         </div>
-    <div class="col-xs-6 form-group">
+    <div class="col-xs-3 form-group">
+
         {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
-        {!! Form::select('grant_id[]', $grants, old('grant_id'), [
-            'id' => 'grants',
+        {!! Form::select('grant_id[]',$grants, ($grantsSet), [
             'class' => 'form-control','multiple',
             ]) !!}
 

@@ -40,24 +40,18 @@
     </div>
     <div class="row">
        
-    <div class="col-xs-6 form-group">
-        {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
-        {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
-        <p class="help-block"></p>
-        @if($errors->has('vehicle_id'))
-            <p class="help-block">
-                {{ $errors->first('vehicle_id') }}
-            </p>
-        @endif
-    </div>
-    <div class="col-xs-6 form-group">
-            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-            {!! Form::text('comments', old('comments'), ['class' => 'form-control']) !!}
-        </div>
-        </div>
-        <div class="row">
-    
         <div class="col-xs-6 form-group">
+            {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
+            {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
+            <p class="help-block"></p>
+            @if($errors->has('vehicle_id'))
+                <p class="help-block">
+                    {{ $errors->first('vehicle_id') }}
+                </p>
+            @endif
+        </div>
+
+            <div class="col-xs-6 form-group">
                     {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
                     {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
@@ -66,9 +60,8 @@
                             {{ $errors->first('status_id') }}
                         </p>
                     @endif
-                </div>        
-        
-    </div>
+            </div>
+        </div>
 
        
                 <div class="col-xs-6 form-group">
@@ -76,6 +69,46 @@
             {!! Form::hidden('asset_type', 'Computer Monitor', ['class' => 'form-control']) !!}
         </div>
 </div>
+
+<div class="row">
+
+
+
+    <div class="col-xs-6 form-group">
+        {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
+        {!! Form::select('vendor_id', $vendors, old('vendor_id'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('vendor_id'))
+            <p class="help-block">
+                {{ $errors->first('vendor_id') }}
+            </p>
+        @endif
+    </div>
+
+    <div class="col-xs-3 form-group">
+
+        {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
+        {!! Form::select('grant_id[]',$grants, ($grantsSet), [
+            'class' => 'form-control','multiple',
+            ]) !!}
+
+        <p class="help-block"></p>
+        @if($errors->has('grant_id'))
+            <p class="help-block">
+                {{ $errors->first('grant_id') }}
+            </p>
+        @endif
+    </div>
+
+</div>
+
+
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
+        </div>
+    </div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
