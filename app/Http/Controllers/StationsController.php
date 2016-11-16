@@ -10,7 +10,6 @@ use App\Http\Controllers\Traits\FileUploadTrait;
 use App\MobileComputer;
 use Auth;
 
-
 class StationsController extends Controller
 {
     use FileUploadTrait;
@@ -24,12 +23,21 @@ class StationsController extends Controller
 
     public function create()
     {
+        $relations = [
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+
+
+        ];
         
-        return view('stations.create');
+        return view('stations.create', $relations);
     }
 
     public function store(StoreStationsRequest $request)
     {
+//        dd($request);
+
         $request = $this->saveFiles($request);
         Station::create($request->all());
 
@@ -44,9 +52,17 @@ class StationsController extends Controller
 
     public function edit($id)
     {
+
+        $relations = [
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
+            'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+
+
+        ];
         
         $station = Station::findOrFail($id);
-        return view('stations.edit',compact('station'));
+        return view('stations.edit',compact('station', '') + $relations);
     }
 
     public function update(UpdateStationsRequest $request, $id)
