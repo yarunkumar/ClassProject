@@ -108,6 +108,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+    'vendor_rep' => 'Representative Name',
+    ],
 
 ];
