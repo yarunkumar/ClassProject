@@ -110,16 +110,7 @@
                 @endif
             </div>
 
-            <div class="col-xs-4 form-group">
-                {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
-                {!! Form::select('grant_id', $grants, old('grant_id'), ['class' => 'form-control']) !!}
-                <p class="help-block"></p>
-                @if($errors->has('grant_id'))
-                    <p class="help-block">
-                        {{ $errors->first('grant_id') }}
-                    </p>
-                @endif
-            </div>
+            
 
         </div>
     {!! Form::submit('Update', ['class' => 'btn btn-success']) !!}
