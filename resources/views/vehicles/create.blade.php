@@ -96,15 +96,15 @@
                     @endif
                 </div>
                 <div class="col-xs-3 form-group">
-                    {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
-                    {!! Form::select('vendor_id', $vendors, old('vendor_id'), ['class' => 'form-control']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('vendor_id'))
-                        <p class="help-block">
-                            {{ $errors->first('vendor_id') }}
-                        </p>
-                    @endif
-                </div>
+                {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
+                {!! Form::select('vendor_id', $vendors, old('vendor_id'), ['class' => 'form-control']) !!}
+                <p class="help-block"></p>
+                @if($errors->has('vendor_id'))
+                    <p class="help-block">
+                        {{ $errors->first('vendor_id') }}
+                    </p>
+                @endif
+            </div>
                 <div class="col-xs-3 form-group">
                     {!! Form::label('grant_id', 'Grant', ['class' => 'control-label']) !!}
                     {!! Form::select('grant_id', $grants, old('grant_id'), ['class' => 'form-control']) !!}

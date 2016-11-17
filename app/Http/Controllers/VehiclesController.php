@@ -35,7 +35,7 @@ class VehiclesController extends Controller
             'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
             'stations' => \App\Station::get()->pluck('station_name', 'id')->prepend('Please select', ''),
-            'vendors' => \App\Station::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
+            'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
 
 
         ];
