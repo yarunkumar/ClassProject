@@ -36,14 +36,20 @@
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('date_purchased', 'Date Purchased', ['class' => 'control-label']) !!}
-            {!! Form::text('date_purchased', old('date_purchased'), ['class' => 'form-control']) !!}
+            {!! Form::text('date_purchased', old('date_purchased'), ['class' => 'form-control','placeholder' => 'yyyy-mm-dd']) !!}
+            <p class="help-block"></p>
+            @if($errors->has('date_purchased'))
+                <p class="help-block">
+                    {{ $errors->first('date_purchased') }}
+                </p>
+            @endif
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('cost', 'Cost', ['class' => 'control-label']) !!}
             {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    
+
      <div class="row">
         <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}

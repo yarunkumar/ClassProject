@@ -63,7 +63,7 @@
          @if($all_assets->asset_type=="multi_tech_modem")
 @include('assetedit.multi_tech_modem')
          @endif
-         @if($all_assets->asset_type=="mobile_computer")
+         @if($all_assets->asset_type=="Mobile Computer")
 @include('assetedit.mobile_computer')
          @endif
          @if($all_assets->asset_type=="Laptop")
