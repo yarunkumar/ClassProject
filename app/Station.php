@@ -71,7 +71,10 @@ class Station extends Model
         return $this->hasMany(\App\AllAsset::class);
 
     }
-
+    public function setGrantIdAttribute($input)
+    {
+        $this->attributes['grant_id'] = $input ? $input : null;
+    }
     public function grants() {
         return $this->belongsTo(\App\Grant::class);
 
