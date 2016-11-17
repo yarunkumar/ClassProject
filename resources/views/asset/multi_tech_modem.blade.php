@@ -1,5 +1,6 @@
 {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
-    
+{!! Form::hidden('asset_type', 'Multi-Tech Modem', ['class' => 'form-control']) !!}
+
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
@@ -89,17 +90,12 @@
             @endif
         </div>
 
-</div>
-<div class="col-xs-6 form-group">    
-        {!! Form::hidden('asset_type', 'Multi-Tech Modem', ['class' => 'form-control']) !!}
-    </div>
-    <div class="row">
-    
-        <div class="col-xs-12 form-group">
-        {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
-    </div>
-        
+
+
+        <div class="col-xs-6 form-group">
+            {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+            {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x4']) !!}
+        </div>
     </div>
 
 <div>
