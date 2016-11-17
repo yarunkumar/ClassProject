@@ -36,7 +36,7 @@
 
         <div class="col-xs-3 form-group">
             {!! Form::label('date_purchased', 'Date Purchased', ['class' => 'control-label']) !!}
-            {!! Form::text('date_purchased', \Carbon\Carbon::now(), ['class' => 'form-control','placeholder' => 'yyyy-mm-dd']) !!}
+            {!! Form::text('date_purchased', old('date_purchased'), ['class' => 'form-control','placeholder' => 'yyyy-mm-dd']) !!}
             <p class="help-block"></p>
             @if($errors->has('date_purchased'))
                 <p class="help-block">

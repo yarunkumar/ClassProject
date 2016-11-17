@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-xs-3 form-group">
             {!! Form::label('date_purchased', 'Date Purchased', ['class' => 'control-label']) !!}
-            {!! Form::text('date_purchased', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+            {!! Form::text('date_purchased', old('date_purchased'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-3 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
