@@ -3,7 +3,7 @@
 @section('content')
     <h3 class="page-title">Unit Type</h3>
     
-    {!! Form::model($unit_type, ['method' => 'PUT', 'route' => ['unit_types.update', $unit_type->id]]) !!}
+    {!! Form::model($unittype, ['method' => 'PUT', 'route' => ['unit_types.update', $unittype->id]]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">

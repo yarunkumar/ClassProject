@@ -76,10 +76,15 @@
                                   <div class="modal-body">
                                     Are you sure you want to delete {{ $vendor->vendor_name }}? This action cannot be undone.
                                   </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                                  </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'route' => ['vendors.destroy', $vendor->id])) !!}
+                                        {{Form::button('<i class="fa fa-trash"></i> DELETE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
+                                        {!! Form::close() !!}
+                                    </div>
                                 </div>
                               </div>
                             </div>
