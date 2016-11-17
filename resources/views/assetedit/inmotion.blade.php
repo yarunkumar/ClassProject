@@ -22,7 +22,7 @@
 </div>
 <div class="row">
     <div class="col-xs-6 form-group">
-        {!! Form::label('mac', 'Model MAC #', ['class' => 'control-label']) !!}
+        {!! Form::label('mac', 'Hotspot MAC #', ['class' => 'control-label']) !!}
         {!! Form::text('mac', old('mac'), ['class' => 'form-control']) !!}
     </div>
     <div class="col-xs-6 form-group">

@@ -36,7 +36,7 @@
          @if($all_assets->asset_type=="Cad")
 @include('assetedit.cad')
          @endif
-         @if($all_assets->asset_type=="Tremble GPS Unit")
+         @if($all_assets->asset_type=="Trimble GPS Unit")
 @include('assetedit.trimble_gps')
          @endif
          @if($all_assets->asset_type=="Team Viewer")
@@ -57,10 +57,10 @@
          @if($all_assets->asset_type=="person")
 @include('assetedit.person')
          @endif
-         @if($all_assets->asset_type=="netmotion")
+         @if($all_assets->asset_type=="Netmotion")
 @include('assetedit.netmotion')
          @endif
-         @if($all_assets->asset_type=="multi_tech_modem")
+         @if($all_assets->asset_type=="Multi-Tech Modem")
 @include('assetedit.multi_tech_modem')
          @endif
          @if($all_assets->asset_type=="Mobile Computer")

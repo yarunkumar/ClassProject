@@ -1,16 +1,16 @@
 {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
-    
+{!! Form::hidden('asset_type', 'Dock', ['class' => 'form-control']) !!}
+
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('manu', 'Manufacture (Make)', ['class' => 'control-label']) !!}
-            {!! Form::text('manu', old('manu'), ['class' => 'form-control']) !!}
+            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
+            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('model', 'Model #', ['class' => 'control-label']) !!}
             {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
         </div>
-    </div>
-    <div class="row">
+
         <div class="col-xs-6 form-group">
             {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
             {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control', 'required' => 'required']) !!}
@@ -26,18 +26,15 @@
         @endif
     </div>
 
-    </div>
-     
-<div class="row">
     <div class="col-xs-6 form-group">
-    {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
-    {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
-    <p class="help-block"></p>
-    @if($errors->has('vehicle_id'))
-        <p class="help-block">
-            {{ $errors->first('vehicle_id') }}
-        </p>
-    @endif
+        {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
+        {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('vehicle_id'))
+            <p class="help-block">
+                {{ $errors->first('vehicle_id') }}
+            </p>
+        @endif
     </div>
     <div class="col-xs-6 form-group">
         {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
@@ -49,15 +46,6 @@
             </p>
         @endif
     </div>
-</div>
-
-
-<div class="row">
-    <div class="col-xs-6 form-group">    
-        {!! Form::hidden('asset_type', 'Dock', ['class' => 'form-control']) !!}
-    </div>  
-</div>
-<div class="row">
     
     <div class="col-xs-6 form-group">
         {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
@@ -85,9 +73,7 @@
         @endif
     </div>
 
-</div>
 
-<div class="row">
     <div class="col-xs-12 form-group">
         {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
         {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}

@@ -1,4 +1,5 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
+{!! Form::hidden('asset_type', 'Multi-Tech Modem', ['class' => 'form-control']) !!}
 
 <div class="row">
     <div class="col-xs-6 form-group">
@@ -9,18 +10,16 @@
         {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
         {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
-</div>
-<div class="row">
+
     <div class="col-xs-6 form-group">
         {!! Form::label('meid_model_#', 'MEID Model #', ['class' => 'control-label']) !!}
-        {!! Form::text('meid_model_#', old('meid_model_#'), ['class' => 'form-control']) !!}
+        {!! Form::text('meid_model_num', old('meid_model_num'), ['class' => 'form-control']) !!}
     </div>
     <div class="col-xs-6 form-group">
         {!! Form::label('meid', 'MEID Number', ['class' => 'control-label']) !!}
         {!! Form::text('meid', old('meid'), ['class' => 'form-control']) !!}
     </div>
-</div>
-<div class="row">
+
     <div class="col-xs-6 form-group">
         {!! Form::label('phone', 'Phone Number', ['class' => 'control-label']) !!}
         {!! Form::text('phone', old('phone'), ['class' => 'form-control']) !!}
@@ -29,29 +28,27 @@
         {!! Form::label('sim_id', 'Multi-Tech SIM', ['class' => 'control-label']) !!}
         {!! Form::text('sim_id', old('sim_id'), ['class' => 'form-control']) !!}
     </div>
-</div>
-<div class="col-xs-6 form-group">
-    {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
-    {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
-    <p class="help-block"></p>
-    @if($errors->has('station_id'))
-        <p class="help-block">
-            {{ $errors->first('station_id') }}
-        </p>
-    @endif
-</div>
-<div class="col-xs-6 form-group">
-    {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
-    {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
-    <p class="help-block"></p>
-    @if($errors->has('vehicle_id'))
-        <p class="help-block">
-            {{ $errors->first('vehicle_id') }}
-        </p>
-    @endif
-</div>
-<div class="row">
 
+    <div class="col-xs-6 form-group">
+        {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
+        {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('station_id'))
+            <p class="help-block">
+                {{ $errors->first('station_id') }}
+            </p>
+        @endif
+    </div>
+    <div class="col-xs-6 form-group">
+        {!! Form::label('vehicle_id', 'Assign to a vehicle', ['class' => 'control-label']) !!}
+        {!! Form::select('vehicle_id', $vehicles, old('vehicle_id'), ['class' => 'form-control']) !!}
+        <p class="help-block"></p>
+        @if($errors->has('vehicle_id'))
+            <p class="help-block">
+                {{ $errors->first('vehicle_id') }}
+            </p>
+        @endif
+    </div>
 
     <div class="col-xs-6 form-group">
         {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
@@ -89,20 +86,12 @@
         @endif
     </div>
 
-</div>
-<div class="col-xs-6 form-group">
-    {!! Form::hidden('asset_type', 'Multi-Tech Modem', ['class' => 'form-control']) !!}
-</div>
-<div class="row">
-
-    <div class="col-xs-12 form-group">
+    <div class="col-xs-6 form-group">
         {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
         {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
     </div>
 
 </div>
-
-<div>
 
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

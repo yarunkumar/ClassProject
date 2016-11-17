@@ -6,12 +6,21 @@
             {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
+            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
+            {!! Form::text('make', old('make'), ['class' => 'form-control', 'placeholder' => '']) !!}
+            <p class="help-block"></p>
+            @if($errors->has('make'))
+                <p class="help-block">
+                    {{ $errors->first('make') }}
+                </p>
+            @endif
+        </div>
+        <div class="col-xs-6 form-group">
             {!! Form::label('system_id', 'System ID Number', ['class' => 'control-label']) !!}
             {!! Form::text('system_id', old('system_id'), ['class' => 'form-control']) !!}
         </div>
         
-    </div>
-    <div class="row">
+
         <div class="col-xs-6 form-group">
             {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
             {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control', 'required' => 'required']) !!}
@@ -20,8 +29,7 @@
             {!! Form::label('date_purchased', 'Date Purchased', ['class' => 'control-label']) !!}
             {!! Form::text('date_purchased', old('date_purchased'), ['class' => 'form-control']) !!}
         </div>
-    </div>
-    <div class="row">
+
         <div class="col-xs-6 form-group">
             {!! Form::label('cost', 'Cost', ['class' => 'control-label']) !!}
             {!! Form::text('cost', old('cost'), ['class' => 'form-control']) !!}
@@ -30,8 +38,7 @@
             {!! Form::label('radio_desc', 'Model Description', ['class' => 'control-label']) !!}
             {!! Form::text('radio_desc', old('radio_desc'), ['class' => 'form-control']) !!}
         </div>
-    </div>
-    <div class="row">
+
         <div class="col-xs-6 form-group">
             {!! Form::label('system_alias', 'System Alias', ['class' => 'control-label']) !!}
             {!! Form::text('system_alias', old('system_alias'), ['class' => 'form-control']) !!}
@@ -46,8 +53,7 @@
                         </p>
                     @endif
                 </div>
-    </div>
-     <div class="row">
+
         <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
@@ -68,10 +74,6 @@
             </p>
         @endif
     </div>
-    </div>
-    <div class="row">
-    
-
 
 <div class="col-xs-6 form-group">
     {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}

@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-xs-6 form-group">
             {!! Form::label('meid_model_#', 'MEID Model #', ['class' => 'control-label']) !!}
-            {!! Form::text('meid_model_#', old('meid_model_#'), ['class' => 'form-control']) !!}
+            {!! Form::text('meid_model_num', old('meid_model_num'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
             {!! Form::label('meid', 'MEID Number', ['class' => 'control-label']) !!}

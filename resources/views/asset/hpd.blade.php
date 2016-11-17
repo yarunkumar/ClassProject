@@ -2,12 +2,12 @@
     
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
-            {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
-        </div>
-        <div class="col-xs-6 form-group">
             {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
             {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
+        </div>
+        <div class="col-xs-6 form-group">
+            {!! Form::label('model', 'Model', ['class' => 'control-label']) !!}
+            {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">

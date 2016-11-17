@@ -17,8 +17,8 @@
             {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">
-            {!! Form::label('manu', 'Brand', ['class' => 'control-label']) !!}
-            {!! Form::text('manu', old('manu'), ['class' => 'form-control']) !!}
+            {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
+            {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="row">
@@ -33,7 +33,7 @@
     </div>
     <div class="row">
         <div class="col-xs-6 form-group">
-            {!! Form::label('ram', 'RAM (MB)', ['class' => 'control-label']) !!}
+            {!! Form::label('ram', 'RAM (GB)', ['class' => 'control-label']) !!}
             {!! Form::text('ram', old('ram'), ['class' => 'form-control']) !!}
         </div>
         <div class="col-xs-6 form-group">

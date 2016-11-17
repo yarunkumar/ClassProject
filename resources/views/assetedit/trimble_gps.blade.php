@@ -1,4 +1,5 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
+{!! Form::hidden('asset_type', 'Tremble GPS Unit', ['class' => 'form-control']) !!}
 
 <div class="row">
     <div class="col-xs-6 form-group">
@@ -6,12 +7,14 @@
         {!! Form::text('model', old('model'), ['class' => 'form-control']) !!}
     </div>
     <div class="col-xs-6 form-group">
+        {!! Form::label('make', 'Make', ['class' => 'control-label']) !!}
+        {!! Form::text('make', old('make'), ['class' => 'form-control']) !!}
+    </div>
+    <div class="col-xs-6 form-group">
         {!! Form::label('serial_number', 'Serial Number *', ['class' => 'control-label']) !!}
         {!! Form::text('serial_number', old('serial_number'), ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
 
-</div>
-<div class="row">
 
     <div class="col-xs-6 form-group">
         {!! Form::label('gps_protocol', 'GPS Protocol', ['class' => 'control-label']) !!}
@@ -27,8 +30,7 @@
             </p>
         @endif
     </div>
-</div>
-<div class="row">
+
     <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
@@ -49,9 +51,6 @@
             </p>
         @endif
     </div>
-</div>
-<div class="row">
-
 
 
     <div class="col-xs-6 form-group">
@@ -80,19 +79,10 @@
         @endif
     </div>
 
-</div>
-<div class="row">
-
-    <div class="col-xs-12 form-group">
-        {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
-    </div>
     <div class="col-xs-6 form-group">
-
-        {!! Form::hidden('asset_type', 'Tremble GPS Unit', ['class' => 'form-control']) !!}
+        {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x4']) !!}
     </div>
-
 </div>
-<div>
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

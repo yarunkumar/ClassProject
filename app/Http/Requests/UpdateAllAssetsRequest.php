@@ -25,7 +25,9 @@ class UpdateAllAssetsRequest extends FormRequest
         return [
 //            'name' => 'required',
             'serial_number' => 'unique:all_assets,serial_number,'.$this->route('all_asset'),
-            'imei'=>'integer|unique:all_assets,imei'.$this->route('allasset'),
+//            'imei'=>'unique:all_assets,imei'.$this->route('allasset'),
+//               client data shows inmotion IMEIs are not unique
+//               need to figure out which IMEIs are unique
 
         ];
     }
