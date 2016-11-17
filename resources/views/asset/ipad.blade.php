@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-6 form-group">
+                <div class="col-xs-6 form-group">
                     {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
                     {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
