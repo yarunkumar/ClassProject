@@ -64,7 +64,7 @@
                         <tr>
                             
                             <th>Asset Name</th>
-                            <th>Model</th>
+                            <th>Asset Type</th>
                             <th>Make</th>
                             <th>Manufacturer</th>
                             <th>Serial Number</th>
@@ -79,7 +79,7 @@
                             <tr>
                                 
                                 <td>{{ $all_asset->name }}</td>
-                                <td>{{ $all_asset->model }}</td>
+                                <td>{{ $all_asset->asset_type }}</td>
                                 <td>{{ $all_asset->make }}</td>
                                 <td>{{ $all_asset->manu }}</td>
                                 <td>{{ $all_asset->serial_number }}</td>
