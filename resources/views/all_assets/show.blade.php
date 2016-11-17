@@ -327,7 +327,7 @@
                                                             @if ($allasset->vehicle_id )
                                                                 <tr>
                                                                     <td>{{ ('Assigned Vehicle') }}</td>
-                                                                    <td>{{$allasset->vehicle->van or ''}}</td>
+                                                                    <td>{{$allasset->vehicle->vehicle_number or ''}}</td>
                                                                 </tr>
                                                             @endif
                                                             @if ($allasset->personnel_id )
@@ -350,6 +350,15 @@
                                                                     </td>
                                                                 </tr>
                                                             @endif
+                                                            @if ($allasset->vendor_id)
+                                                                <tr>
+                                                                   <td>{{ ('Vendor') }}</td>
+                                                                    <td>
+                                                                        {{$allasset->vendor->vendor_name or ''}}
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+
 
 
                             </table>
