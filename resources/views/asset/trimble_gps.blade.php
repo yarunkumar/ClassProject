@@ -1,5 +1,5 @@
 {!! Form::open(['method' => 'POST', 'route' => ['all_assets.store']]) !!}
-{!! Form::hidden('asset_type', 'Tremble GPS Unit', ['class' => 'form-control']) !!}
+{!! Form::hidden('asset_type', 'Trimble GPS Unit', ['class' => 'form-control']) !!}
 
    <div class="row">
         <div class="col-xs-6 form-group">

@@ -1,5 +1,5 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
-{!! Form::hidden('asset_type', 'Tremble GPS Unit', ['class' => 'form-control']) !!}
+{!! Form::hidden('asset_type', 'Trimble GPS Unit', ['class' => 'form-control']) !!}
 
 <div class="row">
     <div class="col-xs-6 form-group">

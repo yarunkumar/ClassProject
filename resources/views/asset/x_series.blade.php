@@ -64,7 +64,7 @@
     
     <div class="col-xs-6 form-group">
         {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
+        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x4']) !!}
     </div>
         
 </div>

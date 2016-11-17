@@ -1,4 +1,5 @@
 {!! Form::model($all_assets,['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id], 'files' => true,]) !!}
+{!! Form::hidden('asset_type', 'Team Viewer', ['class' => 'form-control']) !!}
 
 <div class="row">
     <div class="col-xs-6 form-group">
@@ -9,8 +10,7 @@
         {!! Form::label('tmv_alias', 'Teamviewer Alias', ['class' => 'control-label']) !!}
         {!! Form::text('tmv_alias', old('tmv_alias  '), ['class' => 'form-control']) !!}
     </div>
-</div>
-<div class="row">
+
     <div class="col-xs-6 form-group">
         {!! Form::label('ntm_uid', 'Username', ['class' => 'control-label']) !!}
         {!! Form::text('ntm_uid', old('ntm_uid'), ['class' => 'form-control']) !!}
@@ -19,8 +19,7 @@
         {!! Form::label('ntm_pass', 'Password', ['class' => 'control-label']) !!}
         {!! Form::text('ntm_pass', old('ntm_pass'), ['class' => 'form-control']) !!}
     </div>
-</div>
-<div class="row">
+
     <div class="col-xs-6 form-group">
         {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
         {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!}
@@ -41,8 +40,6 @@
             </p>
         @endif
     </div>
-</div>
-<div class="row">
 
     <div class="col-xs-6 form-group">
         {!! Form::label('status_id', 'Status', ['class' => 'control-label']) !!}
@@ -54,13 +51,6 @@
             </p>
         @endif
     </div>
-
-
-</div>
-
-<div class="row">
-
-
 
     <div class="col-xs-6 form-group">
         {!! Form::label('vendor_id', 'Vendor', ['class' => 'control-label']) !!}
@@ -88,18 +78,10 @@
         @endif
     </div>
 
-</div>
-<div class="row">
-    <div class="col-xs-12 form-group">
-        {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
-        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x5']) !!}
-    </div>
-
     <div class="col-xs-6 form-group">
-
-        {!! Form::hidden('asset_type', 'Team Viewer', ['class' => 'form-control']) !!}
+        {!! Form::label('comments', 'Comments', ['class' => 'control-label']) !!}
+        {!! Form::textarea('comments', old('comments'), ['class' => 'form-control', 'size' => '30x4']) !!}
     </div>
-
 </div>
 {!! Form::submit('Save',['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
