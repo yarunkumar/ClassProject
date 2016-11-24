@@ -9,6 +9,9 @@
 
 @section('content')
 
+{!! Form::model($station,['method' => 'PUT', 'route' => ['stations.reassign', $station->id], 'files' => true,]) !!}
+
+
     <div id="exTab3" class="pill-container">
         <ul  class="nav nav-pills">
             <li class="active">
@@ -66,6 +69,7 @@
         </div>
 
         <div class="tab-pane" id="3b">
+<<<<<<< HEAD
                 <table  data-toolbar="#toolbar"
                         data-toggle="table"  
                         data-search="true" 
@@ -96,6 +100,32 @@
                         @foreach($station->allassets as $all_asset)
                             <tr>
                                 <td>{{ $all_asset->asset_type }}</td>
+=======
+            <div class="panel panel-default" style="margin: 10px;">
+                <div class="panel-heading">
+                    Assets List
+                </div>
+                <div class="panel-body">
+                    <table class="table table striped datatable">
+                        <tr>
+                        <th></th>
+                            <th>Asset Name</th>
+                            <th>Model</th>
+                            <th>Make</th>
+                            <th>Manufacturer</th>
+                            <th>Serial Number</th>
+                            <th>Date Purchased</th>
+                            <th>Warranty Date</th>
+                            <th>Cost</th>
+                            <th>Comments</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                            <th>Actions</th>
+                        </tr>
+                        @foreach($station->allassets as $all_asset)
+                            <tr>
+                            <td><label><input type="checkbox" id="reassignids" name="reassignval[]" value="{{$all_asset->id}}" ></label></td>
+>>>>>>> 47a957e66d04bc04d00a11aaaef5a8ace8abfedc
                                 <td>{{ $all_asset->name }}</td>
                                 <td>{{ $all_asset->model }}</td>
                                 <td>{{ $all_asset->make }}</td>
@@ -117,6 +147,20 @@
                         @endforeach
                     </tbody>
                     </table>
+<<<<<<< HEAD
+=======
+                    <div class="col-xs-6 form-group">
+                    <div class="col-xs-6 form-group">
+      {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
+        {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!} </div><br/>
+       <div> {!! Form::submit('Reassign',['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}</div> 
+        
+       
+    </div> 
+                </div>
+            </div>
+>>>>>>> 47a957e66d04bc04d00a11aaaef5a8ace8abfedc
 
         </div>
         <div class="tab-pane" id="2b">
