@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <div class="panel panel-default" hidden>
+    <div class="panel panel-default panel-shadow" hidden>
         <div class="panel-heading">
             Station Listing
         </div>
