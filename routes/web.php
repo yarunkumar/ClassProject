@@ -24,12 +24,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('all_assets', 'AllAssetsController');
     Route::resource('grants', 'GrantsController');
-    Route::resource('mobile_computers', 'MobileComputersController');
-    Route::resource('manufacturers', 'ManufacturersController');
-//    Route::resource('models', 'ModelsController');
     Route::resource('personnels', 'PersonnelsController');
 //    Route::resource('logs', 'LogsController');
-    Route::resource('people', 'PeopleController');
     Route::resource('stations', 'StationsController');
     Route::resource('statuses', 'StatusesController');
     Route::post('statuses_mass_destroy', ['uses' => 'StatusesController@massDestroy', 'as' => 'statuses.mass_destroy']);
@@ -47,9 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
      * Part 1 - Upload images in Dropzone
      */
 //    Route::resource('upload', 'ImageController');
-      Route::get('upload', ['as' => 'upload', 'uses' => 'ImageController@getUpload']);
-    Route::post('upload', ['as' => 'upload-post', 'uses' =>'ImageController@postUpload']);
-    Route::post('upload/delete', ['as' => 'upload-remove', 'uses' =>'ImageController@deleteUpload']);
+//      Route::get('upload', ['as' => 'upload', 'uses' => 'ImageController@getUpload']);
+//    Route::post('upload', ['as' => 'upload-post', 'uses' =>'ImageController@postUpload']);
+//    Route::post('upload/delete', ['as' => 'upload-remove', 'uses' =>'ImageController@deleteUpload']);
     /**
      * Part 2 - Display already uploaded images in Dropzone
      */
@@ -62,5 +58,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('dropzone', 'ImageController@dropzone');
     Route::post('dropzone/store', ['as'=>'dropzone.store','uses'=>'ImageController@dropzoneStore']);
+
+//blueimp
+//    Route::resource('/upload', 'UploadController');
+
 
 });

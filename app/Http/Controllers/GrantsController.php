@@ -7,10 +7,13 @@ use App\AllAsset;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreGrantsRequest;
 use App\Http\Requests\UpdateGrantsRequest;
+use App\Http\Controllers\Traits\FileUploadTrait;
 
 
 class GrantsController extends Controller
 {
+
+    use FileUploadTrait;
 
     /**
      * Display a listing of Grant.
@@ -43,6 +46,12 @@ class GrantsController extends Controller
      */
     public function store(StoreGrantsRequest $request)
     {
+//        if($request->hasFile('related_file') ){
+//
+//        }
+
+        $request = $this->saveFiles($request);
+
         Grant::create($request->all());
 
         return redirect()->route('grants.index');

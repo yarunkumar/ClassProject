@@ -86,6 +86,20 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('related_file', 'Related Document', ['class' => 'control-label']) !!}
+                    {!! Form::file('related_file', old('related_file'), ['class' => 'form-control']) !!}
+                    {!! Form::hidden('related_file_max_size', 20) !!}
+                    <p class="help-block">up to 20mb</p>
+                    @if($errors->has('related_file'))
+                        <p class="help-block">
+                            {{ $errors->first('related_file') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
             
             {!! Form::submit('Create', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}

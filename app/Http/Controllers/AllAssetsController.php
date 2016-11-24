@@ -128,40 +128,15 @@ class AllAssetsController extends Controller
             ]
 
         );
-//        dd($request);
-//        $car = new Car([
-//            'name' => $request->name,
-//            'manufacturer_id' => $request->manufacturer != '' ? $request->manufacturer : null,  // fk column
-//        ]);
+
 
         $all_assets->save();
 
-//        $all_assets->grants()->attach(Input::get('grant_id'));
         $all_assets->grants()->detach();
         $all_assets->grants()->attach($request["grant_id"]);
 
 
 
-
-//        ####Multi upload image
-//        if (isset($request["file"][0])&&$request["file"][0]) {
-//            $file=(json_decode($request["file"]));
-//            foreach ($file as $val) {
-//                if (file_exists(public_path()."/temp/" . $val) && $val !="")
-//                    File::move(public_path()."/temp/" . $val, public_path()."/uploads/" . $val);
-//                ModuleAlbum::create(["name" => $val,"Module_type_id"=>$Module_type_id, "Module_id" => $AllAsset->id]);
-//            }
-//        }
-//
-//        ######store
-//
-//
-//        $all_assets = AllAsset::paginate(10);
-//        return view("AllAssetView::AllAssetajax")->with(['Grant'=>$grant,'tab'=>1,'flag'=>3,'AllAsset'=>$all_assets]);
-//            }else{
-//        $all_assets = AllAsset::paginate(10);
-//        return view("AllAssetView::AllAssetajax")->with(['Grant'=>$grant,'tab'=>1,'flag'=>6,'AllAsset'=>$all_assets]);
-//        }
 
         return redirect()->route('all_assets.index');
 

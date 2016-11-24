@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
-//use Illuminate\Http\UploadedFile;
-//use Intervention\Image\ImageManagerStatic as Image;
+//use Intervention\Image\Facades\Image;
+use Illuminate\Http\UploadedFile;
+use Intervention\Image\ImageManagerStatic as Image;
 
 trait FileUploadTrait
 {
@@ -27,8 +27,8 @@ trait FileUploadTrait
         foreach ($request->all() as $key => $value) {
             if ($request->hasFile($key)) {
                 if ($request->has($key . '_max_width') && $request->has($key . '_max_height')) {
-                    // Check file width
                     $filename = time() . '-' . $request->file($key)->getClientOriginalName();
+                    dd($filename);
                     $file     = $request->file($key);
                     $image    = Image::make($file);
                     if (! file_exists(public_path('uploads/thumb'))) {
@@ -50,7 +50,9 @@ trait FileUploadTrait
                     }
                     $image->save(public_path('uploads') . '/' . $filename);
                     $finalRequest = new Request(array_merge($finalRequest->all(), [$key => $filename]));
+
                 } else {
+
                     $filename = time() . '-' . $request->file($key)->getClientOriginalName();
                     $request->file($key)->move(public_path('uploads'), $filename);
                     $finalRequest = new Request(array_merge($finalRequest->all(), [$key => $filename]));
@@ -59,6 +61,7 @@ trait FileUploadTrait
         }
 
         return $finalRequest;
+//        dd($finalRequest);
     }
     public function uploadFiles(Request $request){
 //dd($request);
@@ -82,9 +85,14 @@ trait FileUploadTrait
 //                if($validator->passes()){
                     $destinationPath = 'uploads';
                     $filename = $upload->getClientOriginalName();
-//                dd($filename);
+                    $image = Image::make($upload);
+                    if (! file_exists(public_path('uploads/thumb'))) {
+                        mkdir(public_path('uploads/thumb'), 0777, true);
+                    }
+                    Image::make($upload)->resize(50, 50)->save(public_path('uploads/thumb') . '/' . $filename);
+
                     $upload->move($destinationPath, $filename);
-//                    $upload_success = $file->move($destinationPath, $filename);
+
                     $uploaded ++;
 //                }
             }

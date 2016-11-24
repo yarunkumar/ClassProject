@@ -18,7 +18,7 @@ class RelatedFile extends Model
     
     protected $fillable = [
         'related_file',
-        'comments'
+//        'comments'
     ];
 
     public function station()

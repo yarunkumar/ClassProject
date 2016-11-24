@@ -31,6 +31,7 @@ class StoreAllAssetsRequest extends FormRequest
 //            'name' => 'required',
             'serial_number' => 'unique:all_assets,serial_number'.$this->route('allasset'),
             'imei'=>'integer|unique:all_assets,imei'.$this->route('allasset'),
+            ''
         ];
     }
 }

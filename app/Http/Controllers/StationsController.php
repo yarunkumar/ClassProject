@@ -38,7 +38,8 @@ class StationsController extends Controller
     {
 //        dd($request);
 
-        $request = $this->saveFiles($request);
+        $request = $this->uploadFiles($request);
+//        $request = $this->saveFiles($request);
         Station::create($request->all());
 
         return redirect()->route('stations.index');

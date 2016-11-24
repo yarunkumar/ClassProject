@@ -45,21 +45,22 @@ class RelatedFilesController extends Controller
      */
     public function store(StoreRelatedFilesRequest $request)
     {
-//        dd($request);
-//        $path = $request->photo->store('images');
-        $request = $this->uploadFiles($request);
 
-        if ($request->hasFile('related_file') ) {
-            $related_file = $request->hasFile('related_file');
-            foreach ($related_file as $files) {
-//                return 1;
-            }
+        $destinationPath = 'uploads';
+        $file = $request->file(['related_file']);
+
+        foreach ($file as $key=>$value) {
+
+            $file_attribute = array(
+                'related_file'=>$value->getClientOriginalName());
+                 $value->move($destinationPath, $value->getClientOriginalName());
+                 RelatedFile::create($file_attribute);
         }
+            return redirect()->route('related_files.index');
 
-//        RelatedFile::create($request->all());
-
-        return redirect()->route('related_files.index');
     }
+
+
 
     /**
      * Show the form for editing RelatedFile.
@@ -102,26 +103,26 @@ class RelatedFilesController extends Controller
         return view('related_files.show', compact('file'));
     }
 
-    public function storeFiles()
-    {
-        // Request the file input named 'attachments'
-
-        $files = Request::file('related_file');
-
-        //If the array is not empty
-        if ($files[0] != '') {
-            foreach($files as $file) {
-                // Set the destination path
-                $destinationPath = 'uploads';
-                // Get the orginal filname or create the filename of your choice
-                $filename = $file->getClientOriginalName();
-                // Copy the file in our upload folder
-                $file->move($destinationPath, $filename);
-            }
-        }
-        // Retrun a redirection or a view
-        return redirect('/');
-    }
+//    public function storeFiles()
+//    {
+//        // Request the file input named 'attachments'
+//
+//        $files = Request::file('related_file');
+//
+//        //If the array is not empty
+//        if ($files[0] != '') {
+//            foreach($files as $file) {
+//                // Set the destination path
+//                $destinationPath = 'uploads';
+//                // Get the orginal filname or create the filename of your choice
+//                $filename = $file->getClientOriginalName();
+//                // Copy the file in our upload folder
+//                $file->move($destinationPath, $filename);
+//            }
+//        }
+//        // Retrun a redirection or a view
+//        return redirect('/');
+//    }
     /**
      * Remove RelatedFile from storage.
      *
