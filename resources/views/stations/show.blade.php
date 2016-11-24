@@ -9,6 +9,9 @@
 
 @section('content')
 
+{!! Form::model($station,['method' => 'PUT', 'route' => ['stations.reassign', $station->id], 'files' => true,]) !!}
+
+
     <div id="exTab3" class="pill-container">
         <ul  class="nav nav-pills">
             <li class="active">
@@ -61,6 +64,7 @@
                 <div class="panel-body">
                     <table class="table table striped datatable">
                         <tr>
+                        <th></th>
                             <th>Asset Name</th>
                             <th>Model</th>
                             <th>Make</th>
@@ -76,6 +80,7 @@
                         </tr>
                         @foreach($station->allassets as $all_asset)
                             <tr>
+                            <td><label><input type="checkbox" id="reassignids" name="reassignval[]" value="{{$all_asset->id}}" ></label></td>
                                 <td>{{ $all_asset->name }}</td>
                                 <td>{{ $all_asset->model }}</td>
                                 <td>{{ $all_asset->make }}</td>
@@ -94,6 +99,15 @@
                             </tr>
                         @endforeach
                     </table>
+                    <div class="col-xs-6 form-group">
+                    <div class="col-xs-6 form-group">
+      {!! Form::label('station_id', 'Assign to Station', ['class' => 'control-label']) !!}
+        {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!} </div><br/>
+       <div> {!! Form::submit('Reassign',['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}</div> 
+        
+       
+    </div> 
                 </div>
             </div>
 
