@@ -13,8 +13,8 @@
         <div class="panel-heading">
             Station Listing
         </div>
-        <div class="panel-body">
 
+        <div class="panel-body">
             <a id="toolbar" href="{{ route('stations.create') }}" class="btn" style="background-color: #2196f3; color: white;">New Station</a>
 
             <table  data-toolbar="#toolbar"
@@ -24,57 +24,20 @@
                     data-click-to-select="true"
                     data-cookie-id-table="station-index-v1.1-1"
                     data-show-columns="true"
-                             <table class="table table-striped datatable">
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ $station->station_name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Number</th>
-                        <td>{{ $station->station_number }}</td>
-                    </tr>
-                    <tr>
-                        <th>Date</th>
-                        <td>{{ $station->station_date }}</td>
-                    </tr>
-                    <tr>
-                        <th>Address</th>
-                        <td>{{ $station->address }}</td>
-                    </tr>
-                    <tr>
-                        <th>City</th>
-                        <td>{{ $station->city }}</td>
-                    </tr>
-                    <tr>
-                        <th>Zipcode</th>
-                        <td>{{ $station->zipcode }}</td>
-                    </tr>
-                    <tr>
-                        <th>Battalion</th>
-                        <td>{{ $station->district }}</td>
-                    </tr>
-                    <tr>
-                        <th>Related Document</th>
-                        <td><a href="{{ asset('uploads/'.$station->station_document) }}">Download file</a></td>
-                    </tr>
-                    <tr>
-                        <th>Related Photo</th>
-                        <td>@if($station->station_image!= '')<img src="{{ asset('uploads/thumb/'.$station->station_image) }}">@endif</td>
-                    </tr>
-                </table>   id="table">
-                <thead>
-                <tr>
-                    <th data-sortable="true">Name</th>
-                    <th data-sortable="true">Number</th>
-                    <th data-sortable="true">Date</th>
-                    <th data-sortable="true">Address</th>
-                    <th data-sortable="true">City</th>
-                    <th data-sortable="true">Zipcode</th>
-                    <th data-sortable="true">Battalion</th>
-                    <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
-                    
-                </tr>
-                </thead>
+                    id="table">
+                    <thead>
+                        <tr>
+                            <th data-sortable="true">Name</th>
+                            <th data-sortable="true">Number</th>
+                            <th data-sortable="true">Date</th>
+                            <th data-sortable="true">Address</th>
+                            <th data-sortable="true">City</th>
+                            <th data-sortable="true">Zipcode</th>
+                            <th data-sortable="true">Battalion</th>
+                            <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
+
+                        </tr>
+                    </thead>
                 <tbody>
                 @if(count($stations) > 0)
                     @foreach($stations as $station)

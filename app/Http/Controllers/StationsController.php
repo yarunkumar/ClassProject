@@ -25,9 +25,12 @@ class StationsController extends Controller
     public function create()
     {
         $relations = [
+            'unittypes' => \App\UnitType::get()->pluck('name', 'id')->prepend('Please select', ''),
             'grants' => \App\Grant::get()->pluck('grant_name', 'id')->prepend('Please select', ''),
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
+            'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
             'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
 
 
         ];
@@ -54,7 +57,7 @@ class StationsController extends Controller
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
             'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
             'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
-            'vehids' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
+            'vehicles' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
 
         ];
         $station = Station::findOrFail($id);
