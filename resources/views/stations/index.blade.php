@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <div class="panel panel-default" hidden>
+    <div class="panel panel-default panel-shadow" hidden>
         <div class="panel-heading">
             Station Listing
         </div>
@@ -24,7 +24,44 @@
                     data-click-to-select="true"
                     data-cookie-id-table="station-index-v1.1-1"
                     data-show-columns="true"
-                    id="table">
+                             <table class="table table-striped datatable">
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ $station->station_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Number</th>
+                        <td>{{ $station->station_number }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>{{ $station->station_date }}</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{ $station->address }}</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td>{{ $station->city }}</td>
+                    </tr>
+                    <tr>
+                        <th>Zipcode</th>
+                        <td>{{ $station->zipcode }}</td>
+                    </tr>
+                    <tr>
+                        <th>Battalion</th>
+                        <td>{{ $station->district }}</td>
+                    </tr>
+                    <tr>
+                        <th>Related Document</th>
+                        <td><a href="{{ asset('uploads/'.$station->station_document) }}">Download file</a></td>
+                    </tr>
+                    <tr>
+                        <th>Related Photo</th>
+                        <td>@if($station->station_image!= '')<img src="{{ asset('uploads/thumb/'.$station->station_image) }}">@endif</td>
+                    </tr>
+                </table>   id="table">
                 <thead>
                 <tr>
                     <th data-sortable="true">Name</th>

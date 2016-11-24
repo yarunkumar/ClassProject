@@ -18,6 +18,14 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('auth.password.email');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
+//Bulkreassign routes
+//$this->get('vehicles/reassign', 'VehiclesController@reassign')->name('vehicles.reassign');
+$this->post('vehicles/reassign/', 'VehiclesController@reassign')->name('vehicles.reassign');
+$this->put('vehicles/reassign/', 'VehiclesController@reassign')->name('vehicles.reassign');
+//$this->get('vehicles/reassign', 'VehiclesController@reassign')->name('vehicles.reassign');
+$this->post('stations/reassign/', 'StationsController@reassign')->name('stations.reassign');
+$this->put('stations/reassign/', 'StationsController@reassign')->name('stations.reassign');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
@@ -29,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('stations', 'StationsController');
     Route::resource('statuses', 'StatusesController');
     Route::post('statuses_mass_destroy', ['uses' => 'StatusesController@massDestroy', 'as' => 'statuses.mass_destroy']);
+    //Route::post('reassign', ['uses' => 'VehiclesController@reassign', 'as' => 'vehicles.reassign']);
     Route::resource('types', 'TypesController');
     Route::resource('unit_types', 'UnitTypesController');
     Route::resource('vehicles', 'VehiclesController');

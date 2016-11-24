@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Vehicle;
 use App\UnitType;
+use App\AllAsset;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreVehiclesRequest;
 use App\Http\Requests\UpdateVehiclesRequest;
@@ -109,13 +110,43 @@ class VehiclesController extends Controller
             'statuses' => \App\Status::get()->pluck('status', 'id')->prepend('Please select', ''),
             'stations' => \App\Station::get()->pluck('station_number', 'id')->prepend('Please select', ''),
             'vendors' => \App\Vendor::get()->pluck('vendor_name', 'id')->prepend('Please select', ''),
+            'vehids' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
 
         ];
+        //dd($relations);
 
         $vehicle = Vehicle::findOrFail($id);
         return view('vehicles.show', compact('vehicle') + $relations);
     }
 
+public function reassign(Request $request)
+    {
+        //dd($id);
+       //dd($id);
+       //dd($request); 
+       $arrayValues = $request->reassignval;
+       //dd($arrayValues);
+       $newStationID = $request->vehicle_id;
+       //dd($newStationID);
+
+        //dd(AllAsset::findOrFail(46));
+//$arrayValues;
+        foreach ($arrayValues as $key => $value) {
+            $allAsset = AllAsset::findOrFail($value);
+
+           
+         $allAsset->vehicle_id = $newStationID;
+         //dd($allAsset);
+            $allAsset->save();
+            //dd($allAsset);
+        }
+        //$station = Station::findOrFail($id);
+        //return view('stations.show',compact('station'));
+       
+       $vehicles = Vehicle::all();
+
+        return view('vehicles.index', compact('vehicles'));
+    }
     /**
      * Remove Vehicle from storage.
      *
