@@ -374,7 +374,45 @@
 
                 <div class="tab-pane" id="3b">
                      <h4>Tab for History</h4>
+                     <div class="panel-body">
+                        <table class="table table striped datatable">
+                            <tr>
+                            
+                                
+                                <th>Asset Type</th>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Serial Number</th>
+                                <th>Status</th>
+                                
+                                <th>Location</th>
+                                <th>Vehicle</th>
+                                <th>Vendor</th>
+                                <th>Grant Name</th>
+                                <th>Updated On</th>
+                                
+                            </tr>
+                           @foreach($allassethis2 as $stationhis)
+                                <tr>
+                                    <td>{{ $stationhis->asset_type }}</td>
+                                    <td>{{ $stationhis->make }}</td>
+                                    <td>{{ $stationhis->model }}</td>
+                                    <td>{{ $stationhis->serial_number }}</td>
+                                    <td>{{ $stationhis->status }}</td>
+                                    <td>{{ $stationhis->station_name }}</td>
+                                    <td>{{ $stationhis->vehicle_name }}</td>
+                                    <td>{{ $stationhis->vendor_name }}</td>
+                                    <td>{{ $stationhis->grant_name}}</td>
+                                    <td>{{ $stationhis->created_at }}</td>
+                                   
+                                  
+                                    
+                                </tr>
+                            @endforeach 
+                        </table>
+                        </div>
                 </div>
+
                 <div class="tab-pane" id="4a">
                     <h4>Tab for Files</h4>
                 </div>
