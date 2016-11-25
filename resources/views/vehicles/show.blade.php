@@ -100,20 +100,53 @@
                             @endforeach
                         </table>
                         <div class="col-xs-6 form-group">
- <div class="col-xs-6 form-group">
-       {!! Form::label('vehicle_id', 'Assign to Vehicle', ['class' => 'control-label']) !!} 
-        {!! Form::select('vehicle_id', $vehids, old('vehicle_id'), ['class' => 'form-control']) !!} </div><br/>
-       <div> {!! Form::submit('Reassign',['class' => 'btn btn-success']) !!}
-            {!! Form::close() !!}</div> 
+                            <div class="col-xs-6 form-group">
+                                {!! Form::label('vehicle_id', 'Assign to Vehicle', ['class' => 'control-label']) !!} 
+                                 {!! Form::select('vehicle_id', $vehids, old('vehicle_id'), ['class' => 'form-control']) !!} </div><br/>
+                             <div> {!! Form::submit('Reassign',['class' => 'btn btn-success']) !!}
+                                {!! Form::close() !!}</div> 
        
-    </div> 
+                                </div> 
+                            </div>
                     </div>
-                </div>
 
             </div>
         <div class="tab-pane" id="3b">
             <h4>History</h4>
-
+<div class="panel-body">
+                        <table class="table table striped datatable">
+                            <tr>
+                            
+                                <th>OFD Van #</th>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Year</th>
+                                
+                                <th>Station</th>
+                                <th>Status</th>
+                                <th>Grant</th>
+                                <th>Unit Type</th>
+                                <th>Vendor</th>
+                                <th>Updated On</th>
+                            </tr>
+                           @foreach($vehiclehis2 as $vehiclehis)
+                                <tr>
+                                    <td>{{ $vehiclehis->van }}</td>
+                                    <td>{{ $vehiclehis->make }}</td>
+                                    <td>{{ $vehiclehis->model }}</td>
+                                    <td>{{ $vehiclehis->year }}</td>
+                                    <td>{{ $vehiclehis->name }}</td>
+                                    <td>{{ $vehiclehis->status }}</td>
+                                    <td>{{ $vehiclehis->grant_name }}</td>
+                                    <td>{{ $vehiclehis->unittype_name }}</td>
+                                    <td>{{ $vehiclehis->vendor_name }}</td>
+                                    <td>{{ $vehiclehis->created_at }}</td>
+                                  
+                                    
+                                </tr>
+                            @endforeach 
+                        </table>
+                        </div>
         </div>
         <div class="tab-pane" id="4a">
             <h4>Others</h4>
