@@ -50,13 +50,15 @@ body {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.10);
 }
 
+.large-category {
+  padding: 0 6px 0 6px;
+}
+
 .thumbnail-dash > i {
   color: #1565c0;
   text-align: center;
   padding-top: 20px;
 }
-
-
 
 .caption > h3 {
   text-align: center;

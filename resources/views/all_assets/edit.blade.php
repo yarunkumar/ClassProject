@@ -2,7 +2,7 @@
 @section('crumbs')
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}">Dashboard</a></li>
-        <li><a href="{{ route('all_assets.index') }}">Asset</a></li>
+        <li><a href="{{ route('all_assets.index') }}">Assets</a></li>
         <li class="active">Edit</li>
     </ol>
 @endsection
@@ -11,11 +11,12 @@
 
 {!! Form::model($all_assets, ['method' => 'PUT', 'route' => ['all_assets.update', $all_assets->id]]) !!}
 
-    <div class="panel panel-default">
+    <div class="panel panel-default panel-shadow">
         <div class="panel-heading">
-            Edit New Assets
-            
-     @if($all_assets->asset_type=="IPad")
+            Edit Asset
+        </div>
+        <div class="panel-body">
+        @if($all_assets->asset_type=="IPad")
 @include('assetedit.ipad')
          @endif
          @if($all_assets->asset_type=="HPD")
@@ -81,8 +82,8 @@
          @if($all_assets->asset_type=="")
 <p>No Data in Asset Type field</p>
          @endif
-
-
+</div>
+</div>
 
         
 
