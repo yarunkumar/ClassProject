@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Station;
 use App\AllAsset;
+use App\Vehicle;
+use App\Stationhis;
+use App\UnitType;
+use App\Grant;
+use App\Status;
+use App\Vendor;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreStationsRequest;
 use App\Http\Requests\UpdateStationsRequest;
@@ -61,7 +67,11 @@ class StationsController extends Controller
 
         ];
         $station = Station::findOrFail($id);
-        return view('stations.show',compact('station') + $relations);
+//show history code start
+        //below one line code is for storing all history related to the $id in variable, which is to be used to display in show page.
+        $stationhis2 = Stationhis::where('station_id', $id)->get();
+        //show history code end
+        return view('stations.show',compact('station', 'stationhis2') + $relations);
     }
 public function reassign(Request $request)
     {
@@ -105,6 +115,41 @@ public function reassign(Request $request)
     {
         $request = $this->saveFiles($request);
         $station = Station::findOrFail($id);
+ //history code begin
+        $grantid=$station->grant_id;
+        $vendorid=$station->vendor_id;
+
+
+       $grant = Grant::find($grantid);
+        $vendor = Vendor::find($vendorid);
+
+         if($grant)
+       {
+        $grant_name=$grant->grant_name;
+      
+       }
+       else
+       {
+        $grant_name=null;
+       }
+
+       if($vendor)
+       {
+        $vendor_name=$vendor->vendor_name;
+      
+       }
+
+       else
+       {
+        $vendor_name=null;
+       }
+
+
+ \DB::table('stationhis')->insert(
+            ['station_id' => $station->id, 'station_name' => $station->station_name, 'station_number' => $station->station_number, 'station_date' => $station->station_date,  'address' => $station->address, 'city' => $station->city, 'zipcode' => $station->zipcode,'district' => $station->district,'vendor_id' => $station->vendor_id, 'vendor_name' => $vendor_name, 'grant_id' => $station->grant_id, 'grant_name' => $grant_name, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now() ] 
+        );
+
+ //end history code
         $station->update($request->all());
 
         return redirect()->route('stations.index');
