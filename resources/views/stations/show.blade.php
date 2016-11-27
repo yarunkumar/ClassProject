@@ -21,6 +21,8 @@
             </li>
             <li><a href="#3b" data-toggle="tab">Assets</a>
             </li>
+            <li><a href="#4b" data-toggle="tab">History</a>
+            </li>
         </ul>
 
         <div class="tab-content clearfix">
@@ -167,6 +169,47 @@
 
 
             </div>
+        
+<div class="tab-pane" id="4b">
+            <h4>History</h4>
+                <div class="panel-body">
+                        <table class="table table striped datatable">
+                            <tr>
+                            
+                                <th>Station Name</th>
+                                <th>Station Number</th>
+                                <th>Date</th>
+                                <th>Address</th>
+                                
+                                <th>City</th>
+                                <th>Zipcode</th>
+                                <th>District</th>
+                                <th>Vendor</th>
+                                <th>Grant</th>
+                                <th>Updated On</th>
+                            </tr>
+                           @foreach($stationhis2 as $stationhis)
+                                <tr>
+                                    <td>{{ $stationhis->station_name }}</td>
+                                    <td>{{ $stationhis->station_number }}</td>
+                                    <td>{{ $stationhis->station_date }}</td>
+                                    <td>{{ $stationhis->address }}</td>
+                                    <td>{{ $stationhis->city }}</td>
+                                    <td>{{ $stationhis->zipcode }}</td>
+                                    <td>{{ $stationhis->district }}</td>
+                                    <td>{{ $stationhis->vendor_name }}</td>
+                                    <td>{{ $stationhis->grant_name }}</td>
+                                    <td>{{ $stationhis->created_at }}</td>
+                                  
+                                    
+                                </tr>
+                            @endforeach 
+                        </table>
+                        </div>
+        </div>
+
+
+
         </div>
     </div>
 
