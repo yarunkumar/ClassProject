@@ -7,6 +7,11 @@ use App\Personnel;
 use App\Station;
 use App\Grant;
 use App\Vehicle;
+use App\AllAssethis;
+use App\UnitType;
+use App\Status;
+use App\Vendor;
+use App\Asset;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAllAssetsRequest;
 use App\Http\Requests\UpdateAllAssetsRequest;
@@ -181,6 +186,99 @@ class AllAssetsController extends Controller
 //        dd($request);
         $allasset = AllAsset::findOrFail($id);
 
+        //asset history code begin
+        //history code
+
+        $stationid=$allasset->station_id;
+       $statusid=$allasset->status_id;
+      // $grantid=$allasset->grant_id;
+       $unittypeid=$allasset->unittype_id;
+       $vendorid=$allasset->vendor_id;
+       $vehicleid=$allasset->vehicle_id;
+
+
+       
+       //finding relavent names against each primary key and storing it in variables
+       $station = Station::find($stationid);
+       $status = Status::find($statusid);
+       $unit = Unittype::find($unittypeid);
+       $vendor = Vendor::find($vendorid);
+       $vehicle = Vehicle::find($vehicleid);
+       $grants = DB::table('asset_grant')
+                ->leftJoin('grants', 'grant_id', '=', 'grants.id')
+                ->where('all_asset_id',$id)->pluck('grant_name');
+       //dd($grants);
+
+       //if else code to handle null values
+
+      if($grants)
+      {
+      $grant_name=$grants;
+      }
+      else
+      {
+      $grant_name=null;
+      }
+     
+
+       if($station)
+       {
+        $station_name=$station->station_name;
+       }
+       else
+       {
+        $station_name=null;
+       }
+
+       if($status)
+       {
+        $status_name=$status->status;
+      
+       }
+       else
+       {
+        $status_name=null;
+       }
+      
+      if($unit)
+       {
+        $unittype_name=$unit->name;
+      
+       }
+       else
+       {
+        $unittype_name=null;
+       }
+      
+      if($vendor)
+       {
+        $vendor_name=$vendor->vendor_name;
+      
+       }
+
+       else
+       {
+        $vendor_name=null;
+       }
+       if($vehicle)
+       {
+        $vehicle_name=$vehicle->van;
+      
+       }
+
+       else
+       {
+        $vehicle_name=null;
+       }
+//dd($allasset);
+       \DB::table('all_assethis')->insert(
+            ['asset_id' => $allasset->id, 'name' => $allasset->name, 'asset_type' => $allasset->asset_type,'model' => $allasset->model, 'make' => $allasset->make, 'manu' => $allasset->manu, 'serial_number' => $allasset->serial_number, 'model_imei' => $allasset->model_imei, 'date_purchased' => $allasset->date_purchased, 'warranty_date' => $allasset->warranty_date, 'cost' => $allasset->cost, 'imei' => $allasset->imei, 'mobile_type' => $allasset->mobile_type, 'os' => $allasset->os, 'comments' => $allasset->comments, 'ntm_uid' => $allasset->ntm_uid, 'ntm_pass' => $allasset->ntm_pass, 'ip_address' => $allasset->ip_address, 'mac' => $allasset->mac, 'cad_ip' => $allasset->cad_ip, 'sim_id' => $allasset->sim_id, 'sim_phone' => $allasset->sim_phone,   'gps_protocol' => $allasset->gps_protocol, 'firmware_ver' => $allasset->firmware_ver, 'radio_id' => $allasset->radio_id, 'meid_model_num' => $allasset->meid_model_num, 'meid' => $allasset->meid, 'phone' => $allasset->phone,   'multi_tech_sim' => $allasset->multi_tech_sim, 'mdc_id' => $allasset->mdc_id, 'mdc_pass' => $allasset->mdc_pass, 'cpu' => $allasset->cpu,   'ram' => $allasset->ram,   'asset_tag' => $allasset->asset_tag,   'network_status' => $allasset->network_status, 'drop_status' => $allasset->drop_status,   'switch_serial' => $allasset->switch_serial,   'screen_size' => $allasset->screen_size,   'ac_adapter' => $allasset->ac_adpater, 'stylus' => $allasset->stylus, 'seid_num' => $allasset->seid_num, 'emid' => $allasset->emid, 'tmv_num' => $allasset->tmv_num,   'tmv_alias' => $allasset->tmv_alias,   'radio_desc' => $allasset->radio_desc, 'tier_level' => $allasset->tier_level, 'system_alias' => $allasset->system_alias, 'system_id' => $allasset->system_id, 'status_id' => $allasset->status_id, 'status' => $status_name,  'station_id' => $allasset->station_id,  'station_name' => $station_name, 'vehicle_id' => $allasset->vehicle_id, 'vehicle_name' => $vehicle_name, 'vendor_id' => $allasset->vendor_id, 'vendor_name' => $vendor_name, 'grant_name' => $grant_name, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now() ] 
+        );
+       
+
+       //history code end
+       //history code end
+
 //        $allasset->grants()->sync(Input::get('grant_id'));
 //        in above case, it was giving error because sync method expects an array
 
@@ -276,9 +374,10 @@ class AllAssetsController extends Controller
 
 
         $allasset = AllAsset::findOrFail($id);
+//below one line code is for storing all history related to the $id in variable, which is to be used to display in show page.
+        $allassethis2 = AllAssethis::where('asset_id', $id)->get();
 
-
-        return view('all_assets.show', compact('allasset')+$relations);
+        return view('all_assets.show', compact('allasset', 'allassethis2')+$relations);
 
     }
 
