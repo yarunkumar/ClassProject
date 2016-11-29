@@ -6,10 +6,8 @@ use App\Repair;
 use App\Vehicle;
 use App\AllAsset;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-//use App\Http\Requests\StoreRepairsRequest;
-//use App\Http\Requests\UpdateRepairsRequest;
+//use Illuminate\Support\Collection;
+
 
 class RepairsController extends Controller
 {
@@ -22,9 +20,17 @@ class RepairsController extends Controller
     public function index()
     {
 
+        $assets= AllAsset::where(function($query) {
+            $query->where('status_id', '2');
+        })
+            ->get();
 
-        $assets = AllAsset::all()->where('status_id', '2');
-        $vehicles = Vehicle::all()->where('status_id', '2');
+        $vehicles= Vehicle::where(function($query) {
+            $query->where('status_id', '2');
+        })
+            ->get();
+
+
 
         $relation = $assets ->merge($vehicles);
 //        dd($relation);

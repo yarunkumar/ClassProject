@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,10 +13,9 @@ use Illuminate\Database\Eloquent\Model;
 */
 class Repair extends Model
 {
-    use SoftDeletes;
+
     
-//    protected $fillable = ['vehicle_id', 'assets_id'];
-    
+
 
     /**
      * Set to null if empty
@@ -38,12 +37,12 @@ class Repair extends Model
     
     public function vehicle()
     {
-        return $this->hasMany(Vehicle::class, 'vehicle_id')->withTrashed();
+        return $this->hasMany(Vehicle::class, 'vehicle_id');
     }
     
     public function assets()
     {
-        return $this->hasMany(AllAsset::class, 'assets_id')->withTrashed();
+        return $this->hasMany(AllAsset::class, 'assets_id');
     }
     
 }

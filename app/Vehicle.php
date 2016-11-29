@@ -84,10 +84,12 @@ class Vehicle extends Model
         return $this->belongsTo(\App\Vendor::class);
 
     }
-    public function repair() {
-        return $this->belongsTo(\App\Repair::class);
 
+    public function assets()
+    {
+        return $this->hasMany(AllAsset::class, 'assets_id');
     }
+
 
     public function allassets() {
         return $this->hasMany(\App\AllAsset::class);

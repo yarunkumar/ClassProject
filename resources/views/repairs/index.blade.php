@@ -45,6 +45,9 @@
                 <tbody>
                     @if (count($relation) > 0)
                         @foreach ($relation as $repair)
+                            @if ($repair->serial_number == 0)
+                                @continue
+                            @endif
                             <tr data-entry-id="">
                                 <td>{{$repair->asset_type}} | {{ $repair->serial_number}}</td>
                                 <td><a href="{{ route('all_assets.show',[$repair->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
