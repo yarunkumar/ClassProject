@@ -31,7 +31,6 @@ class AllAssetsController extends Controller
     public function index()
     {
         $all_assets = AllAsset::all();
-
         return view('all_assets.index', compact('all_assets'));
 
 
@@ -395,6 +394,26 @@ class AllAssetsController extends Controller
 
         return redirect()->route('all_assets.index');
     }
+
+
+    /**
+     * Counting all assets and for the stats
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+//    public function count()
+//    {
+//
+//        $all_assets = AllAsset::all();
+//        return DB::table('all_assets')
+//            ->where('id',$this->id)
+//            ->count();
+////        return view('all_assets.index', compact('all_assets'));
+//
+//
+//    }
 
     /**
      * Delete all selected AllAsset at once.

@@ -48,6 +48,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('related_files', 'RelatedFilesController');
     Route::post('related_files_mass_destroy', ['uses' => 'RelatedFilesController@massDestroy', 'as' => 'related_files.mass_destroy']);
 
+    Route::resource('todos', 'TodosController');
+    Route::post('todos_mass_destroy', ['uses' => 'TodosController@massDestroy', 'as' => 'todos.mass_destroy']);
+    Route::resource('repairs', 'RepairsController');
+
     /**
      * Part 1 - Upload images in Dropzone
      */
@@ -65,11 +69,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/postImport', 'ExcelController@postImport');
     Route::get('/getExport', 'ExcelController@getExport');
 
-    Route::get('dropzone', 'ImageController@dropzone');
-    Route::post('dropzone/store', ['as'=>'dropzone.store','uses'=>'ImageController@dropzoneStore']);
-
-//blueimp
-//    Route::resource('/upload', 'UploadController');
 
 
 });

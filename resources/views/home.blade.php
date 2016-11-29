@@ -71,7 +71,7 @@
     <div class="col-md-6 large-category" id="reminder" hidden>
       <div class="thumbnail" style="padding: 7px;">
 
-        <a id="toolbar" href="{{ route('stations.create') }}" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <a id="toolbar" href="{{ route('todos.create') }}" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
             <table  data-toolbar="#toolbar"
                     data-toggle="table"  

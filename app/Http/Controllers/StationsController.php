@@ -48,7 +48,7 @@ class StationsController extends Controller
     {
 //        dd($request);
 
-        $request = $this->uploadFiles($request);
+        $request = $this->saveFiles($request);
 //        $request = $this->saveFiles($request);
         Station::create($request->all());
 
@@ -67,8 +67,10 @@ class StationsController extends Controller
 
         ];
         $station = Station::findOrFail($id);
-//show history code start
+
+        //show history code start
         //below one line code is for storing all history related to the $id in variable, which is to be used to display in show page.
+
         $stationhis2 = Stationhis::where('station_id', $id)->get();
         //show history code end
         return view('stations.show',compact('station', 'stationhis2') + $relations);
@@ -115,6 +117,7 @@ public function reassign(Request $request)
     {
         $request = $this->saveFiles($request);
         $station = Station::findOrFail($id);
+
  //history code begin
         $grantid=$station->grant_id;
         $vendorid=$station->vendor_id;
