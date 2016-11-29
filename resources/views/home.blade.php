@@ -50,7 +50,7 @@
       </div>
     </div>
 </a>
-
+    <a href="{{ route('repairs.index') }}">
     <div class="col-md-3 large-category">
       <div class="thumbnail">
         <div class="thumbnail-dash">
