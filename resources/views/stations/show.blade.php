@@ -128,12 +128,12 @@
                         <th data-sortable="true">Asset Name</th>
                         <th data-sortable="true">Model</th>
                         <th data-sortable="true">Make</th>
-                        <th data-sortable="true">Manufacturer</th>
+                        <th data-sortable="true" data-visible="false">Manufacturer</th>
                         <th data-sortable="true">Serial Number</th>
-                        <th data-sortable="true">Date Purchased</th>
-                        <th data-sortable="true">Warranty Date</th>
+                        <th data-sortable="true" data-visible="false">Date Purchased</th>
+                        <th data-sortable="true" data-visible="false">Warranty Date</th>
                         <th data-sortable="true">Cost</th>
-                        <th data-sortable="true">Comments</th>
+                        <th data-sortable="true" data-visible="false">Comments</th>
                         <th data-sortable="true">Status</th>
                         <th data-sortable="true">Location</th>
                         <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
@@ -165,51 +165,44 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                        </table>
-
+                </table>
 
             </div>
         
-<div class="tab-pane" id="4b">
-            <h4>History</h4>
-                <div class="panel-body">
-                        <table class="table table striped datatable">
-                            <tr>
+            <div class="tab-pane" id="4b">
+                <table class="table table-striped table-hover">
+                    <tr>
+                    
+                        <th>Station Name</th>
+                        <th>Station Number</th>
+                        <th>Date</th>
+                        <th>Address</th>
+                        
+                        <th>City</th>
+                        <th>Zipcode</th>
+                        <th>District</th>
+                        <th>Vendor</th>
+                        <th>Grant</th>
+                        <th>Updated On</th>
+                    </tr>
+                   @foreach($stationhis2 as $stationhis)
+                        <tr>
+                            <td>{{ $stationhis->station_name }}</td>
+                            <td>{{ $stationhis->station_number }}</td>
+                            <td>{{ $stationhis->station_date }}</td>
+                            <td>{{ $stationhis->address }}</td>
+                            <td>{{ $stationhis->city }}</td>
+                            <td>{{ $stationhis->zipcode }}</td>
+                            <td>{{ $stationhis->district }}</td>
+                            <td>{{ $stationhis->vendor_name }}</td>
+                            <td>{{ $stationhis->grant_name }}</td>
+                            <td>{{ $stationhis->created_at }}</td>
+                          
                             
-                                <th>Station Name</th>
-                                <th>Station Number</th>
-                                <th>Date</th>
-                                <th>Address</th>
-                                
-                                <th>City</th>
-                                <th>Zipcode</th>
-                                <th>District</th>
-                                <th>Vendor</th>
-                                <th>Grant</th>
-                                <th>Updated On</th>
-                            </tr>
-                           @foreach($stationhis2 as $stationhis)
-                                <tr>
-                                    <td>{{ $stationhis->station_name }}</td>
-                                    <td>{{ $stationhis->station_number }}</td>
-                                    <td>{{ $stationhis->station_date }}</td>
-                                    <td>{{ $stationhis->address }}</td>
-                                    <td>{{ $stationhis->city }}</td>
-                                    <td>{{ $stationhis->zipcode }}</td>
-                                    <td>{{ $stationhis->district }}</td>
-                                    <td>{{ $stationhis->vendor_name }}</td>
-                                    <td>{{ $stationhis->grant_name }}</td>
-                                    <td>{{ $stationhis->created_at }}</td>
-                                  
-                                    
-                                </tr>
-                            @endforeach 
-                        </table>
-                        </div>
-        </div>
-
-
-
+                        </tr>
+                    @endforeach 
+                </table>
+            </div>
         </div>
     </div>
 

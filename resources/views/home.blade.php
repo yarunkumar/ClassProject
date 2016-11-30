@@ -18,7 +18,7 @@
           <i class="fa fa-th fa-4x" aria-hidden="true"></i>
         </div>
         <div class="caption">
-          <h3>Total Assets</h3>
+          <h3>All Assets</h3>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
     </div>
 </a>
 
-  <a href="{{ route('vehicles.index') }}">
+<a href="{{ route('vehicles.index') }}">
     <div class="col-md-3 large-category">
       <div class="thumbnail">
         <div class="thumbnail-dash">
@@ -50,7 +50,8 @@
       </div>
     </div>
 </a>
-    <a href="{{ route('repairs.index') }}">
+
+<a href="{{ route('repairs.index') }}">
     <div class="col-md-3 large-category">
       <div class="thumbnail">
         <div class="thumbnail-dash">
@@ -61,17 +62,21 @@
         </div>
       </div>
     </div>
-
+</a>
 
 
 </div>
 
 <div class="row" style="margin: 0 10px 0px 10px">
 
-    <div class="col-md-6 large-category" id="reminder" hidden>
-      <div class="thumbnail" style="padding: 7px;">
+    <div class="panel panel-default panel-shadow"  style="margin:5px;" hidden>
+        <div class="panel-heading">
+            Reminders
+        </div>
 
-        <a id="toolbar" href="{{ route('todos.create') }}" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <div class="panel-body">
+
+        <a id="toolbar" href="{{ route('stations.create') }}" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
             <table  data-toolbar="#toolbar"
                     data-toggle="table"  
@@ -149,42 +154,21 @@
             </table>
       </div>
     </div>
-
-    <div class="col-md-6 large-category">
-      <div class="thumbnail">
-        <div id="chart"></div>
-      </div>
-    </div>
-
 </div>
-
 
 
 @endsection
 
 @section('javascript')
 
-<!-- Load d3.js and c3.js -->
-<script src="{{ url('js') }}/d3.v3.min.js" charset="utf-8"></script>
-<script src="{{ url('js') }}/c3.min.js"></script>
+<script src="{{ url('js/extensions/cookie') }}/bootstrap-table-cookie.js"></script>
+<script src="{{ url('js/extensions/mobile') }}/bootstrap-table-mobile.js"></script>
+
+<script src="{{ url('js/export') }}/bootstrap-table-export.js"></script>
+<script src="{{ url('js/export') }}/tableExport.js"></script>
+<script src="{{ url('js/export') }}/jquery.base64.js"></script>
 
 <script type="text/javascript">
-    var chart = c3.generate({
-        data: {
-            columns: [
-                ["Stations", 17.7],
-                ["Vehicles", 30.4],
-                ["Assets", 51.9],
-            ],
-            type : 'donut',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-        },
-        donut: {
-            title: "Asset Statistics"
-        }
-    });
 
     $('#table').bootstrapTable({
         classes: 'table table-responsive table-no-bordered table-striped table-hover',
@@ -210,15 +194,8 @@
             refresh: 'fa-refresh'
         },
     });
+    $(".panel").fadeIn("fast");
 
-    $( document ).ready(function() {
-      $("#reminder").fadeIn("fast");
-      $("#graph").fadeIn("fast");
-    });
 </script>
-
-
-
-
 
 @endsection

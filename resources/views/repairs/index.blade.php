@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@section('crumbs')
+  <ol class="breadcrumb">
+    <li><a href="{{ url('/') }}">Dashboard</a></li>
+    <li class="active">Service</li>
+  </ol>
+@endsection
 
 @section('content')
 
