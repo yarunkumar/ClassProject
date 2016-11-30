@@ -129,3 +129,13 @@ body {
 .tab-pane {
   padding: 10px;
 }
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.panel-border {
+  border-top: 2px solid #1976d2;
+  border-radius: 0;
+}

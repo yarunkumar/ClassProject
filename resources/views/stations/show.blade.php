@@ -10,58 +10,42 @@
 @section('content')
 
 
-
+<div class="container" style="padding: 0;">
     <div class="row">
-        <div class="col-md-6" style="padding: 0;">
-            <div style="border: 1px solid black; height: 100px; margin: 0 5px 0 5px;">
+        <div class="col-md-4 nopadding">
+            <div class="panel panel-default panel-border">
+                <div class="panel-heading">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+                </div>
 
-            </div>
-        </div>
-
-
-        <div class="col-md-6 large-category">
-            <div style="border: 1px solid black; height: 100px; margin: 0 5px; 0 5px;">
-
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-    {!! Form::model($station,['method' => 'PUT', 'route' => ['stations.reassign', $station->id], 'files' => true,]) !!}
-
-
-    <div id="exTab3" class="pill-container">
-        <ul  class="nav nav-pills">
-            <li class="active">
-                <a href="#1b" data-toggle="tab">Overview</a>
-            </li>
-            <li><a href="#2b" data-toggle="tab">Vehicles</a>
-            </li>
-            <li><a href="#3b" data-toggle="tab">Assets</a>
-            </li>
-            <li><a href="#4b" data-toggle="tab">History</a>
-            </li>
-        </ul>
-
-        <div class="tab-content clearfix">
-            <div class="tab-pane active" id="1b">
-
-                <table class="table table-striped datatable">
+                <div class="panel-body" style="height:150px;">
+                <table class="table">
                     <tr>
                         <th>Name</th>
                         <td>{{ $station->station_name }}</td>
                     </tr>
                     <tr>
-                        <th>Number</th>
-                        <td>{{ $station->station_number }}</td>
-                    </tr>
-                    <tr>
                         <th>Date</th>
                         <td>{{ $station->station_date }}</td>
                     </tr>
+                    <tr>
+                        <th>Battalion</th>
+                        <td>{{ $station->district }}</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 nopadding">
+            <div class="panel panel-default panel-border">
+                <div class="panel-heading">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> Address
+                </div>
+
+                <div class="panel-body" style="height:150px;">
+                    <table class="table">
                     <tr>
                         <th>Address</th>
                         <td>{{ $station->address }}</td>
@@ -74,10 +58,20 @@
                         <th>Zipcode</th>
                         <td>{{ $station->zipcode }}</td>
                     </tr>
-                    <tr>
-                        <th>Battalion</th>
-                        <td>{{ $station->district }}</td>
-                    </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 nopadding">
+            <div class="panel panel-default panel-border">
+                <div class="panel-heading">
+                    <i class="fa fa-file" aria-hidden="true"></i> Documents
+                </div>
+
+                <div class="panel-body" style="height:150px;">
+                    <table class="table">
                     <tr>
                         <th>Related Document</th>
                         <td><a href="{{ asset('uploads/'.$station->station_document) }}">Download file</a></td>
@@ -86,11 +80,33 @@
                         <th>Related Photo</th>
                         <td>@if($station->station_image!= '')<img src="{{ asset('uploads/thumb/'.$station->station_image) }}">@endif</td>
                     </tr>
-                </table>
-
+                    </table>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <div class="tab-pane" id="2b">
+
+    {!! Form::model($station,['method' => 'PUT', 'route' => ['stations.reassign', $station->id], 'files' => true,]) !!}
+
+
+    <div id="exTab3" class="pill-container">
+        <ul  class="nav nav-pills">
+            <li class="active">
+                <a href="#1b" data-toggle="tab">Vehicles</a>
+            </li>
+            <li>
+                <a href="#2b" data-toggle="tab">Assets</a>
+            </li>
+            <li>
+                <a href="#3b" data-toggle="tab">History</a>
+            </li>
+        </ul>
+
+        <div class="tab-content clearfix">
+
+            <div class="tab-pane active" id="1b">
                     <table
                         data-toggle="table"  
                         data-search="true" 
@@ -125,7 +141,7 @@
 
             </div>
 
-            <div class="tab-pane" id="3b">
+            <div class="tab-pane" id="2b">
 
                 <div class="input-group" id="toolbar" style="width: 250px;">
                     {!! Form::select('station_id', $stations, old('station_id'), ['class' => 'form-control']) !!} 
@@ -147,7 +163,7 @@
                         <th data-class="hidden-xs" data-switchable="false" data-searchable="false" data-sortable="false" data-field="checkbox"><input type="checkbox" id="checkAll"></th>
                         <th data-sortable="true">Asset Type</th>
                         <th data-sortable="true">Asset Name</th>
-                        <th data-sortable="true">Model</th>
+                        <th data-sortable="true" data-visible="false">Model</th>
                         <th data-sortable="true">Make</th>
                         <th data-sortable="true" data-visible="false">Manufacturer</th>
                         <th data-sortable="true">Serial Number</th>
@@ -190,24 +206,33 @@
 
             </div>
         
-            <div class="tab-pane" id="4b">
-                <table class="table table-striped table-hover">
+            <div class="tab-pane" id="3b">
+                <table data-toggle="table"  
+                        data-search="true" 
+                        data-cookie="true"
+                        data-click-to-select="true"
+                        data-cookie-id-table="station-history-v1.1-1"
+                        data-show-columns="true"
+                        id="table-station-history">
+                    <thead>
+
                     <tr>
-                    
-                        <th>Station Name</th>
-                        <th>Station Number</th>
-                        <th>Date</th>
-                        <th>Address</th>
-                        
-                        <th>City</th>
-                        <th>Zipcode</th>
-                        <th>District</th>
-                        <th>Vendor</th>
-                        <th>Grant</th>
-                        <th>Updated On</th>
+                        <th data-sortable="true">Updated On</th>
+                        <th data-sortable="true">Station Name</th>
+                        <th data-sortable="true">Station Number</th>
+                        <th data-sortable="true">Date</th>
+                        <th data-sortable="true">Address</th>
+                        <th data-sortable="true">City</th>
+                        <th data-sortable="true">Zipcode</th>
+                        <th data-sortable="true">District</th>
+                        <th data-sortable="true" data-visible="false">Vender</th>
+                        <th data-sortable="true" data-visible="false">Grant</th>
                     </tr>
+                    </thead>
+                    <tbody>
                    @foreach($stationhis2 as $stationhis)
                         <tr>
+                            <td>{{ $stationhis->created_at }}</td>
                             <td>{{ $stationhis->station_name }}</td>
                             <td>{{ $stationhis->station_number }}</td>
                             <td>{{ $stationhis->station_date }}</td>
@@ -215,13 +240,11 @@
                             <td>{{ $stationhis->city }}</td>
                             <td>{{ $stationhis->zipcode }}</td>
                             <td>{{ $stationhis->district }}</td>
-                            <td>{{ $stationhis->vendor_name }}</td>
-                            <td>{{ $stationhis->grant_name }}</td>
-                            <td>{{ $stationhis->created_at }}</td>
-                          
-                            
+                            <td>{{ $stationhis->vender }}</td>
+                            <td>{{ $stationhis->grant }}</td>
                         </tr>
                     @endforeach 
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -266,6 +289,31 @@
     });
 
     $('#table-station-vehicles').bootstrapTable({
+        classes: 'table table-responsive table-no-bordered table-striped table-hover',
+        iconsPrefix: 'fa',
+        cookie: true,
+        cookieExpire: '2y',
+        mobileResponsive: true,
+        sortable: true,
+        showExport: true,
+        showColumns: true,
+        exportTypes: ['csv', 'excel'],
+        pageList: ['10','25','50','100','150','200','500','1000'],
+        exportOptions: {
+            fileName: 'assets-export-' + (new Date()).toISOString().slice(0,10),
+        },
+        icons: {
+            paginationSwitchDown: 'fa-caret-square-o-down',
+            paginationSwitchUp: 'fa-caret-square-o-up',
+            sort: 'fa fa-sort-amount-desc',
+            plus: 'fa fa-plus',
+            minus: 'fa fa-minus',
+            columns: 'fa-columns',
+            refresh: 'fa-refresh'
+        },
+    });
+
+    $('#table-station-history').bootstrapTable({
         classes: 'table table-responsive table-no-bordered table-striped table-hover',
         iconsPrefix: 'fa',
         cookie: true,
