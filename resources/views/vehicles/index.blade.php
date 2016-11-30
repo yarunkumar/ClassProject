@@ -15,7 +15,7 @@
         </div>
         <div class="panel-body">
 
-            <a id="toolbar" href="{{ route('vehicles.create') }}" class="btn" style="background-color: #2196f3; color: white;">New Vehicle</a>
+            <a id="toolbar" href="{{ route('vehicles.create') }}" class="btn btn-new"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
             
             <table  data-toolbar="#toolbar"

@@ -74,7 +74,7 @@
 
         <div class="panel-body">
 
-        <a id="toolbar" data-toggle="modal" data-target="#myModal" class="btn btn-new">New Reminder</a>
+        <a id="toolbar" data-toggle="modal" data-target="#myModal" class="btn btn-new"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
             <table  data-toolbar="#toolbar"
                     data-toggle="table"  

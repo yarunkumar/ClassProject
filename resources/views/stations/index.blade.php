@@ -15,7 +15,7 @@
         </div>
 
         <div class="panel-body">
-            <a id="toolbar" href="{{ route('stations.create') }}" class="btn btn-new">New Station</a>
+            <a id="toolbar" href="{{ route('stations.create') }}" class="btn btn-new"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
             <table  data-toolbar="#toolbar"
                     data-toggle="table"  
