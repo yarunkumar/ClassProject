@@ -31,13 +31,13 @@
                         <th data-sortable="true">Vendor Name</th>
                         <th>Address</th>
                         <th data-sortable="true">Website</th>
-                        <th>Phone</th>
-                        <th>Fax</th>
+                        <th data-visible="false">Phone</th>
+                        <th data-visible="false">Fax</th>
                         <th>Tech Support Phone</th>
-                        <th>Representative Name</th>
-                        <th>Representative Phone</th>
-                        <th>Representative Phone (Cell)</th>
-                        <th>Represetative Email</th>
+                        <th>Rep Name</th>
+                        <th>Rep Phone</th>
+                        <th data-visible="false">Rep Cell</th>
+                        <th>Email</th>
                         <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
                     </tr>
                 </thead>
@@ -49,14 +49,14 @@
                                 
                                 <td>{{ $vendor->vendor_name }}</td>
                                 <td>{{ $vendor->vendor_address }}</td>
-                                <td>{{ $vendor->vendor_web }}</td>
-                                <td>{{ $vendor->vendor_phone }}</td>
+                                <td><a href="http://{{ $vendor->vendor_web }}" target="_blank">{{ $vendor->vendor_web }}</a></td>
+                                <td><a href="tel:{{ $vendor->vendor_phone }}">{{ $vendor->vendor_phone }}</a></td>
                                 <td>{{ $vendor->vendor_fax }}</td>
-                                <td>{{ $vendor->vendor_tech_sup }}</td>
+                                <td><a href="tel:{{ $vendor->vendor_tech_sup }}">{{ $vendor->vendor_tech_sup }}</a></td>
                                 <td>{{ $vendor->vendor_rep }}</td>
-                                <td>{{ $vendor->vendor_rep_phone }}</td>
-                                <td>{{ $vendor->vendor_rep_phone_m }}</td>
-                                <td>{{ $vendor->vendor_email }}</td>
+                                <td><a href="tel:{{ $vendor->vendor_rep_phone }}">{{ $vendor->vendor_rep_phone }}</a></td>
+                                <td><a href="tel:{{ $vendor->vendor_rep_phone_m }}">{{ $vendor->vendor_rep_phone_m }}</a></td>
+                                <td><a href="mailto:{{ $vendor->vendor_email }}" target="_top">{{ $vendor->vendor_email }}</a></td>
                                 <td>
                                     <div style="float: right;">
                                         <a href="{{ route('vendors.show',[$vendor->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
