@@ -1,6 +1,4 @@
 @extends('layouts.app')
-
-
 @section('crumbs')
   <ol class="breadcrumb">
     <li class="active">Dashboard</li>
@@ -76,7 +74,7 @@
 
         <div class="panel-body">
 
-        <a id="toolbar" href="{{ route('stations.create') }}" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <a id="toolbar" data-toggle="modal" data-target="#myModal" class="btn btn-new">New Reminder</a>
 
             <table  data-toolbar="#toolbar"
                     data-toggle="table"  
@@ -88,72 +86,103 @@
                     id="table">
                     <thead>
                         <tr>
-                            <th data-sortable="true">Name</th>
-                            <th data-sortable="true">Reminder</th>
-                            <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
-
+                          <th>Task</th>
+                          <th>Notes</th>
+                          <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
                         </tr>
                     </thead>
                 <tbody>
-                  <tr>
-                    <td>Reminder 1</td>
-                    <td>Comment 1</td>
-                    <td>
-                      <div style="float: right;">
-                        <a href="#" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a type="button"  class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Reminder 2</td>
-                    <td>Comment 2</td>
-                    <td>
-                      <div style="float: right;">
-                        <a href="#" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a type="button"  class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Reminder 3</td>
-                    <td>Comment 3</td>
-                    <td>
-                      <div style="float: right;">
-                        <a href="#" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a type="button"  class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Reminder 4</td>
-                    <td>Comment 4</td>
-                    <td>
-                      <div style="float: right;">
-                        <a href="#" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a type="button"  class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Reminder 5</td>
-                    <td>Comment 5</td>
-                    <td>
-                      <div style="float: right;">
-                        <a href="#" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a href="#" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a type="button"  class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                      </div>
-                    </td>
-                  </tr>
+
+                    @if (count($todos) > 0)
+                        @foreach ($todos as $todo)
+                            <tr data-entry-id="{{ $todo->id }}">
+                                <td>{{ $todo->task }}</td>
+                                <td>{!! $todo->notepad !!}</td>
+                                <td>
+                                  <div style="float: right;">
+                                      <a href="{{ route('todos.show',[$todo->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                      <a href="{{ route('todos.edit',[$todo->id]) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                      <a type="button" data-toggle="modal" data-target="#{{ $todo->id }}" class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                  </div>
+                                </td>
+                            </tr>
+
+                            <div class="modal fade" id="{{ $todo->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are you sure you want to delete {{ $todo->id }}? This action cannot be undone.
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'route' => ['todos.destroy', $todo->id])) !!}
+                                    {{Form::button('<i class="fa fa-trash"></i> DELETE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
+                                    {!! Form::close() !!}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4">No reminders to show.</td>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
       </div>
     </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Note</h4>
+      </div>
+      <div class="modal-body">
+
+            {!! Form::open(['method' => 'POST', 'route' => ['todos.store']]) !!}
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('task', 'Task', ['class' => 'control-label']) !!}
+                    {!! Form::text('task', old('task'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('task'))
+                        <p class="help-block">
+                            {{ $errors->first('task') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('notepad', 'Notepad', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('notepad', old('notepad'), ['class' => 'form-control ', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('notepad'))
+                        <p class="help-block">
+                            {{ $errors->first('notepad') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        {!! Form::submit(('Create'), ['class' => 'btn btn-success']) !!}
+        {!! Form::close() !!}
+      </div>
+    </div>
+  </div>
 </div>
 
 

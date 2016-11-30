@@ -9,6 +9,27 @@
 
 @section('content')
 
+
+
+    <div class="row">
+        <div class="col-md-6" style="padding: 0;">
+            <div style="border: 1px solid black; height: 100px; margin: 0 5px 0 5px;">
+
+            </div>
+        </div>
+
+
+        <div class="col-md-6 large-category">
+            <div style="border: 1px solid black; height: 100px; margin: 0 5px; 0 5px;">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
     {!! Form::model($station,['method' => 'PUT', 'route' => ['stations.reassign', $station->id], 'files' => true,]) !!}
 
 

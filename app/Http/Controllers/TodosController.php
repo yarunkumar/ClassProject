@@ -42,7 +42,9 @@ class TodosController extends Controller
     {
         Todo::create($request->all());
 
-        return redirect()->route('todos.index');
+        $todos = Todo::all();
+
+        return view('home', compact('todos'));
     }
 
 
@@ -71,7 +73,9 @@ class TodosController extends Controller
         $todo = Todo::findOrFail($id);
         $todo->update($request->all());
 
-        return redirect()->route('todos.index');
+        $todos = Todo::all();
+
+        return view('home', compact('todos'));
     }
 
 
@@ -100,7 +104,9 @@ class TodosController extends Controller
         $todo = Todo::findOrFail($id);
         $todo->delete();
 
-        return redirect()->route('todos.index');
+        $todos = Todo::all();
+
+        return view('home', compact('todos'));
     }
 
     /**
