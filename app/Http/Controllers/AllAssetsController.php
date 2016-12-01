@@ -390,7 +390,10 @@ class AllAssetsController extends Controller
     {
         $allasset = AllAsset::findOrFail($id);
         $allasset->grants()->detach(Input::get('grant_id'));
-        $allasset->delete();
+        $allasset->forceDelete();
+
+        //in-case need to soft delete the all assets
+        //use $allasset->delete(); instead of above forceDelete method
 
         return redirect()->route('all_assets.index');
     }

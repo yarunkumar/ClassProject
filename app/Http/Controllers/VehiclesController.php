@@ -200,7 +200,6 @@ class VehiclesController extends Controller
             'vehids' => \App\Vehicle::get()->pluck('van', 'id')->prepend('Please select', ''),
 
         ];
-        //dd($relations);
 
         $vehicle = Vehicle::findOrFail($id);
         //below one line code is for storing all history related to the $id in variable, which is to be used to display in show page.

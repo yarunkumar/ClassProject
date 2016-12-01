@@ -6,7 +6,6 @@ use App\Repair;
 use App\Vehicle;
 use App\AllAsset;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Collection;
 
 
 class RepairsController extends Controller
@@ -33,22 +32,8 @@ class RepairsController extends Controller
 
 
         $relation = $assets ->merge($vehicles);
-//        dd($relation);
         return view('repairs.index', compact('relation') );
     }
 
-    /**
-     * Display Repair.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-        $repairs = $relations;
-
-        return view('repairs.show', compact('repairs'));
-    }
 
 }
