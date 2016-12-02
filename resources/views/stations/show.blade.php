@@ -181,7 +181,7 @@
                             @foreach($station->allassets as $all_asset)
                                 <tr>
                                     <td><input type="checkbox" id="reassignids" name="reassignval[]" value="{{$all_asset->id}}" ></td>
-                                    <td>{{ $all_asset->name }}</td>
+                                    <td>{{ $all_asset->asset_type }}</td>
                                     <td>{{ $all_asset->name }}</td>
                                     <td>{{ $all_asset->model }}</td>
                                     <td>{{ $all_asset->make }}</td>
@@ -340,7 +340,36 @@
 
     $("#checkAll").change(function () {
         $("input:checkbox").prop('checked', $(this).prop("checked"));
+        if (this.checked) {
+        $("#toolbar").show();
+        }
+        else
+        {
+           $("#toolbar").hide(); 
+        }    
     });
+
+       
+    $(function() {
+
+    $("#toolbar").hide();
+
+    });
+
+    $("#reassignids").change(function () {
+       
+        
+        if (this.checked) 
+        {
+        $("#toolbar").show();
+        }
+        else
+        {
+          $("#toolbar").hide();
+        } 
+        
+    });
+
 </script>
 
 @endsection
