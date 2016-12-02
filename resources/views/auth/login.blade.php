@@ -27,10 +27,7 @@
       <input type="text" class="form-control" name="username" value="{{ old('username') }}"  placeholder="Username">
       <input type="password"  style="margin-top:15px;" class="form-control" name="password" placeholder="Password">
 
-      <label class="checkbox" style="padding-left:20px;">
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" > Remember me
-      </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: #1976d2; border: 1px solid #1565c0;">Login</button>   
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: #1976d2; border: 1px solid #1565c0; margin-top: 10px;">Login</button>   
     </form>
   </div>
 </body>

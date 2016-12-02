@@ -139,3 +139,16 @@ body {
   border-top: 2px solid #1976d2;
   border-radius: 0;
 }
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #e8e5e5;
+}
+
+.panel-heading {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#currency {
+  text-align: right;
+}

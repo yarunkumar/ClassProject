@@ -46,7 +46,7 @@
                         <td>{{ $grant->date_issued }}</td>
                         <td>{{ $grant->grant_type }}</td>
                         <td>{{ $grant->date_matures }}</td>
-                        <td>{{ $grant->grant_value }}</td>
+                        <td id="currency" style="text-align: right;">{{ $grant->grant_value }}</td>
                         <td>{{ $grant->grant_comments }}</td>
                         <td>
                             <div style="float: right;">
@@ -128,8 +128,36 @@
         },
     });
     $(".panel").fadeIn("fast");
+</script>
+
+<script>
+
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
+$( document ).ready( function() {
+
+     $('#table #currency').each(function() {
+        var value = $(this).html();
+        $(this).html(( "$"+ ( parseInt(value)).formatMoney(2) ));
+     });
+
+}); 
 
 </script>
+
+
+
+
+
 <script>
     window.route_mass_crud_entries_destroy = '{{ route('vendors.mass_destroy') }}';
 </script>

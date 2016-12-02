@@ -30,7 +30,7 @@
                     <tr>
                     {{--<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>--}}
                     <th data-sortable="true">OFD VAN #</th>
-                    <th data-sortable="true">RIG #</th>
+                    <th data-sortable="true">Vehicle #</th>
                     <th data-sortable="true">Make</th>
                     <th data-sortable="true">Model</th>
                     <th data-sortable="true">Year</th>

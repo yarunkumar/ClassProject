@@ -112,7 +112,7 @@
                     @endif
                 </div>
                 <div class="col-xs-3 form-group">
-                    {!! Form::label('vendor_email', 'Represetative Email', ['class' => 'control-label']) !!}
+                    {!! Form::label('vendor_email', 'Representative Email', ['class' => 'control-label']) !!}
                     {!! Form::email('vendor_email', old('vendor_email'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('vendor_email'))

@@ -107,6 +107,15 @@
                                 </td>
                             </tr>
 
+
+
+
+
+
+
+
+
+
                             <div class="modal fade" id="{{ $todo->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -115,7 +124,37 @@
                                     <h4 class="modal-title" id="myModalLabel">Warning</h4>
                                   </div>
                                   <div class="modal-body">
-                                    Are you sure you want to delete {{ $todo->id }}? This action cannot be undone.
+
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('task', 'Task', ['class' => 'control-label']) !!}
+                    {!! Form::text('task', old('task'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('task'))
+                        <p class="help-block">
+                            {{ $errors->first('task') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('notepad', 'Notepad', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('notepad', old('notepad'), ['class' => 'form-control ', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('notepad'))
+                        <p class="help-block">
+                            {{ $errors->first('notepad') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            {!! Form::submit(('Update'), ['class' => 'btn btn-success']) !!}
+            <a href="{{ url('/') }}" class="btn btn-default">Cancel</a>
+            {!! Form::close() !!}
+
+
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
