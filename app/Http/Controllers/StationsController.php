@@ -149,7 +149,7 @@ public function reassign(Request $request)
 
 
  \DB::table('stationhis')->insert(
-            ['station_id' => $station->id, 'station_name' => $station->station_name, 'station_number' => $station->station_number, 'station_date' => $station->station_date,  'address' => $station->address, 'city' => $station->city, 'zipcode' => $station->zipcode,'district' => $station->district,'vendor_id' => $station->vendor_id, 'vendor_name' => $vendor_name, 'grant_id' => $station->grant_id, 'grant_name' => $grant_name, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now() ] 
+            ['station_id' => $station->id, 'station_name' => $station->station_name, 'station_number' => $station->station_number, 'station_date' => $station->station_date,  'address' => $station->address, 'city' => $station->city, 'zipcode' => $station->zipcode,'district' => $station->district,'vendor_id' => $station->vendor_id, 'vendor_name' => $vendor_name, 'grant_id' => $station->grant_id, 'grant_name' => $grant_name, "created_at" =>  \Carbon\Carbon::now('America/Chicago'), "updated_at" => \Carbon\Carbon::now('America/Chicago') ] 
         );
 
  //end history code

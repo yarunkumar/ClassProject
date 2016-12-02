@@ -172,7 +172,7 @@ class VehiclesController extends Controller
        //DB insert query to insert history values to new table
 
  \DB::table('vehiclehis')->insert(
-            ['vehicle_id' => $vehicle->id, 'van' => $vehicle->van, 'make' => $vehicle->make, 'model' => $vehicle->model,  'year' => $vehicle->year, 'station_id' => $vehicle->station_id, 'name' => $station_name,'grant_id' => $vehicle->grant_id, 'grant_name' => $grant_name,'status_id' => $vehicle->status_id, 'status' => $status_name,'unittype_id' => $vehicle->unittype_id, 'unittype_name' => $unittype_name,'vendor_id' => $vehicle->vendor_id, 'vendor_name' => $vendor_name, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()  ] 
+            ['vehicle_id' => $vehicle->id, 'van' => $vehicle->van, 'make' => $vehicle->make, 'model' => $vehicle->model,  'year' => $vehicle->year, 'station_id' => $vehicle->station_id, 'name' => $station_name,'grant_id' => $vehicle->grant_id, 'grant_name' => $grant_name,'status_id' => $vehicle->status_id, 'status' => $status_name,'unittype_id' => $vehicle->unittype_id, 'unittype_name' => $unittype_name,'vendor_id' => $vehicle->vendor_id, 'vendor_name' => $vendor_name, "created_at" =>  \Carbon\Carbon::now('America/Chicago'), "updated_at" => \Carbon\Carbon::now('America/Chicago')  ] 
         );
         
 
