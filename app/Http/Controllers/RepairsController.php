@@ -32,7 +32,7 @@ class RepairsController extends Controller
 
 
         $relation = $assets ->merge($vehicles);
-        return view('repairs.index', compact('relation') );
+        return view('repairs.index', compact('relation','vehicles','assets') );
     }
 
 

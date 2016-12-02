@@ -68,7 +68,7 @@
                                 <h4 class="modal-title" id="myModalLabel">Warning</h4>
                               </div>
                               <div class="modal-body">
-                                Are you sure you want to delete {{ $station->station_name }}? This action cannot be undone.
+                                Are you sure you want to deactivate {{ $station->station_name }}? Before deactivating please reassign related units and assets. You can restore deactivated station.
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
