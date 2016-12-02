@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Todo;
+use App\Station;
+use App\AllAsset;
+use App\Vehicle;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -26,7 +29,11 @@ class HomeController extends Controller
     public function index()
     {
         $todos = Todo::all();
+        $stations = Station::count();
+        $vehicles = Vehicle::count();
+        $assets = AllAsset::count();
 
-        return view('home', compact('todos'));
+        return view('home', compact('todos','stations', 'vehicles', 'assets'));
     }
+
 }

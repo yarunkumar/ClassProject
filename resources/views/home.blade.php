@@ -16,7 +16,7 @@
           <i class="fa fa-th fa-4x" aria-hidden="true"></i>
         </div>
         <div class="caption">
-          <h3>All Assets</h3>
+          <h3>All Assets: {{$assets}}</h3>
         </div>
       </div>
     </div>
@@ -27,10 +27,9 @@
       <div class="thumbnail stationss">
         <div class="thumbnail-dash">
           <i class="fa fa-home fa-4x" aria-hidden="true"></i>
-
         </div>
         <div class="caption">
-          <h3>Stations</h3>
+          <h3>Stations: {{$stations}}</h3>
         </div>
       </div>
     </div>
@@ -43,7 +42,7 @@
           <i class="fa fa-ambulance fa-4x" aria-hidden="true"></i>
         </div>
         <div class="caption">
-          <h3>Vehicles</h3>
+          <h3>Vehicles: {{$vehicles}}</h3>
         </div>
       </div>
     </div>

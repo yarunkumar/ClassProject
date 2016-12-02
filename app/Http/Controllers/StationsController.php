@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreStationsRequest;
 use App\Http\Requests\UpdateStationsRequest;
 use App\Http\Controllers\Traits\FileUploadTrait;
-use App\MobileComputer;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class StationsController extends Controller
@@ -24,7 +24,6 @@ class StationsController extends Controller
     public function index()
     {
         $stations = Station::all();
-
         return view('stations.index', compact('stations'));
     }
 
@@ -165,4 +164,7 @@ public function reassign(Request $request)
 
         return redirect()->route('stations.index');
     }
+
+
+
 }
