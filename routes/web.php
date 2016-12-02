@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('trashes', 'TrashController');
     Route::post('trashes.restoreStation', ['uses' => 'TrashController@restoreStation', 'as' => 'trashes.restoreStation'] );
     Route::post('todos_mass_destroy', ['uses' => 'TodosController@massDestroy', 'as' => 'todos.mass_destroy']);
-
+    Route::resource('users', 'UserController');
 
     Route::get('/getImport', 'ExcelController@getImport');
     Route::get('/postImport', 'ExcelController@postImport');
