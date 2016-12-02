@@ -2,7 +2,7 @@
 @section('crumbs')
   <ol class="breadcrumb">
     <li><a href="{{ url('/') }}">Dashboard</a></li>
-    <li class="active">Service</li>
+    <li class="active">Deactivated</li>
   </ol>
 @endsection
 
@@ -10,7 +10,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Trash Bin
+            Deactivated Assets
         </div>
 
         <div class="panel-body">
@@ -28,7 +28,7 @@
                     <th data-sortable="true">City</th>
                     <th data-sortable="true">Zipcode</th>
                     <th data-sortable="true">Battalion</th>
-                    <th data-sortable="true">Deleted at</th>
+                    <th data-sortable="true">Deactivated at</th>
                     <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
 
                 </tr>
@@ -99,7 +99,7 @@
                     <th data-sortable="true">Status</th>
                     <th data-sortable="true">Location</th>
                     <th data-sortable="true">Grants</th>
-                    <th data-sortable="true">Deleted at</th>
+                    <th data-sortable="true">Deactivated at</th>
                     <th data-switchable="false" data-searchable="false" data-sortable="false">&nbsp;</th>
                 </tr>
                 </thead>

@@ -11,7 +11,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Create New Assest
+            Create New Assets
         </div>
         <div class="panel-body">
             <div class="form-group">
@@ -39,6 +39,9 @@
                     <option id="20">Unit Radio</option>
                     {{--<option id="21">Vehicle/Unit</option>--}}
                     <option id="22">X-Series</option>
+                    <option id="23">Default1</option>
+                    <option id="23">Default2</option>
+                    <option id="23">Default3</option>
                 </select>
             </div>
         </div>
