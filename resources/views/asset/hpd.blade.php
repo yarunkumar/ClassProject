@@ -16,7 +16,7 @@
         </div>
         <div class="col-xs-3 form-group">
             {!! Form::label('warranty_date', 'HPD Warranty Date', ['class' => 'control-label']) !!}
-            {!! Form::text('warranty_date', old('warranty_date'), ['class' => 'form-control']) !!}
+            {!! Form::text('warranty_date', old('warranty_date'), ['class' => 'form-control date']) !!}
         </div>
     </div>
 
@@ -103,3 +103,14 @@
 {!! Form::close() !!}
 <a href="{{ route('all_assets.index') }}" class="btn btn-danger">Cancel</a>
 </div>
+
+@section('javascript')
+    @parent
+    <script>
+        $('.date').datepicker({
+            autoclose: true,
+            dateFormat: "yy-mm-dd"
+        });
+    </script>
+
+@stop
