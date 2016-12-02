@@ -74,7 +74,7 @@
                                 <h4 class="modal-title" id="myModalLabel">Warning</h4>
                               </div>
                               <div class="modal-body">
-                                Are you sure you want to delete vehicle with VAN #{{ $vehicle->van }}? This action cannot be undone.
+                                Are you sure you want to deactivate vehicle with VAN #{{ $vehicle->van }}? This action can be undone.
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -82,7 +82,7 @@
                                     'style' => 'display: inline-block;',
                                     'method' => 'DELETE',
                                     'route' => ['vehicles.destroy', $vehicle->id])) !!}
-                                {{Form::button('<i class="fa fa-trash"></i> DELETE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
+                                {{Form::button('<i class="fa fa-trash"></i> DEACTIVATE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
                                 {!! Form::close() !!}
                               </div>
                             </div>

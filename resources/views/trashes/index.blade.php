@@ -15,7 +15,7 @@
 
         <div class="panel-body">
 
-            <table class="table table-bordered table-striped {{ count($relation) > 0 ? 'datatable' : '' }} ">
+            <table class="table table-bordered table-striped ">
                 <title>
                     Stations
                 </title>
@@ -85,7 +85,7 @@
                 </tbody>
             </table>
 
-            <table class="table table-bordered table-striped {{ count($relation) > 0 ? 'datatable' : '' }} ">
+            <table class="table table-bordered table-striped ">
 
                 <thead>
                 <tr>
@@ -121,10 +121,35 @@
                             <td>
                                 <div style="float: right;">
                                     <a href="{{ route('trashes.show',[$vehicle->id]) }}"  class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                    <a type="button" data-toggle="modal" data-target="#{{ $vehicle->van }}" class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <a type="button" data-toggle="modal" data-target="#{{ $vehicle->id }}" class="btn btn-xs btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
                             </td>
                         </tr>
+
+                        <div class="modal fade" id="{{ $vehicle->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete {{ $vehicle->van }}? This action cannot be undone.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'vehicle' => 'id',
+                                        'route' => ['trashes.vehicleDestroy', $vehicle->id])) !!}
+                                        {!! Form::hidden('id', $vehicle->id, ['class' => 'form-control']) !!}
+                                        {{Form::button('<i class="fa fa-trash"></i> DELETE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 @else
                     <tr>

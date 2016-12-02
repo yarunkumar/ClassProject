@@ -34,7 +34,7 @@ class TrashController extends Controller
     public function show($id)
     {
 
-        $vehicle = Vehicle::onlyTrashed($id);
+        $vehicle = Vehicle::onlyTrashed()->findOrFail($id);
         $vehicle->restore();
 
 
@@ -44,7 +44,7 @@ class TrashController extends Controller
 
     public function edit($id)
     {
-        $station = Station::onlyTrashed($id);
+        $station = Station::onlyTrashed()->findOrFail($id);
         $station->restore();
         return redirect()->route('trashes.index');
     }
@@ -52,8 +52,17 @@ class TrashController extends Controller
 
     public function destroy($id)
     {
-        $station = Station::onlyTrashed($id);
+        $station = Station::onlyTrashed()->findOrFail($id);
         $station->forceDelete();
+
+        return redirect()->route('trashes.index');
+    }
+
+    public function vehicleDestroy(Request $request)
+    {
+        $id = $request->id;
+        $vehicle = Vehicle::onlyTrashed()->findOrFail($id);
+        $vehicle->forceDelete();
 
         return redirect()->route('trashes.index');
     }

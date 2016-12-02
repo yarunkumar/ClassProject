@@ -76,7 +76,7 @@
                                     'style' => 'display: inline-block;',
                                     'method' => 'DELETE',
                                     'route' => ['stations.destroy', $station->id])) !!}
-                                {{Form::button('<i class="fa fa-trash"></i> DELETE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
+                                {{Form::button('<i class="fa fa-trash"></i> DEACTIVATE', array('type' => 'submit', 'class' => 'btn btn-danger'))}}
                                 {!! Form::close() !!}
                               </div>
                             </div>
