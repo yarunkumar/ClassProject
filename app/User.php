@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Hash;
 
 class User extends Authenticatable
 {
@@ -23,6 +24,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+
     ];
+    public function setPasswordAttribute($input)
+    {
+        if ($input)
+            $this->attributes['Password'] = app('hash')->needsRehash($input) ? Hash::make($input) : $input;
+    }
 }
