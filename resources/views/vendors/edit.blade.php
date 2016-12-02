@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-xs-4 form-group">
                     {!! Form::label('vendor_fax', 'Fax', ['class' => 'control-label']) !!}
-                    {!! Form::text('vendor_fax', old('vendor_fax'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::text('vendor_fax', old('vendor_fax'), ['class' => 'form-control', 'placeholder' => '(XXX)XXX-XXX']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('vendor_fax'))
                         <p class="help-block">
