@@ -70,6 +70,7 @@
                             <tr>
                             <th> </th>
                                 <th>Asset Name</th>
+                                <th>Asset Name</th>
                                 <th>Model</th>
                                 <th>Make</th>
                                 <th>Manufacturer</th>
@@ -84,6 +85,7 @@
                             @foreach($vehicle->allassets as $all_asset)
                                 <tr>
                                 <td><label><input type="checkbox" id="reassignids" name="reassignval[]" value="{{$all_asset->id}}" ></label></td>
+                                    <td>{{ $all_asset->asset_type }}</td>
                                     <td>{{ $all_asset->name }}</td>
                                     <td>{{ $all_asset->model }}</td>
                                     <td>{{ $all_asset->make }}</td>
